@@ -1,5 +1,5 @@
 """
-WSGI config project.
+WSGI config for invest project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
