@@ -36,8 +36,7 @@ docker_run:
 
 DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_DEBUG=true; \
-	export INVEST_TEST=true; \
-	export INVEST_SECRET_KEY=secret
+	export INVEST_TEST=true
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \
@@ -74,7 +73,6 @@ docker_build:
 
 DEBUG_SET_ENV_VARS := \
 	export PORT=8010; \
-	export SECRET_KEY=debug; \
 	export DEBUG=true ;\
 	export SESSION_COOKIE_SECURE=false; \
 	export SECURE_HSTS_SECONDS=0 ;\
