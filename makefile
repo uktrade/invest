@@ -36,7 +36,8 @@ docker_run:
 
 DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_DEBUG=true; \
-	export INVEST_TEST=true
+	export INVEST_TEST=true; \
+	export INVEST_SECRET_KEY=secret
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \
