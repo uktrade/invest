@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(PROJECT_ROOT)
 SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'true' == os.getenv('DEBUG', '')
+DEBUG = os.getenv('DEBUG', '') == 'true'
 
 # As the app is running behind a host-based router supplied by Heroku or other
 # PaaS, we can open ALLOWED_HOSTS
@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 ]
