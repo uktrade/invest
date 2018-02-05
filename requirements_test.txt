@@ -4,14 +4,42 @@
 #
 #    pip-compile --output-file requirements_test.txt requirements_test.in
 #
-coverage==4.4.1           # via pytest-cov
-django==1.11.8
-gunicorn==19.5.0
-py==1.4.34                # via pytest
-pytest-cov==2.3.1
-pytest-django==3.0.0
-pytest-sugar==0.8.0
-pytest==3.0.2
-pytz==2017.2              # via django
+attrs==17.4.0             # via pytest
+beautifulsoup4==4.6.0     # via wagtail
+certifi==2018.1.18        # via requests
+chardet==3.0.4            # via requests
+coverage==4.4.2           # via pytest-cov
+dj-database-url==0.4.2
+django-modelcluster==4.0  # via wagtail
+django-taggit==0.22.2     # via wagtail
+django-treebeard==4.2.0   # via wagtail
+django==1.11.9
+djangorestframework==3.7.7  # via wagtail
+draftjs-exporter==2.0.0   # via wagtail
+flake8==3.5.0
+gunicorn==19.7.1
+html5lib==0.999999999     # via wagtail
+idna==2.6                 # via requests
+mccabe==0.6.1             # via flake8
+olefile==0.45.1           # via pillow
+pillow==4.3.0             # via wagtail
+pluggy==0.6.0             # via pytest
+psycopg2==2.7.3.2
+py==1.5.2                 # via pytest
+pycodestyle==2.3.1        # via flake8
+pyflakes==1.6.0           # via flake8
+pytest-cov==2.5.1
+pytest-django==3.1.2
+pytest-sugar==0.9.0
+pytest==3.3.2
+pytz==2017.3
+raven==6.5.0
+requests==2.18.4          # via wagtail
+six==1.11.0               # via html5lib, pytest
 termcolor==1.1.0          # via pytest-sugar
-whitenoise==3.1
+unidecode==0.4.21         # via wagtail
+urllib3==1.22             # via requests
+wagtail==2.0b1
+webencodings==0.5.1       # via html5lib
+whitenoise==3.3.1
+willow==1.1               # via wagtail

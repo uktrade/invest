@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 .sass-cache/
 .venv/
-enrolment/staticfiles/
+staticfiles/
 BrowserStackLocal
 node_modules/
 
@@ -102,5 +102,5 @@ node_modules/
 .env
 
 # Generated files
-ui/staticfiles
+config/staticfiles
 *.css.map
