@@ -50,7 +50,6 @@ class ReportIssueFormView(FormView):
         zenpy_client.tickets.create(ticket)
 
     def form_valid(self, form):
-        if settings.ENABLE_CAPTCHA:
-            zendesk_user = self.get_or_create_zendesk_user(form.cleaned_data)
-            self.create_zendesk_ticket(form.cleaned_data, zendesk_user)
+        zendesk_user = self.get_or_create_zendesk_user(form.cleaned_data)
+        self.create_zendesk_ticket(form.cleaned_data, zendesk_user)
         return TemplateResponse(self.request, self.success_template)
