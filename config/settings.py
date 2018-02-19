@@ -289,6 +289,7 @@ ZENDESK_TOKEN = os.environ['ZENDESK_TOKEN']
 ZENDESK_EMAIL = os.environ['ZENDESK_EMAIL']
 
 # Google Recaptcha
+ENABLE_CAPTCHA = os.getenv('ENABLE_CAPTCHA') != 'false'
 RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
 RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
 # NOCAPTCHA = True turns on version 2 of recaptcha
