@@ -22,6 +22,12 @@ class ReportIssueFormView(FormView):
     template_name = 'report_issue.html'
     form_class = forms.ReportIssueForm
 
+    def get_context_data(self, **kwargs):
+        """Use this to add extra context."""
+        context = super(ReportIssueFormView, self).get_context_data(**kwargs)
+        context['ENABLE_CAPTCHA'] = settings.ENABLE_CAPTCHA
+        return context
+
     def get_or_create_zendesk_user(self, cleaned_data):
         zendesk_user = ZendeskUser(
             name=cleaned_data['name'],
