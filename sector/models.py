@@ -10,34 +10,6 @@ from wagtailmarkdown.blocks import MarkdownBlock
 from invest.blocks import MarkdownAccordionItemBlock
 
 
-class SectorLandingPage(Page):
-    subpage_types = ['sector.sectorPage']
-
-    # page fields
-    heading = models.CharField(max_length=255)
-
-    hero_image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-
-    content_panels = Page.content_panels + [
-        FieldPanel('heading'),
-        ImageChooserPanel('hero_image'),
-    ]
-
-    def get_context(self, request):
-        context = super().get_context(request)
-        sector_cards = SectorPage.objects \
-            .live() \
-            .order_by('heading')
-        context['sector_cards'] = sector_cards
-        return context
-
-
 class SectorPage(Page):
     # Related sector are implemented as subpages
     subpage_types = ['sector.sectorPage']
@@ -85,3 +57,32 @@ class SectorPage(Page):
             .order_by('setupguidepage__heading')
         # pages will return as Page type, use .specific to get sectorPage
         return context
+
+
+class SectorLandingPage(Page):
+    subpage_types = ['sector.sectorPage']
+
+    # page fields
+    heading = models.CharField(max_length=255)
+
+    hero_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('heading'),
+        ImageChooserPanel('hero_image'),
+    ]
+
+    def get_context(self, request):
+        context = super().get_context(request)
+        sector_cards = SectorPage.objects \
+            .live() \
+            .order_by('heading')
+        context['sector_cards'] = sector_cards
+        return context
+

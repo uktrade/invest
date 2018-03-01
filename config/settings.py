@@ -13,6 +13,8 @@ import dj_database_url
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.utils.translation import gettext_lazy as _
+
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(PROJECT_ROOT)
 
@@ -52,13 +54,6 @@ ENABLE_REDIS = REDIS_URL is not None
 # Application definition
 
 INSTALLED_APPS = [
-    'invest',
-    'home',
-    'sector',
-    'setup_guide',
-    'contact',
-    'info',
-
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.contrib.settings',
@@ -71,12 +66,23 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
+    'wagtail_modeltranslation',  #wtmt
+    'wagtail_modeltranslation.makemigrations',
+
+    'invest',
+    'home',
+    'sector',
+    'setup_guide',
+    'contact',
+    'info',
+    'region',
 
     'crispy_forms',
     'modelcluster',
     'storages',
     'taggit',
     'wagtailmarkdown',
+    'wagtail_svgmap',
     'captcha',
     'clear_cache',
 
@@ -106,6 +112,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'wagtail.core.middleware.SiteMiddleware',
@@ -173,6 +180,14 @@ else:
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 LANGUAGE_CODE = 'en-gb'
+LANGUAGES = (
+    ('de', _(u'German')),
+    ('en', _(u'English')),
+    ('pt', _(u'Portugese')),
+    ('es', _(u'Spanish')),
+    ('fr', _(u'French')),
+ )
+
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
