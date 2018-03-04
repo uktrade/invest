@@ -54,6 +54,9 @@ ENABLE_REDIS = REDIS_URL is not None
 # Application definition
 
 INSTALLED_APPS = [
+    'wagtail_modeltranslation',  # wtmt
+    'wagtail_modeltranslation.makemigrations',
+
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.contrib.settings',
@@ -66,8 +69,6 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
-    'wagtail_modeltranslation',  #wtmt
-    'wagtail_modeltranslation.makemigrations',
 
     'invest',
     'home',
