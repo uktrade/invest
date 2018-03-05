@@ -13,7 +13,7 @@ class RegionPageTranslation(TranslationOptions):
 
 
 @register(RegionLandingPage)
-class RegionPageTranslation(TranslationOptions):
+class RegionLandingPageTranslation(TranslationOptions):
     fields = (
         'heading',
     )
