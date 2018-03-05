@@ -4,7 +4,7 @@ from modeltranslation.decorators import register
 
 
 @register(SetupGuidePage)
-class HomePageTranslation(TranslationOptions):
+class SetupGuidePageTranslation(TranslationOptions):
     fields = (
         'description',
         'heading',
@@ -14,7 +14,7 @@ class HomePageTranslation(TranslationOptions):
 
 
 @register(SetupGuideLandingPage)
-class HomePageTranslation(TranslationOptions):
+class SetupGuideLandingPageTranslation(TranslationOptions):
     fields = (
         'heading',
         'sub_heading',

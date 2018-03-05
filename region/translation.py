@@ -4,7 +4,7 @@ from modeltranslation.decorators import register
 
 
 @register(RegionPage)
-class HomePageTranslation(TranslationOptions):
+class RegionPageTranslation(TranslationOptions):
     fields = (
         'description',
         'heading',
@@ -13,7 +13,7 @@ class HomePageTranslation(TranslationOptions):
 
 
 @register(RegionLandingPage)
-class HomePageTranslation(TranslationOptions):
+class RegionPageTranslation(TranslationOptions):
     fields = (
         'heading',
     )
