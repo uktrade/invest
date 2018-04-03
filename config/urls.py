@@ -20,16 +20,17 @@ PREFIX_MAP = [
     # Django i18n splits Chinese into it's different
     # types, zh is directed to Simplified-Chinese
     ('int/zh/', 'zh-cn/'),
-    # International landing pages.
+    # International landing pages;
     # Never implemented on the old site, they
     # duplicated the content.
     # Here they are directed to the correct language
     # page instead.
     ('cn/', 'zh-cn/'),  # Direct China to Simplified Chinese
     ('br/', 'pt/'),
-    ('in/', 'en/'),
     ('jp/', 'ja/'),
-    ('us/', 'en/'),
+    # English language is default + not prefixed
+    ('in/', ''),
+    ('us/', ''),
     ('int/', ''),
 ]
 
