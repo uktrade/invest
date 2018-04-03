@@ -30,7 +30,7 @@ PREFIX_MAP = [
     ('in/', 'en/'),
     ('jp/', 'ja/'),
     ('us/', 'en/'),
-    ('int/', '/'),
+    ('int/', ''),
 ]
 
 
@@ -43,7 +43,7 @@ class PrefixRedirect(RedirectView):
     one URL, where the old site often had the same content
     under different prefixes.
     """
-    permanent = True
+    permanent = False
 
     PREFIX_MAP = PREFIX_MAP
 
@@ -68,14 +68,15 @@ class PrefixRedirect(RedirectView):
             return False
 
         # Only checks the directory part of the path in English -
-        # Matching the behaviour on the invest.great.gov.uk sitr
+        # Matching the behaviour on the invest.great.gov.uk site
         # where the pages were all in the same directories.
         path_components = [component for component in path.split('/') if component]
         try:
             # Check validity by attempting to fetch page
             page, args, kwargs = \
                 request.site.root_page.specific.route(request, path_components[1:])  # noqa
-            return path
+
+            return request.path
         except Http404:
             pass
 
@@ -84,7 +85,7 @@ class PrefixRedirect(RedirectView):
 
 urlpatterns = i18n_patterns(
     # redirect legacy urls
-    url(r'%s' % PrefixRedirect.as_urls(), PrefixRedirect.as_view()),
+    url(PrefixRedirect.as_urls(), PrefixRedirect.as_view()),
 
     url(r'^django-admin/', include(admin.site.urls)),
 
