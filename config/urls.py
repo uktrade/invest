@@ -71,7 +71,9 @@ class PrefixRedirect(RedirectView):
         # Only checks the directory part of the path in English -
         # Matching the behaviour on the invest.great.gov.uk site
         # where the pages were all in the same directories.
-        path_components = [component for component in path.split('/') if component]
+        path_components = [
+            component for component in path.split('/') if component
+        ]
         try:
             # Check validity by attempting to fetch page
             page, args, kwargs = \
