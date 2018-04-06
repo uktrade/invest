@@ -2,7 +2,7 @@ from django.http import Http404
 from django.views.generic import RedirectView
 
 
-class RedirectPrefix(RedirectView):
+class RedirectPrefixes(RedirectView):
     """
     Redirect urls that start with particular strings
 
@@ -10,8 +10,7 @@ class RedirectPrefix(RedirectView):
     containing the src and destination mappings.
 
     >>> class ExampleRedirector(RedirectPrefixes):
-    >>>     prefix_map = [('/planets/pluto','/dwarf-planets/pluto')]
-
+    >>>     prefix_map = [('planets/pluto','dwarf-planets/pluto')]
     """
 
     def __new__(cls, *args, **kwargs):
@@ -24,14 +23,14 @@ class RedirectPrefix(RedirectView):
         :return: new path if a known prefix or False
         """
         request = self.request
-        path = request.path
+        path = request.path.lstrip('/')
 
-        for prefix, mapping in PREFIX_MAP:
-            if path.lstrip('/').startswith(prefix):
+        for prefix, mapping in self.prefix_map:
+            if path.startswith(prefix):
                 request.__prefix_mapped__ = (prefix, mapping)
                 request.path = request.path.replace(prefix, mapping, 1)
                 return request.path
-        else:
+         else:
             return False
 
     @classmethod
@@ -42,7 +41,7 @@ class RedirectPrefix(RedirectView):
         return '|'.join([prefix for prefix, mapping in cls.prefix_map])
 
 
-class RedirectPrefixedPage(RedirectPrefix):
+class RedirectPrefixedPage(RedirectPrefixes):
     """
     Extend RedirectPrefix to redirect if a Page
     exists.
