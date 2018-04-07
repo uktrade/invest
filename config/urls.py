@@ -39,7 +39,8 @@ class RedirectLanguagePrefixes(RedirectPrefixedPage):
 
 urlpatterns = i18n_patterns(
     # redirect legacy urls
-    url(RedirectLanguagePrefixes.as_urls(), RedirectLanguagePrefixes.as_view()),
+    url(RedirectLanguagePrefixes.as_urls(),
+        RedirectLanguagePrefixes.as_view()),
 
     url(r'^django-admin/', include(admin.site.urls)),
 

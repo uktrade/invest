@@ -30,7 +30,7 @@ class RedirectPrefixes(RedirectView):
                 request.__prefix_mapped__ = (prefix, mapping)
                 request.path = request.path.replace(prefix, mapping, 1)
                 return request.path
-         else:
+        else:
             return False
 
     @classmethod
