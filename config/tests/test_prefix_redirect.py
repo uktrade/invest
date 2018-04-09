@@ -54,8 +54,6 @@ def call_get_redirect_url(redirect_view_class, path, debug=False):
     request = factory.get(path)
     request.site = Site.find_for_request(request)
     view = setup_class_based_view(redirect_view_class, request)
-    if debug:
-        import ipdb; ipdb.set_trace()
     result = view.get_redirect_url()
     return result, request
 
