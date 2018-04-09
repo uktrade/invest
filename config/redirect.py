@@ -27,7 +27,6 @@ class RedirectPrefixes(RedirectView):
 
         for prefix, mapping in self.prefix_map:
             if path.startswith(prefix):
-                request.__prefix_mapped__ = (prefix, mapping)
                 request.path = request.path.replace(prefix, mapping, 1)
                 return request.path
         else:
@@ -57,7 +56,9 @@ class RedirectPrefixedPage(RedirectPrefixes):
             # Check validity by attempting to fetch page
             request = self.request
             page, args, kwargs = \
-                request.site.root_page.specific.route(request, path_components)  # noqa
+                request.site.root_page.specific.route(
+                    request,
+                    path_components)
 
             return True
         except Http404:

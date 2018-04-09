@@ -7,8 +7,11 @@ from wagtail.core.models import Site
 from config import redirect
 from config.redirect import RedirectPrefixedPage
 
+from wagtail.core.models import Page
+from sector.models import SectorPage, SectorLandingPage
 
-def mk_page_data(name, **kwargs):
+
+def build_page_data(name, **kwargs):
     return dict(
         title_en=name,
         slug_en=name,
@@ -17,13 +20,13 @@ def mk_page_data(name, **kwargs):
     )
 
 
-def mk_sector_data(name):
-    return mk_page_data(name, description_en='test_%s description')
+def build_sector_data(name):
+    return build_page_data(name, description_en='test_%s description')
 
 
-LANDING_DATA = mk_page_data('industries')
-SECTOR_DATA_1 = mk_sector_data('aerospace')
-SECTOR_DATA_2 = mk_sector_data('creative')
+LANDING_DATA = build_page_data('industries')
+SECTOR_DATA_1 = build_sector_data('aerospace')
+SECTOR_DATA_2 = build_sector_data('creative')
 
 
 def setup_view(view, request, *args, **kwargs):
@@ -55,20 +58,16 @@ def call_get_redirect_url(redirect_view_class, path):
 
 @pytest.fixture(scope="session")
 def root_page():
-    from wagtail.core.models import Page
     return Page.objects.filter(pk=1).get()
 
 
 @pytest.fixture(scope="session")
 def home_page():
-    from wagtail.core.models import Page
     return Page.objects.get(id=3)
 
 
 @pytest.fixture(scope="session")
 def landing_page(home_page):
-    from sector.models import SectorLandingPage
-
     landing = SectorLandingPage(**LANDING_DATA)
     home_page.add_child(instance=landing)
     return landing
@@ -76,8 +75,6 @@ def landing_page(home_page):
 
 @pytest.fixture(scope="session")
 def sector_pages(landing_page):
-    from sector.models import SectorPage
-
     sector1 = SectorPage(**SECTOR_DATA_1)
     sector2 = SectorPage(**SECTOR_DATA_2)
 
