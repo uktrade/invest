@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.http import Http404
 from django.views.generic import RedirectView
 
@@ -46,24 +47,29 @@ class RedirectPrefixedPage(RedirectPrefixes):
     Extend RedirectPrefix to redirect if a Page
     exists.
     """
-    def page_exists(self, path):
+    def page_at(self, path):
+        """
+        :param path:
+        :return:  Page at path
+        """
         # Only checks the directory part of the path in English -
         # Matching the behaviour on the invest.great.gov.uk site
         # where the pages were all in the same directories.
         path_components = [
             component for component in path.split('/') if component
         ]
+
         try:
             # Check validity by attempting to fetch page
             request = self.request
             page, args, kwargs = \
                 request.site.root_page.specific.route(request, path_components)  # noqa
 
-            return True
+            return page
         except Http404:
             pass
 
-        return False
+        return None
 
     def get_redirect_url(self, *args, **kwargs):
         _path = self.request.path
@@ -75,9 +81,10 @@ class RedirectPrefixedPage(RedirectPrefixes):
         if path.startswith('//'):
             path = path[1:]
 
-        if self.page_exists(path):
-            self.request.path = path
-            return path
+        page  = self.page_at(path)
+        if page is not None:
+            self.request.path = page.url
+            return page.url
         else:
             self.request.path = _path
             raise Http404()

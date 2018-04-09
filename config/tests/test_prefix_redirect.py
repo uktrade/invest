@@ -42,7 +42,7 @@ def class_based_view_instance(view, request, *args, **kwargs):
     return view()
 
 
-def call_get_redirect_url(redirect_view_class, path):
+def call_get_redirect_url(redirect_view_class, path, debug=False):
     """
     Call get_redirect_url with a test request on CBV.
 
@@ -54,6 +54,8 @@ def call_get_redirect_url(redirect_view_class, path):
     request = factory.get(path)
     request.site = Site.find_for_request(request)
     view = setup_class_based_view(redirect_view_class, request)
+    if debug:
+        import ipdb; ipdb.set_trace()
     result = view.get_redirect_url()
     return result, request
 
@@ -142,7 +144,7 @@ def test_prefix_page_redirect(client, root_page, landing_page, sector_pages):
         prefix_map = [('en/', '/')]
 
     _, request = call_get_redirect_url(LangRedirect, '/')
-    assert(request.path == '')
+    assert(request.path == '/')
 
     _, request = call_get_redirect_url(LangRedirect, '/en/')
     assert(request.path == '/')
