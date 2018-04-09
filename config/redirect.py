@@ -1,5 +1,3 @@
-from copy import copy, deepcopy
-
 from django.http import Http404
 from django.views.generic import RedirectView
 

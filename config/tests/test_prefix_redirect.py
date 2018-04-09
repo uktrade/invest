@@ -141,10 +141,10 @@ def test_prefix_page_redirect(client, root_page, landing_page, sector_pages):
     _, request = call_get_redirect_url(LangRedirect, '/en/')
     assert(request.path == '/')
 
-    _, request = call_get_redirect_url(LangRedirect, '/en/industries/aerospace/')
+    _, request = call_get_redirect_url(
+        LangRedirect, '/en/industries/aerospace/')
     assert (request.path == '/industries/aerospace/')
 
-    _, request = call_get_redirect_url(LangRedirect, '/en/industries/non-existant/')
+    _, request = call_get_redirect_url(
+        LangRedirect, '/en/industries/non-existant/')
     assert (request.path == '/en/industries/non-existant/')
-
-
