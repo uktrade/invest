@@ -1,5 +1,7 @@
 from django.db import models
+from django.shortcuts import redirect
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 
 from wagtail.core.blocks import StructBlock, CharBlock
 from wagtail.core.fields import StreamField
@@ -11,7 +13,16 @@ from invest.blocks.location import LocationAccordionItemBlock
 from invest.blocks.markdown import MarkdownAccordionItemBlock
 
 
-class SectorLandingPage(Page):
+class SectorLandingPage(RoutablePageMixin, Page):
+
+    @route(r'^index.html$')
+    def current_events(self, request):
+        """
+        View function for the current events page
+        """
+        print('HI')
+        return redirect(self.url)
+
     subpage_types = ['sector.sectorPage']
 
     # page fields
