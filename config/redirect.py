@@ -80,4 +80,4 @@ class RedirectPrefixedPage(RedirectPrefixes):
             return path
         else:
             self.request.path = _path
-            return self.request.path
+            raise Http404()

@@ -1,4 +1,5 @@
 import pytest
+from django.http import Http404
 
 from django.test import RequestFactory
 from wagtail.core.models import Site
@@ -145,6 +146,6 @@ def test_prefix_page_redirect(client, root_page, landing_page, sector_pages):
         LangRedirect, '/en/industries/aerospace/')
     assert (request.path == '/industries/aerospace/')
 
-    _, request = call_get_redirect_url(
-        LangRedirect, '/en/industries/non-existant/')
-    assert (request.path == '/en/industries/non-existant/')
+    with pytest.raises(Http404):
+        _, request = call_get_redirect_url(
+            LangRedirect, '/en/industries/non-existant/')
