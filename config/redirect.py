@@ -16,7 +16,7 @@ class RedirectPrefixes(RedirectView):
     def __new__(cls, *args, **kwargs):
         if not hasattr(cls, 'prefix_map'):
             raise AttributeError("%s has no prefix_map attribute")
-        return cls
+        return super(RedirectPrefixes, cls).__new__(cls, *args, **kwargs)
 
     def get_redirect_url(self, *args, **kwargs):
         """
@@ -75,7 +75,7 @@ class RedirectPrefixedPage(RedirectPrefixes):
         if path.startswith('//'):
             path = path[1:]
 
-        if self.page_exists(self, path):
+        if self.page_exists(path):
             self.request.path = path
             return path
         else:

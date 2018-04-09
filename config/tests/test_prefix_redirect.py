@@ -26,7 +26,7 @@ SECTOR_DATA_1 = mk_sector_data('aerospace')
 SECTOR_DATA_2 = mk_sector_data('creative')
 
 
-def setup_view(view, request, *args, **kwargs):
+def setup_class_based_view(view, request, *args, **kwargs):
     """Mimic ``as_view()``, but returns view instance.
     Use this function to get view instances on which you can run unit tests,
     by testing specific methods."""
@@ -34,7 +34,12 @@ def setup_view(view, request, *args, **kwargs):
     view.request = request
     view.args = args
     view.kwargs = kwargs
-    return view
+    return view()
+
+
+def class_based_view_instance(view, request, *args, **kwargs):
+    view = setup_class_based_view(view, request, *args, **kwargs)
+    return view()
 
 
 def call_get_redirect_url(redirect_view_class, path):
@@ -48,8 +53,8 @@ def call_get_redirect_url(redirect_view_class, path):
     factory = RequestFactory()
     request = factory.get(path)
     request.site = Site.find_for_request(request)
-    view = setup_view(redirect_view_class, request)
-    result = view.get_redirect_url(view)
+    view = setup_class_based_view(redirect_view_class, request)
+    result = view.get_redirect_url()
     return result, request
 
 
