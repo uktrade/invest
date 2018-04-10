@@ -42,18 +42,23 @@ def class_based_view_instance(view, request, *args, **kwargs):
     return view()
 
 
-def call_get_redirect_url(redirect_view_class, path, debug=False):
-    """
-    Call get_redirect_url with a test request on CBV.
-
-    :param redirect_view_class: ClassBasedView class
-    :param path: path to call redirect
-    :return: result of get_redirect_url, request
-    """
+def request_path(path):
     factory = RequestFactory()
     request = factory.get(path)
     request.site = Site.find_for_request(request)
-    view = setup_class_based_view(redirect_view_class, request)
+    return request
+
+
+def call_get_redirect_url(klass, path, debug=False):
+    """
+    Call get_redirect_url with a test request on CBV.
+
+    :param klass: RedirectView derived class
+    :param path: path to call redirect
+    :return: result of get_redirect_url, request
+    """
+    request = request_path(path)
+    view = setup_class_based_view(klass, request)
     result = view.get_redirect_url()
     return result, request
 

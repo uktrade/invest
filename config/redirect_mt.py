@@ -4,20 +4,60 @@ Redirector that supports wagtail model translation
 Based on info from -
 https://github.com/infoportugal/wagtail-modeltranslation/issues/198#issuecomment-379772316
 """
+from django.http import Http404
 
-from .redirect import RedirectPrefixedPage
+from .redirect import page_at, RedirectPrefixes
 from modeltranslation import settings as mt_settings
 
 
-class MTRedirectPrefixedPage(RedirectPrefixedPage):
+def iter_language_prefixes(prefix_default_language=False):
+    """
+    yield: prefix, language
+    """
+    for language in mt_settings.AVAILABLE_LANGUAGES:
+        if language != mt_settings.DEFAULT_LANGUAGE or \
+                prefix_default_language:
+            yield language, language
+        else:
+            yield '', language
+
+
+def path_language_prefix(path):
+    for prefix, language in iter_language_prefixes():
+        if prefix and path.startswith('/%s/' % prefix):
+            return prefix
+    else:
+        return ''
+
+
+def path_language(path):
+    lang = path_language_prefix(path)
+    if not lang:
+        return mt_settings.DEFAULT_LANGUAGE
+
+
+def unprefix_path(path):
+    if path[-1] != '/':
+        path += '/'
+    return path.lstrip('/%s' % path_language_prefix(path))
+
+
+class MTRedirectPrefixedPage(RedirectPrefixes):
     prefix_default_language = True
 
-    def page_at(self, url):
-        for language in mt_settings.AVAILABLE_LANGUAGES:
-            if language != mt_settings.DEFAULT_LANGUAGE or \
-                    self.prefix_default_language:
-                url = url.lstrip('%s/' % language)
+    def get_redirect_url(self, *args, **kwargs):
+        original_path = self.request.path
+        path = super().get_redirect_url(self, *args, **kwargs)
+        if path is None:
+            path = original_path
 
-            page = super().page_at(self, url)
+        page = page_at(self.request, path)
+        if page:
+            return '/%s' % page.url
+        else:
+            page = page_at(self.request, unprefix_path(path))
             if page is not None:
-                return page
+                return path
+            else:
+                self.request.path = original_path
+                raise Http404()
