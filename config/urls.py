@@ -7,7 +7,6 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 
 from config.redirect_mt import MTRedirectPrefixedPage
-from .redirect import RedirectPrefixedPage
 
 PREFIX_DEFAULT_LANGUAGE = False
 

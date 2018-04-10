@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.http import Http404
 from django.views.generic import RedirectView
 
@@ -81,7 +80,7 @@ class RedirectPrefixedPage(RedirectPrefixes):
         if path.startswith('//'):
             path = path[1:]
 
-        page  = self.page_at(path)
+        page = self.page_at(path)
         if page is not None:
             self.request.path = page.url
             return page.url
