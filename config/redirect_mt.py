@@ -53,7 +53,7 @@ class MTRedirectPrefixedPage(RedirectPrefixes):
 
         page = page_at(self.request, path)
         if page:
-            return '/%s' % page.url
+            return '/%s' % page.url.rstrip('/`')
         else:
             page = page_at(self.request, unprefix_path(path))
             if page is not None:
