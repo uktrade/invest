@@ -29,7 +29,7 @@ SECTOR_DATA_1 = build_sector_data('aerospace')
 SECTOR_DATA_2 = build_sector_data('creative')
 
 
-def setup_view(view, request, *args, **kwargs):
+def setup_class_based_view(view, request, *args, **kwargs):
     """Mimic ``as_view()``, but returns view instance.
     Use this function to get view instances on which you can run unit tests,
     by testing specific methods."""
@@ -37,22 +37,32 @@ def setup_view(view, request, *args, **kwargs):
     view.request = request
     view.args = args
     view.kwargs = kwargs
-    return view
+    return view()
 
 
-def call_get_redirect_url(redirect_view_class, path):
-    """
-    Call get_redirect_url with a test request on CBV.
+def class_based_view_instance(view, request, *args, **kwargs):
+    view = setup_class_based_view(view, request, *args, **kwargs)
+    return view()
 
-    :param redirect_view_class: ClassBasedView class
-    :param path: path to call redirect
-    :return: result of get_redirect_url, request
-    """
+
+def request_path(path):
     factory = RequestFactory()
     request = factory.get(path)
     request.site = Site.find_for_request(request)
-    view = setup_view(redirect_view_class, request)
-    result = view.get_redirect_url(view)
+    return request
+
+
+def call_get_redirect_url(klass, path, debug=False):
+    """
+    Call get_redirect_url with a test request on CBV.
+
+    :param klass: RedirectView derived class
+    :param path: path to call redirect
+    :return: result of get_redirect_url, request
+    """
+    request = request_path(path)
+    view = setup_class_based_view(klass, request)
+    result = view.get_redirect_url()
     return result, request
 
 
@@ -134,7 +144,7 @@ def test_prefix_page_redirect(client, root_page, landing_page, sector_pages):
         prefix_map = [('en/', '/')]
 
     _, request = call_get_redirect_url(LangRedirect, '/')
-    assert(request.path == '')
+    assert(request.path == '/')
 
     _, request = call_get_redirect_url(LangRedirect, '/en/')
     assert(request.path == '/')
