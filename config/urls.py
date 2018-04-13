@@ -13,10 +13,6 @@ PREFIX_DEFAULT_LANGUAGE = False
 
 
 class RedirectLanguagePrefixes(MTRedirectPrefixedPage):
-    """
-    These redirects should go at the end of urls.py so they
-    don't interfer with any legitimate urls
-    """
     prefix_default_language = PREFIX_DEFAULT_LANGUAGE
     prefix_map = [
         # The original site put languages under /int but
@@ -51,6 +47,9 @@ urlpatterns = i18n_patterns(
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
 
+    url(RedirectLanguagePrefixes.as_urls(),
+        RedirectLanguagePrefixes.as_view()),
+
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in
     # the list:
@@ -59,10 +58,6 @@ urlpatterns = i18n_patterns(
     # Alternatively, if you want Wagtail pages to be served from a subpath
     # of your site, rather than the site root:
     #    url(r'^pages/', include(wagtail_urls)),
-
-    # redirect legacy urls - these should be last
-    url(RedirectLanguagePrefixes.as_urls(),
-        RedirectLanguagePrefixes.as_view()),
 
     prefix_default_language=PREFIX_DEFAULT_LANGUAGE)
 
