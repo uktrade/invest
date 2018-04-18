@@ -1,5 +1,6 @@
 {% load markdown from wagtailmarkdown %}
 {% load wagtailsettings_tags %}
+{% load i18n %}
 
 {% get_settings %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -162,6 +163,10 @@
                                                        <td>{{ value }}</td>
                                                     </tr>
                                                 {% endfor %}
+                                                    <tr>
+                                                       <td>{% trans "Submission url" %}</td>
+                                                       <td>{{ request.path }}</td>
+                                                    </tr>
                                                 </table>
                                             </div>
 
