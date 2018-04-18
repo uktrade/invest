@@ -129,15 +129,15 @@ class ContactFormView(FormView):
             data['company_website'] = ''
 
         return (
-            ('Name', data['name']),
-            ('Email', data['email']),
-            ('Job title', data['job_title']),
-            ('Phone number', data['phone_number']),
-            ('Company name', data['company_name']),
-            ('Company website', data['company_website']),
-            ('Country', data['country']),
-            ('Staff number', data['staff_number']),
-            ('Investment description', data['description'])
+            (_('Name'), data['name']),
+            (_('Email'), data['email']),
+            (_('Job title'), data['job_title']),
+            (_('Phone number'), data['phone_number']),
+            (_('Company name'), data['company_name']),
+            (_('Company website'), data['company_website']),
+            (_('Country'), data['country']),
+            (_('Staff number'), data['staff_number']),
+            (_('Investment description'), data['description'])
         )
 
     def create_description(self, raw_data):

@@ -2,7 +2,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Field, Submit, HTML
 from captcha.fields import ReCaptchaField
 from django import forms
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from directory_validators.common import not_contains_url_or_email
 from directory_validators.company import no_html
