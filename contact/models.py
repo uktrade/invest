@@ -1,7 +1,7 @@
 from gettext import gettext as _
 
 from django.db.models import CharField
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.contrib.settings.models import BaseSetting
 from wagtail.contrib.settings.registry import register_setting
 from wagtailmarkdown.fields import MarkdownField
