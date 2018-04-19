@@ -54,7 +54,7 @@ coverage.xml
 *.log
 
 # gettext compiled translation files
-*.mo
+#*.mo
 
 # Sphinx documentation
 docs/_build/
