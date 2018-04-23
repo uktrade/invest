@@ -71,7 +71,7 @@ def test_contact_form_accept_valid_data(captcha_stub):
             'phone_number': '0000000000',
             'job_title': 'President',
             'company_name': 'Acme',
-            'country': 'Duckburg',
+            'country': 'United States',
             'staff_number': forms.STAFF_CHOICES[0][0],
             'description': 'foobar',
             'recaptcha_response_field': captcha_stub

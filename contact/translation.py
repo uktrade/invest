@@ -1,4 +1,5 @@
-from .models import ContactFormPage, FeedbackFormPage, ReportIssueFormPage, ContactAgentEmail, ContactUserEmail
+from .models import ContactFormPage, FeedbackFormPage, \
+    ReportIssueFormPage, ContactAgentEmail, ContactUserEmail
 from modeltranslation.translator import TranslationOptions
 from modeltranslation.decorators import register
 

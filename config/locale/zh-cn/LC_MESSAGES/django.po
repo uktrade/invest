@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-18 16:58+0000\n"
+"POT-Creation-Date: 2018-04-23 15:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,10 +108,11 @@ msgid "Submit"
 msgstr ""
 
 #: contact/forms.py:335 contact/forms.py:382 contact/forms.py:410
+#: contact/views.py:141
 msgid "Name"
 msgstr ""
 
-#: contact/forms.py:336
+#: contact/forms.py:336 contact/views.py:143
 msgid "Job title"
 msgstr ""
 
@@ -123,7 +124,7 @@ msgstr ""
 msgid "Phone number (optional)"
 msgstr ""
 
-#: contact/forms.py:344
+#: contact/forms.py:344 contact/views.py:145
 msgid "Company name"
 msgstr ""
 
@@ -156,7 +157,7 @@ msgid ""
 "you would like from the UK government."
 msgstr ""
 
-#: contact/forms.py:383 contact/forms.py:411
+#: contact/forms.py:383 contact/forms.py:411 contact/views.py:142
 msgid "Email"
 msgstr ""
 
@@ -174,7 +175,7 @@ msgid ""
 "National Insurance or credit card numbers."
 msgstr ""
 
-#: contact/forms.py:413 contact/models.py:60
+#: contact/forms.py:413 contact/models.py:61
 msgid "Feedback"
 msgstr ""
 
@@ -182,22 +183,50 @@ msgstr ""
 msgid "Maximum 1200 characters."
 msgstr ""
 
-#: contact/models.py:49
+#: contact/models.py:50
 msgid "Contact Us"
 msgstr ""
 
-#: contact/models.py:72
+#: contact/models.py:73
 msgid "Report Issue"
 msgstr ""
 
-#: contact/views.py:48
+#: contact/templates/email/email_agent.html:167
+msgid "Submission url"
+msgstr ""
+
+#: contact/views.py:46
 msgid "Your feedback has been submitted"
 msgstr ""
 
-#: contact/views.py:84
+#: contact/views.py:82
 msgid ""
 "Your details have been submitted and will be reviewed by our team.  If we "
 "need more information from you, we'll contact you within 5 working days."
+msgstr ""
+
+#: contact/views.py:115 contact/views.py:126
+msgid "Contact form user email subject"
+msgstr ""
+
+#: contact/views.py:144
+msgid "Phone number"
+msgstr ""
+
+#: contact/views.py:146
+msgid "Company website"
+msgstr ""
+
+#: contact/views.py:147
+msgid "Country"
+msgstr ""
+
+#: contact/views.py:148
+msgid "Staff number"
+msgstr ""
+
+#: contact/views.py:149
+msgid "Investment description"
 msgstr ""
 
 #: invest/templates/404.html:10

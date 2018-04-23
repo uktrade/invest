@@ -8,17 +8,15 @@ from django.utils.translation import ugettext as _
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 
-
 from contact import forms
-
 
 ZENPY_CREDENTIALS = {
     'email': settings.ZENDESK_EMAIL,
     'token': settings.ZENDESK_TOKEN,
     'subdomain': settings.ZENDESK_SUBDOMAIN
 }
-
 zenpy_client = None
+
 
 def _get_client():
     global zenpy_client
@@ -110,16 +108,26 @@ class ContactFormView(FormView):
     form_class = forms.ContactForm
 
     def send_user_email(self, user_email, form_data):
-        html_body = render_to_string('email/email_user.html', {'form_data': form_data}, self.request)
+        html_body = render_to_string('email/email_user.html',
+                                     {'form_data': form_data},
+                                     self.request)
 
-        send_mail(_('Contact form user email subject'), '', settings.DEFAULT_FROM_EMAIL,
-                  [user_email], fail_silently=False, html_message=html_body)
+        send_mail(_('Contact form user email subject'),
+                  '',
+                  settings.DEFAULT_FROM_EMAIL,
+                  [user_email],
+                  fail_silently=False, html_message=html_body)
 
     def send_agent_email(self, form_data):
-        html_body = render_to_string('email/email_agent.html', {'form_data': form_data}, self.request)
+        html_body = render_to_string('email/email_agent.html',
+                                     {'form_data': form_data},
+                                     self.request)
 
-        send_mail(_('Contact form user email subject'), '', settings.DEFAULT_FROM_EMAIL ,
-                  [settings.IIGB_AGENT_EMAIL], fail_silently=False, html_message=html_body)
+        send_mail(_('Contact form user email subject'),
+                  '',
+                  settings.DEFAULT_FROM_EMAIL,
+                  [settings.IIGB_AGENT_EMAIL],
+                  fail_silently=False, html_message=html_body)
 
     def extract_data(self, data):
         """Return a list of field names and values"""
