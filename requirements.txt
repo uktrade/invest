@@ -26,7 +26,7 @@ django-taggit==0.22.2     # via wagtail
 django-treebeard==4.2.0   # via wagtail
 django==1.11.11
 django_recaptcha==1.2.0
-djangorestframework==3.6.4  # via wagtail
+djangorestframework==3.8.2  # via wagtail
 docutils==0.14            # via botocore
 draftjs-exporter==2.0.0   # via wagtail
 gunicorn==19.7.1
@@ -48,7 +48,7 @@ six==1.11.0               # via bleach, html5lib, python-dateutil
 unidecode==0.4.21         # via wagtail
 urllib3==1.22             # via requests
 wagtail-markdown==0.5a3
-wagtail==2.0
+wagtail==2.0.1
 webencodings==0.5.1       # via html5lib
 whitenoise==3.3.1
 willow==1.1               # via wagtail
