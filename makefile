@@ -41,6 +41,7 @@ docker_run:
 DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_DEBUG=true; \
 	export INVEST_PORT=8005; \
+	export INVEST_GUNICORN_TIMEOUT=60; \
 	export INVEST_SECRET_KEY=secret; \
 	export INVEST_SESSION_COOKIE_SECURE=false; \
 	export INVEST_SECURE_HSTS_SECONDS=0; \
@@ -90,6 +91,7 @@ docker_build:
 
 DEBUG_SET_ENV_VARS := \
 	export PORT=8010; \
+	export GUNICORN_TIMEOUT=60; \
 	export DEBUG=true ;\
 	export SECRET=secret; \
 	export SESSION_COOKIE_SECURE=false; \
