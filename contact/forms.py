@@ -165,7 +165,7 @@ COUNTRIES = (
     ("Nigeria", "Nigeria"),
     ("Niue", "Niue"),
     ("Norfolk Island", "Norfolk Island"),
-    ("Turkish Republic of Northern Cyprus", "Turkish Republic of Northern Cyprus"),  # noqa
+    ("Turkish Republic of Northern Cyprus", "Turkish Republic of Northern Cyprus"),  # noqa: E501
     ("Northern Mariana", "Northern Mariana"),
     ("Norway", "Norway"),
     ("Oman", "Oman"),

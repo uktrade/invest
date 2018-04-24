@@ -129,7 +129,8 @@ class ContactFormView(FormView):
                   [settings.IIGB_AGENT_EMAIL],
                   fail_silently=False, html_message=html_body)
 
-    def extract_data(self, data):
+    @staticmethod
+    def extract_data(data):
         """Return a list of field names and values"""
         # handle not required fields
         if 'phone_number' not in data:
