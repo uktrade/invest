@@ -1,0 +1,11 @@
+/* bug fixes */
+
+/* fix language buttons */
+.translation-field-copy-wrapper {
+    margin-top: -6px;
+}
+
+.translation-field-copy-wrapper .translation-field-copy {
+    width: auto;
+    margin-top: -6px;
+}
