@@ -9,7 +9,7 @@ from zenpy.lib.api_objects import Ticket, User
 from contact import forms
 from contact.models import ContactFormPage, FeedbackFormPage, \
     ReportIssueFormPage
-from contact.views import ContactFormView, FeedbackFormView, \
+from contact.views import FeedbackFormView, \
     ReportIssueFormView
 
 
