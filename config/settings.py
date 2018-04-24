@@ -193,6 +193,11 @@ LANGUAGES = (
     ('ja', _(u'Japanese')),
     ('zh-cn', _(u'Simplified Chinese')),
 )
+
+LOCALE_PATHS = (
+     os.path.join(os.path.dirname(__file__), "locale"),
+)
+
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
@@ -334,3 +339,11 @@ RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
 RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
 # NOCAPTCHA = True turns on version 2 of recaptcha
 NOCAPTCHA = os.getenv('NOCAPTCHA') != 'false'
+
+IIGB_AGENT_EMAIL = os.getenv('IIGB_AGENT_EMAIL')
+DEFAULT_FROM_EMAIL = os.getenv('EMAIL_FROM')
+EMAIL_HOST = os.getenv('SMTP_HOST')
+EMAIL_PORT = os.getenv('SMTP_PORT', 587)
+EMAIL_HOST_USER = os.getenv('SMTP_USERNAME')
+EMAIL_HOST_PASSWORD = os.getenv('SMTP_PASSWORD')
+EMAIL_USE_TLS = True
