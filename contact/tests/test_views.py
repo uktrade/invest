@@ -158,7 +158,10 @@ def report_issue_page():
 
 @pytest.mark.django_db
 @patch('captcha.fields.ReCaptchaField.clean')
-def test_contact_form(mock_clean_captcha, contact_request, contact_form_data, settings):
+def test_contact_form(mock_clean_captcha,
+                      contact_request,
+                      contact_form_data,
+                      settings):
 
     mail.outbox = []
 
