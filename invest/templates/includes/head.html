@@ -46,11 +46,11 @@
     {% if page.specific.hero_image != None %}
     <style>
 
-        {% image page.specific.hero_image width-3840 jpegquality-100 format-jpeg as hero_3840 %}
-        {% image page.specific.hero_image width-2560 jpegquality-100 format-jpeg as hero_2560 %}
-        {% image page.specific.hero_image width-1920 jpegquality-100 format-jpeg as hero_1920 %}
-        {% image page.specific.hero_image width-1280 jpegquality-100 format-jpeg as hero_1280 %}
-        {% image page.specific.hero_image width-960 jpegquality-100 format-jpeg as hero_960 %}
+        {% image page.specific.hero_image width-3840 format-jpeg jpegquality-100 as hero_3840 %}
+        {% image page.specific.hero_image width-2560 format-jpeg jpegquality-100 as hero_2560 %}
+        {% image page.specific.hero_image width-1920 format-jpeg jpegquality-100 as hero_1920 %}
+        {% image page.specific.hero_image width-1280 format-jpeg jpegquality-100 as hero_1280 %}
+        {% image page.specific.hero_image width-960 format-jpeg jpegquality-100 as hero_960 %}
 
           @media only screen and (min-width: 2561px) {
             #heading_hero_tall .jumbotron {
