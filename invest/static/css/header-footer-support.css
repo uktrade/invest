@@ -1,0 +1,422 @@
+/*
+ * CSS content taken from - 
+ * https://www.great.gov.uk/static/js/dit.components.languageSelector.d85ae70b6ed0.js
+ *
+ *************************************************************************************/
+
+
+.Modal-Container {
+    background-color: #fff;
+    border: #d8d8d8 solid 1px;
+    display: none;
+    height: auto;
+    left: 30px;
+    margin-top: 30px;
+    position: absolute;
+    top: 30px;
+    width: calc(100% - (60px))
+}
+
+.Modal-Container .close {
+    background-color: transparent;
+    border: none;
+    color: #006ccc;
+    cursor: pointer;
+    cursor: pointer;
+    font-size: inherit;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    text-decoration: underline;
+    top: 0;
+    z-index: 1
+}
+
+.Modal-Container .close:focus {
+    outline: #ffbf47 solid 3px
+}
+
+.Modal-Container .content {
+    margin-bottom: -10px;
+    padding: 30px;
+    position: relative;
+    z-index: 0
+}
+
+.Modal-Overlay {
+    background-color: #000;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+@media screen and (max-width: 480px) {
+    .Modal-Container {
+        left: 15px;
+        margin-top: 15px;
+        width: calc(100% - (30px))
+    }
+    .Modal-Container .close {
+        right: 0;
+        top: 0
+    }
+    .Modal-Container .content {
+        padding: 15px
+    }
+}
+
+/***********/
+
+.language-selector-control {
+    overflow: hidden
+}
+
+.language-selector-control button {
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 0 10px
+}
+
+.language-selector-control form {
+    color: #fff;
+    margin: 5px 0 0 0;
+    position: relative;
+    z-index: 0
+}
+
+.language-selector-control form.enhancedLanguageSelector button {
+    display: none
+}
+
+.language-selector-control option {
+    background-color: #999;
+    color: #000
+}
+
+.language-selector-control p,
+.language-selector-control select {
+    font-family: "Roboto", arial, helvetica, verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.47em;
+    background-color: transparent;
+    border: 1px solid #999;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    height: 27px;
+    line-height: 27px;
+    margin: 0;
+    padding: 0;
+    width: auto
+}
+
+.language-selector-control .SelectTraker-Tracker {
+    background-image: url("/static/icons/eig-world-language-icon.386eac58b044.svg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    border: none;
+    display: inline-block;
+    padding-left: 30px
+}
+
+.language-selector-control .SelectTraker-Tracker .code {
+    text-transform: uppercase
+}
+
+.language-selector-control .SelectTraker-Tracker .code:after {
+    content: " - "
+}
+
+.language-selector-control .SelectTracker-Select {
+    border: none;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-indent: -1000px;
+    top: 0
+}
+
+.language-selector-control .SelectTracker-Select:focus {
+    min-width: 150px
+}
+
+.language-selector-control .SelectTracker-Select:focus+p {
+    outline: 3px solid #ffbf47
+}
+
+.language-selector-dialog {
+    background-color: #fff;
+    color: #000;
+    padding: 30px
+}
+
+.language-selector-dialog a {
+    font-family: "Roboto", arial, helvetica, verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.47em
+}
+
+.language-selector-dialog li {
+    display: inline;
+    float: none
+}
+
+.language-selector-dialog .domestic-redirect {
+    padding-top: 15px
+}
+
+.language-selector-dialog .domestic-redirect span {
+    display: block
+}
+
+.language-selector-dialog .languages {
+    padding-bottom: 15px
+}
+
+.LanguageSelectorDialog-Modal {
+    top: 0
+}
+
+.LanguageSelectorDialog-Modal a {
+    font-size: 21px;
+    text-decoration: underline
+}
+
+.LanguageSelectorDialog-Modal li {
+    float: left;
+    margin-bottom: 30px
+}
+
+.LanguageSelectorDialog-Modal p {
+    font-family: "Roboto", arial, helvetica, verdana, sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.58em;
+    display: block;
+    margin-bottom: 30px
+}
+
+.LanguageSelectorDialog-Modal #great-languages-selector {
+    font-family: "Roboto", arial, helvetica, verdana, sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.1em;
+    margin: 0 0 1em 0;
+    font-weight: normal
+}
+
+.LanguageSelectorDialog-Modal ul {
+    display: block
+}
+
+.LanguageSelectorDialog-Modal .countries {
+    overflow: hidden
+}
+
+.LanguageSelectorDialog-Modal .countries a {
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    display: block;
+    min-height: 40px;
+    padding: 5px 0 0 50px
+}
+
+.LanguageSelectorDialog-Modal .languages {
+    overflow: hidden;
+    padding: 0
+}
+
+.LanguageSelectorDialog-Modal .domestic-redirect {
+    float: right;
+    padding-left: 30px;
+    padding-top: 71px;
+    width: 33.33333%
+}
+
+.LanguageSelectorDialog-Modal .domestic-redirect p {
+    font-size: inherit;
+    font-weight: normal
+}
+
+.LanguageSelectorDialog-Modal .domestic-redirect span {
+    font-family: "Roboto", arial, helvetica, verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.47em;
+    display: block;
+    max-width: 215px;
+    padding-top: 15px
+}
+
+#header-bar .LanguageSelectorDialog-Tracker {
+    font-family: "Roboto", arial, helvetica, verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.47em;
+    margin-left: 5px;
+    background-image: url("/static/icons/eig-world-language-icon.386eac58b044.svg");
+    background-position: 0px 2px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 25px;
+    text-decoration: none
+}
+
+#header-bar .LanguageSelectorDialog-Tracker:hover {
+    color: #fff;
+    text-decoration: underline
+}
+
+#header-bar .LanguageSelectorDialog-Tracker .label {
+    font-weight: bold;
+    text-transform: capitalize
+}
+
+#header-bar .LanguageSelectorDialog-Tracker .lang {
+    font-weight: bold;
+    text-transform: uppercase
+}
+
+#header-bar .LanguageSelectorDialog-Tracker .lang:after {
+    content: " - "
+}
+
+@media (min-width: 768px) {
+    .LanguageSelectorDialog-Modal .countries li {
+        float: left;
+        margin-left: 30px;
+        width: calc((100% - (30px * 3)) / 4)
+    }
+    .LanguageSelectorDialog-Modal .countries li:nth-child(4n+1) {
+        clear: left;
+        margin-left: 0
+    }
+    .LanguageSelectorDialog-Modal .languages ul {
+        padding: 5px
+    }
+    .LanguageSelectorDialog-Modal .languages li {
+        float: left;
+        margin-left: 30px;
+        width: calc((100% - (30px * 3)) / 4)
+    }
+    .LanguageSelectorDialog-Modal .languages li:nth-child(4n+1) {
+        clear: left;
+        margin-left: 0
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .LanguageSelectorDialog-Modal .countries li {
+        float: left;
+        margin-left: 30px;
+        width: calc((100% - (30px * 1)) / 2)
+    }
+    .LanguageSelectorDialog-Modal .countries li:nth-child(2n+1) {
+        clear: left;
+        margin-left: 0
+    }
+    .LanguageSelectorDialog-Modal .languages li {
+        float: left;
+        margin-left: 30px;
+        width: calc((100% - (30px * 2)) / 3)
+    }
+    .LanguageSelectorDialog-Modal .languages li:nth-child(3n+1) {
+        clear: left;
+        margin-left: 0
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .LanguageSelectorDialog-Modal {
+        width: 100%;
+        left: 0;
+        top: 15px
+    }
+    .LanguageSelectorDialog-Modal .close {
+        top: 30px;
+        right: 30px
+    }
+    .LanguageSelectorDialog-Modal .languages {
+        width: auto
+    }
+    .LanguageSelectorDialog-Modal .domestic-redirect {
+        float: none;
+        padding-left: 0;
+        width: auto
+    }
+    .LanguageSelectorDialog-Modal #great-languages-selector {
+        width: 80%
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .LanguageSelectorDialog-Modal {
+        padding: 15px
+    }
+    .LanguageSelectorDialog-Modal #great-languages-select {
+        font-family: "Roboto", arial, helvetica, verdana, sans-serif;
+        font-size: 19px;
+        font-weight: 400;
+        line-height: 1.58em;
+        font-weight: bold
+    }
+    .LanguageSelectorDialog-Modal a {
+        font-family: "Roboto", arial, helvetica, verdana, sans-serif;
+        font-size: 19px;
+        font-weight: 400;
+        line-height: 1.58em
+    }
+    .LanguageSelectorDialog-Modal p {
+        font-family: "Roboto", arial, helvetica, verdana, sans-serif;
+        font-size: 19px;
+        font-weight: 400;
+        line-height: 1.58em
+    }
+    .LanguageSelectorDialog-Modal .countries a {
+        background-size: 20px;
+        min-height: 20px;
+        padding: 0 0 0 30px
+    }
+    .LanguageSelectorDialog-Modal .countries li {
+        float: left;
+        margin-left: 20px;
+        width: calc((100% - (20px * 1)) / 2)
+    }
+    .LanguageSelectorDialog-Modal .countries li:nth-child(2n+1) {
+        clear: left;
+        margin-left: 0
+    }
+    .LanguageSelectorDialog-Modal .domestic-redirect {
+        padding-top: 0
+    }
+    .LanguageSelectorDialog-Modal .languages li {
+        float: left;
+        margin-left: 10px;
+        width: calc((100% - (10px * 1)) / 2)
+    }
+    .LanguageSelectorDialog-Modal .languages li:nth-child(2n+1) {
+        clear: left;
+        margin-left: 0
+    }
+    .LanguageSelectorDialog-Modal .languages p {
+        left: 0;
+        top: 10px
+    }
+    .LanguageSelectorDialog-Tracker .label,
+    .LanguageSelectorDialog-Tracker .lang::after {
+        position: absolute;
+        z-index: -1
+    }
+}

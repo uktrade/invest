@@ -641,6 +641,7 @@ a:hover {
     color: white;
     display: inline-block;
     min-height: 40px;
+    max-width: 100%;
 }
 
 #sector .card-header h3 {
@@ -653,6 +654,8 @@ a:hover {
 #sector .card-header h3 a {
     color: white;
     text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 #sector .card-img-top {

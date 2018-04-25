@@ -10,3 +10,17 @@
     </div>
 </div>
 </section>
+
+
+<section role="dialog" data-component="language-selector-dialog" data-lang="en" data-label="UK" data-name="English" class="language-selector-dialog">
+  <p id="great-languages-selector">Choose your language</p>
+  <div data-node="languages" class="languages">
+    <ul aria-labelledby="great-languages-selector" class="navigation">
+      {% get_available_languages_wmt as languages %}
+      {% for language in languages %}
+        <div class="lang col-sm-3 col-md-2 col-xl-1"><a href="{% change_lang language %}">{{ language|language_name_local|capfirst }}</a></div>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
