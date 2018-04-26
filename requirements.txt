@@ -15,6 +15,7 @@ certifi==2018.1.18        # via requests
 chardet==3.0.4            # via requests
 directory-validators==4.5.1
 dj-database-url==0.4.2
+django-bootstrap4==0.0.6
 django-clear-cache==0.3
 django-crispy-forms==1.7.1
 django-ipware==1.1.6
