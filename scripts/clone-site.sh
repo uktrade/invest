@@ -33,5 +33,5 @@ CFAPP=$1
 echo $DIR/clone-bucket.sh $1 $MEDIA_DIR
 
 $DIR/clone-bucket.sh $1 $MEDIA_DIR
-# $DIR/clone-db.sh $1 $2
+$DIR/clone-db.sh $1 $2
 
