@@ -117,7 +117,7 @@
 }
 
 .language-selector-control .SelectTraker-Tracker {
-    background-image: url("/static/icons/eig-world-language-icon.386eac58b044.svg");
+    /* background-image: url("/static/icons/eig-world-language-icon.386eac58b044.svg"); */
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 20px;
