@@ -80,6 +80,7 @@ INSTALLED_APPS = [
     'wagtail.core',
     'wagtail.contrib.frontend_cache',
 
+    'bootstrap4',
     'crispy_forms',
     'modelcluster',
     'storages',
