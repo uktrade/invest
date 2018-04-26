@@ -1,0 +1,62 @@
+/* 
+  Invest specific custom CSS to counter or add to standard Great.gov.uk header-footer.css 
+  Note: Some of this has been lifted direct from Great.gov.uk standard CSS to support
+  missing header-footer.css content. Other bits havve been created created for Invest.
+*/
+
+main { 
+  clear: both; 
+}
+
+.language-selector-dialog {
+  padding: 30px;
+}
+
+#footer li,
+#footer ul,
+#header li,
+#header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#footer {
+  border-top: #fff solid 120px;
+}
+
+#footer .link-group {
+  margin-bottom: 30px;
+}
+
+#footer .link-group:last-child {
+  padding-top: 15px;
+}
+
+#footer .link-group:last-child:before {
+  background-color: #e41f13;
+  content: '';
+  display: block;
+  height: 4px;
+  left: 0;
+  position: relative;
+  top: -20px;
+  width: 60px;
+}
+
+#footer a:active, #footer a:hover, #footer a:link, #footer a:visited { 
+  color: #d8d8d8; 
+}
+
+#header a {
+  color: #fff;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#header-bar .account-links li:nth-child(3) {
+    margin-left: 27px;
+}
+
+#header-bar .LanguageSelectorDialog-Tracker {
+  background-image: url("https://iigb-invest-staging.s3.amazonaws.com/images/globe-icon.width-40.png");
+}

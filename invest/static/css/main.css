@@ -554,7 +554,6 @@ a:hover {
 
 #how-we-help .card-block {
     min-height: 8rem;
-    min-width: 310px;
     padding: 5px 0 0;
 }
 
@@ -760,11 +759,11 @@ a:hover {
 }
 
 /** footer section */
-#footer {
+#_footer {
     border-bottom: 1px solid rgba(255, 255, 255, .5);
 }
 
-#footer .page-nav {
+#_footer .page-nav {
     margin-bottom: 0;
     margin-right: -15px;
     position: absolute;
@@ -772,7 +771,7 @@ a:hover {
     right: 0;
 }
 
-#footer .page-nav li {
+#_footer .page-nav li {
     display: inline;
     list-style-type: none;
     font-size: 1.0rem;
@@ -782,12 +781,12 @@ a:hover {
 }
 
 
-#footer .secondary-nav {
+#_footer .secondary-nav {
     margin-left: -55px;
     margin-bottom: 0;
 }
 
-#footer .secondary-nav li {
+#_footer .secondary-nav li {
     display: inline;
     list-style-type: none;
     font-size: 0.813rem;
@@ -795,28 +794,28 @@ a:hover {
     padding-left: 15px;
 }
 
-#footer .footer-branding img:first-child {
+#_footer .footer-branding img:first-child {
     padding-bottom: 30px;
     height: auto;
     display: block;
 }
 
-#footer .page-nav li~li {
+#_footer .page-nav li~li {
     border-left: 2px solid #dfd5c5;
 }
 
-#footer a:active,
-#footer a:hover,
-#footer a:link,
-#footer a:visited
+#_footer a:active,
+#_footer a:hover,
+#_footer a:link,
+#_footer a:visited
 {
     color: #dfd5c5;
 }
 
-#footer .secondary-nav a:active,
-#footer .secondary-nav a:hover,
-#footer .secondary-nav a:link,
-#footer .secondary-nav a:visited
+#_footer .secondary-nav a:active,
+#_footer .secondary-nav a:hover,
+#_footer .secondary-nav a:link,
+#_footer .secondary-nav a:visited
 {
     color: #d8d8d8;
     text-decoration: underline;
