@@ -1,6 +1,18 @@
+{% load wagtailsettings_tags %}
+{% load image from wagtailimages_tags %}
+{% load navigation_tags %}
+
+{% get_settings %}
+{% image settings.invest.Branding.logo width-176 as logo %}
+{% image settings.invest.Branding.logo width-352 as logo_2x %}
+
+{% image settings.invest.Branding.footer_logo width-148 as footer_logo %}
+{% image settings.invest.Branding.footer_logo width-296 as footer_logo_2x %}
 <footer id="footer" class="static-header-footer">
   <nav class="container">
-    <div class="link-group"><img id="footer-dit-logo" src="/assets/logos/DfIT_WHITE_AW-3662bf777e5792493edd02d8b7ca07f58478d6f64c9890b8e937804fc3493c32.png" alt="Department for International Trade" height="70px"><img id="footer-eig-logo" src="https://iigb-invest-staging.s3.amazonaws.com/images/footer-logo-fs8.width-296.png" alt="Invest in Great" height="82px">
+    <div class="link-group">
+        <img id="footer-dit-logo" src="{{ logo.url }}" width="{{ logo.width }}" height="{{ logo.height }}" srcset="{{ logo_2x.url }} 2x" alt="{{ logo.alt }}" />
+        <img id="footer-eig-logo" src="{{ footer_logo.url }}" width="{{ footer_logo.width }}" height="{{ footer_logo.height }}" srcset="{{ footer_logo_2x.url }} 2x" alt="{{ footer_logo.alt }}" />
     </div>
     <div class="link-group">
       <ul class="navigation">
