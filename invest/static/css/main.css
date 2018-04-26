@@ -96,6 +96,13 @@ nav .container {
     padding-top: 45px;
 }
 
+/* bootstrap xs size */
+@media (max-width: 576px) {
+    #language-bar .language-selector {
+        padding: 0;
+    }
+}
+
 #language-bar .language-selector .lang {
     font-size: 1.125rem;
     font-weight: bold;
@@ -109,11 +116,14 @@ nav .container {
 }
 
 .language-toggle {
+    z-index: 1;
     color: #999999;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 85px;
     font-weight: bold;
+    width: 100px;
+    text-align: right;
 }
 
 .language-icon {
@@ -134,14 +144,79 @@ nav .container {
     height: 110px;
 }
 
-.navbar-collapse {
-    position: relative;
+.navbar-menus {
     height: 110px;
 }
+
+.navbar-toggler {
+    border: 2px white solid;
+    margin-left: auto;
+    margin-top: 30px;
+    color: white;
+    background-color: #1e1348;
+    border-radius: 0;
+    height: 3rem;
+    width: 100px;
+    font-size: 1rem;
+    font-weight: bold;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.navbar-togger.collapsed {
+
+}
+
+.navbar-toggler:focus {
+    background-color: #00549f;
+    outline-color: #ffbf47;
+}
+
+.navbar-toggler-icon {
+    text-wrap: avoid;
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' width='17' height='12'%3E%3Cstyle%3E.st0%7Bfill:%23fff%7D%3C/style%3E%3Cpath class='st0' d='M0 0h17v2H0zM0 5h17v2H0zM0 10h17v2H0z'/%3E%3C/svg%3E");
+    margin-left: .5rem;
+}
+
+.navbar-collapse {
+    position: relative;
+    height: 110px !important;
+}
+
+@media only screen and (max-width: 767px) {
+     .navbar-collapse.show,
+     .navbar-collapse.collapsing {
+         background-color: #00549f;
+         width: 100%;
+         position: absolute;
+         left: 0;
+         top: 110px;
+         z-index: 2;
+         transition: none !important;
+         min-height: 525px;
+     }
+
+     .navbar-collapse.show ul.navbar-nav li,
+     .navbar-collapse.collapsing ul.navbar-nav li {
+         padding: 30px;
+         font-size: 19px;
+         border-bottom: #999999 solid 1px;
+         margin: 0;
+     }
+
+     .navbar-collapse.show ul.navbar-nav li.active,
+     .navbar-collapse.collapsing ul.navbar-nav li.active {
+         border-bottom: #999999 solid 1px;
+     }
+}
+
 .navbar-nav {
+    /*
     position: absolute;
     bottom: 0;
     right: 0;
+    */
+    margin-top: auto;
 }
 
 .navbar-nav li {
@@ -149,6 +224,7 @@ nav .container {
     padding-bottom: 18px;
     padding-left: 10px;
     padding-right: 10px;
+    white-space: nowrap;
 }
 
 .navbar-nav li.active {
