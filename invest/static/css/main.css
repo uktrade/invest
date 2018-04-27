@@ -31,7 +31,6 @@ h3 {
 }
 
 /* bs4 customisation - outer elements */
-/* TODO - make content-main for sizing */
 section > .navbar,
 section > .container {
     max-width: 1200px !important;
@@ -86,6 +85,24 @@ nav.mb-4, nav.my-4 {
 nav .container {
     background: inherit;
     padding-top: 0;
+}
+
+#skip-link {
+    padding: 15px;
+    background-color: #ffbf47;
+    color: #132965;
+    left: 0;
+    text-indent: 0;
+    top: 0;
+    z-index: 1;
+    display: block;
+    position:absolute;
+    opacity: 0;
+}
+
+#skip-link:focus {
+    opacity: 1;
+    transition: all 0.5s;
 }
 
 #language-bar {
@@ -748,7 +765,7 @@ a:hover {
 
 /** markdown pages */
 #markdown-page h1,
-#markdown-page h2,{
+#markdown-page h2 {
     font-size: 1.562rem;
 }
 
