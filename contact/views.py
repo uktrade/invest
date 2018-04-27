@@ -164,3 +164,8 @@ class ContactFormView(FormView):
         self.send_user_email(form.cleaned_data['email'], form_data)
 
         return TemplateResponse(self.request, self.success_template)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['success_message'] = _('Your feedback has been submitted')
+        return context
