@@ -13,16 +13,7 @@ from invest.blocks.location import LocationAccordionItemBlock
 from invest.blocks.markdown import MarkdownAccordionItemBlock
 
 
-class SectorLandingPage(RoutablePageMixin, Page):
-
-    @route(r'^index.html$')
-    def current_events(self, request):
-        """
-        View function for the current events page
-        """
-        print('HI')
-        return redirect(self.url)
-
+class SectorLandingPage(Page):
     subpage_types = ['sector.sectorPage']
 
     # page fields
