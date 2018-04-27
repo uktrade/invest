@@ -16,13 +16,13 @@
   <div class="container">
     <a id="skip-link" href="#content" class="verbose">Skip to main content</a>
     <a class="navbar-brand" href="/">
-      <img src="{{ logo.url }}" width="{{ logo.width }}" height="{{ logo.height }}" srcset="{{ logo_2x.url }} 2x" alt="{{ logo.alt }}" />
+      <img tabindex="-1" src="{{ logo.url }}" width="{{ logo.width }}" height="{{ logo.height }}" srcset="{{ logo_2x.url }} 2x" alt="{{ logo.alt }}" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menubutton" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       Menu&nbsp;<span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-menus">
-        <div class="mr-auto language-toggle" data-toggle="collapse" data-target="#language-bar"><img class="language-icon" src="{{ language_choice_icon.url }}" srcset="{{ language_choice_icon_2x.url }} 2x" alt="{{ language_chooser_icon.alt }}">{{ lang_code|upper }}</div>
+        <div class="mr-auto language-toggle" data-toggle="collapse" data-target="#language-bar"><span><img class="language-icon" src="{{ language_choice_icon.url }}" srcset="{{ language_choice_icon_2x.url }} 2x" alt="{{ language_chooser_icon.alt }}">{{ lang_code|upper }}</div>
         <div class="collapse navbar-collapse" id="navbar_menubutton">
           <ul class="navbar-nav mr-auto">
             {# main_menu is defined in base/templatetags/navigation_tags.py #}

@@ -238,6 +238,7 @@ nav .container {
     margin-top: auto;
 }
 
+.focusable:focus,
 a:focus:not(.unfocusable){
     outline: 3px solid #ffbf47;
 }
