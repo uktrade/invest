@@ -43,6 +43,17 @@ def unprefix_path(path):
 
 
 class MTRedirectPrefixedPage(RedirectPrefixes):
+    """
+    :attribute: raise_404 raise Http404 if no page found.
+
+    Depening on url setup user may not wish to raise 404
+    Raising a 404 will prevent other views from seeing
+    the urls.
+
+    Setting to False is useful if there are other views
+    to handle defaults.
+    """
+    raise_404 = True
     prefix_default_language = True
 
     def get_redirect_url(self, *args, **kwargs):
@@ -53,11 +64,12 @@ class MTRedirectPrefixedPage(RedirectPrefixes):
 
         page = page_at(self.request, path)
         if page:
-            return '/%s' % page.url
+            return '/%s' % page.url.rstrip('/`')
         else:
             page = page_at(self.request, unprefix_path(path))
             if page is not None:
                 return path
             else:
                 self.request.path = original_path
-                raise Http404()
+                if self.raise_404:
+                    raise Http404()
