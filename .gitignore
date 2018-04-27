@@ -53,6 +53,9 @@ coverage.xml
 # Django stuff:
 *.log
 
+# gettext compiled translation files
+#*.mo
+
 # Sphinx documentation
 docs/_build/
 
@@ -102,5 +105,6 @@ node_modules/
 .env
 
 # Generated files
-config/staticfiles
+config/staticfiles/
+config/media/
 *.css.map

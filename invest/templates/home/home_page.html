@@ -11,7 +11,10 @@
 {% block content %}
   {% include "includes/heading_hero_tall.html" %}
   {% if page.subsections %}
+    <a name="content"></a>
     {% include "includes/accordion.html" with subsections=page.subsections %}
+  {% else %}
+    <a name="content"></a>
   {% endif %}
   {% include "includes/image_cards.html" with cards=sector_cards title=page.sector_title classes="sector-cards" id="sector" %}
   {% include "includes/setup_guide_cards.html" with cards=setup_guide_cards title=page.setup_guide_title lead_in=page.setup_guide_lead_in %}

@@ -42,45 +42,42 @@
 
     {% if page.specific.hero_image != None %}
     <style>
-
-        {% image page.specific.hero_image width-3840 jpegquality-100 as hero_3840 %}
-        {% image page.specific.hero_image width-2560 jpegquality-100 as hero_2560 %}
-        {% image page.specific.hero_image width-1920 jpegquality-100 as hero_1920 %}
-        {% image page.specific.hero_image width-1280 jpegquality-100 as hero_1280 %}
-        {% image page.specific.hero_image width-960 jpegquality-100 as hero_960 %}
-
-          @media only screen and (min-width: 2561px) {
-            #heading_hero_tall .jumbotron {
+        {% image page.specific.hero_image width-3840 format-jpeg jpegquality-100 as hero_3840 %}
+        {% image page.specific.hero_image width-2560 format-jpeg jpegquality-100 as hero_2560 %}
+        {% image page.specific.hero_image width-1920 format-jpeg jpegquality-100 as hero_1920 %}
+        {% image page.specific.hero_image width-1280 format-jpeg jpegquality-100 as hero_1280 %}
+        {% image page.specific.hero_image width-960 format-jpeg jpegquality-100 as hero_960 %}
+        @media only screen and (min-width: 2561px) {
+        #heading_hero_tall .jumbotron {
               background-image: url('{{ hero_3840.url }}');
             }
-          }
-          @media only screen and (min-width: 1921px) and (max-width: 2560px) {
-            #heading_hero_tall .jumbotron {
+        }
+        @media only screen and (min-width: 1921px) and (max-width: 2560px) {
+        #heading_hero_tall .jumbotron {
               background-image: url('{{ hero_2560.url }}');
             }
-          }
-          @media only screen and (min-width: 1281px) and (max-width: 1920px) {
-            #heading_hero_tall .jumbotron {
+        }
+        @media only screen and (min-width: 1281px) and (max-width: 1920px) {
+        #heading_hero_tall .jumbotron {
               background-image: url('{{ hero_1920.url }}');
             }
-          }
-          @media only screen and (min-width: 961px) and (max-width: 1280px) {
-            #heading_hero_tall .jumbotron {
+        }
+        @media only screen and (min-width: 961px) and (max-width: 1280px) {
+        #heading_hero_tall .jumbotron {
               background-image: url('{{ hero_1280.url }}');
             }
-          }
-          @media only screen and (max-width: 960px) {
-            #heading_hero_tall .jumbotron {
+        }
+        @media only screen and (max-width: 960px) {
+        #heading_hero_tall .jumbotron {
               background-image: url('{{ hero_960.url }}');
             }
-          }
-          @media
-          (min-device-pixel-ratio: 2),
-          (min-resolution: 192dpi) {
+        }
+        @media
+        (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
             #heading_hero_tall .jumbotron {
               background-image: url('{{ hero_3840.url }}');
             }
-          }
+        }
     </style>
     {% endif %}
     {% block head-extra %}

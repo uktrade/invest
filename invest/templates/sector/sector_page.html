@@ -11,8 +11,8 @@
 {% endblock head-extra %}
 
 {% block content %}
-
   {% include "includes/heading_hero.html" %}
+  <a name="content"></a>
 
   {% for block in page.pullout %}
     {% include "includes/pullout.html" with value=block.value %}

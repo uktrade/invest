@@ -53,6 +53,7 @@ class Branding(BaseSetting):
     beta_bar_text = MarkdownField(
         default="This is a new service - your feedback will help improve it."
     )
+    skip_to_main_text = models.CharField(default="Skip to main content", max_length=40)
 
     panels = [
         ImageChooserPanel('logo'),

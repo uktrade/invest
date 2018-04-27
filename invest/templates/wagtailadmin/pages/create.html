@@ -1,0 +1,7 @@
+{% extends "wagtailadmin/pages/create.html" %}
+{% load i18n %}
+
+{% block extra_js %}
+    {{ block.super }}
+    {% include "includes/wagtailadmin_language_dropdown.html" %}
+{% endblock %}

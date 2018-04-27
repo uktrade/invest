@@ -53,6 +53,11 @@ Requires all host environment variables to be set.
 
 ## CSS development
 
+Currently the site just uses flat css, this was to enable fast development of the website.
+
+Bootstrap4 is used, for the same reason, instead of export-elements.
+
+
 ### Requirements
 [node](https://nodejs.org/en/download/)
 [SASS](http://sass-lang.com/)
@@ -67,6 +72,35 @@ Requires all host environment variables to be set.
 ### Rebuild the CSS files when the scss file changes
 
 	$ npm run sass-watch
+
+### S3 Bucket Permissions
+
+Wagtail stores images on the S3 Bucket, it needs the following permissions to be enabled
+
+	arn:aws:s3:::bucket-name-here
+	s3:ListBucket
+
+	arn:aws:s3:::bucket-name-here/*
+	s3:PutObject, s3:PutObjectAcl, s3:GetObject, s3:GetObjectAcl, s3:DeleteObject"
+
+
+## Seeding development content from prod
+
+The site is dependent on the textual content and images, so having a copy
+of the live content is helpful.
+
+### Preparation
+
+ Run everything in a fresh terminal session so that settings are not persisted
+
+ - Setup postgres on your local machine.
+ - Create an empty database invest-dev
+
+### Copy the database and content
+
+This example clones invest-staging to the database invest-dev
+
+$ ./scripts/clone-site.sh invest-staging postgres://username:password@localhost:invest-dev
 
 
 [code-climate-image]: https://codeclimate.com/github/uktrade/invest/badges/issue_count.svg
