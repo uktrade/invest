@@ -159,7 +159,7 @@ nav .container {
 
 .navbar-brand {
     padding-top: 25px;
-    height: 110px;
+    height: 104px;
 }
 
 .navbar-menus {
@@ -179,6 +179,10 @@ nav .container {
     font-weight: bold;
     white-space: nowrap;
     text-align: right;
+}
+
+.navbar-toggler:focus {
+    outline: 3px solid #ffbf47;
 }
 
 .navbar-togger.collapsed {
