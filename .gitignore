@@ -105,6 +105,6 @@ node_modules/
 .env
 
 # Generated files
-config/staticfiles
-config/media
+config/staticfiles/
+config/media/
 *.css.map
