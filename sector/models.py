@@ -1,7 +1,5 @@
 from django.db import models
-from django.shortcuts import redirect
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
-from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 
 from wagtail.core.blocks import StructBlock, CharBlock
 from wagtail.core.fields import StreamField
