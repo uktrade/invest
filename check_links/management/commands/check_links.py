@@ -58,6 +58,13 @@ class Command(BaseCommand):
                 return True
         return False
 
+    def urls_status(self, urls):
+        for url in urls:
+            path, success, result, ex = self.check_url(url)
+            success = success or self.should_ignore_path(path)
+            msg = self.url_status_msg(path, success, result, ex)
+            yield success, msg
+
     def check_urls(self, urls):
         """
         Check if urls can be resolved
@@ -71,10 +78,7 @@ class Command(BaseCommand):
         :return:  False if any urls could not be resolved
         """
         failed = []
-        for url in urls:
-            path, success, result, ex = self.check_url(url)
-            success = success or self.should_ignore_path(path)
-            msg = self.url_status_msg(path, success, result, ex)
+        for success, msg in self.urls_status(urls):
             if success:
                 self.stdout.write(msg)
             else:
