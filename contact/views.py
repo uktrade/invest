@@ -103,7 +103,7 @@ class FeedbackFormView(ZendeskView, FormView):
 
 
 class ContactFormView(FormView):
-    success_template = 'contact/contact-success.html'
+    success_url = 'contact/success/'
     template_name = 'contact/contact.html'
     form_class = forms.ContactForm
 
@@ -157,13 +157,21 @@ class ContactFormView(FormView):
         return "\n".join(data)
 
     def form_valid(self, form):
-
         form_data = self.extract_data(form.cleaned_data)
 
         self.send_agent_email(form_data)
         self.send_user_email(form.cleaned_data['email'], form_data)
 
-        return TemplateResponse(self.request, self.success_template)
+        return super().form_valid(form)
+
+    def get_success_url(self):
+
+        if self.request.LANGUAGE_CODE == "en":
+            prefix = ""
+        else:
+            prefix = "{}/".format(self.request.LANGUAGE_CODE)
+
+        return prefix + self.success_url
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
