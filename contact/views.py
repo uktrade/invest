@@ -7,6 +7,7 @@ from django.views.generic.edit import FormView
 from django.utils.translation import ugettext as _
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+from django.utils.translation import get_language
 
 from contact import forms
 
@@ -166,10 +167,12 @@ class ContactFormView(FormView):
 
     def get_success_url(self):
 
-        if self.request.LANGUAGE_CODE == "en":
+        lang = get_language()
+
+        if lang == "en" and not settings.PREFIX_DEFAULT_LANGUAGE:
             prefix = ""
         else:
-            prefix = "{}/".format(self.request.LANGUAGE_CODE)
+            prefix = "{}/".format(lang)
 
         return prefix + self.success_url
 
