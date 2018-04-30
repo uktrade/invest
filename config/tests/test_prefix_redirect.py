@@ -66,16 +66,19 @@ def call_get_redirect_url(klass, path, debug=False):
     return result, request
 
 
+@pytest.mark.django_db
 @pytest.fixture(scope="session")
 def root_page():
     return Page.objects.filter(pk=1).get()
 
 
+@pytest.mark.django_db
 @pytest.fixture(scope="session")
 def home_page():
     return Page.objects.get(id=3)
 
 
+@pytest.mark.django_db
 @pytest.fixture(scope="session")
 def landing_page(home_page):
     landing = SectorLandingPage(**LANDING_DATA)
@@ -83,6 +86,7 @@ def landing_page(home_page):
     return landing
 
 
+@pytest.mark.django_db
 @pytest.fixture(scope="session")
 def sector_pages(landing_page):
     sector1 = SectorPage(**SECTOR_DATA_1)
