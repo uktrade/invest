@@ -4,7 +4,7 @@ Redirector that supports wagtail model translation
 Based on info from -
 https://github.com/infoportugal/wagtail-modeltranslation/issues/198#issuecomment-379772316
 """
-from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect
 
 from .redirect import page_at, RedirectPrefixes
 from modeltranslation import settings as mt_settings
