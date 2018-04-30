@@ -25,6 +25,14 @@ class Branding(BaseSetting):
         related_name='+'
     )
 
+    language_choice_icon = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
     footer_logo = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -45,9 +53,11 @@ class Branding(BaseSetting):
     beta_bar_text = MarkdownField(
         default="This is a new service - your feedback will help improve it."
     )
+    skip_to_main_text = models.CharField(default="Skip to main content", max_length=40)
 
     panels = [
         ImageChooserPanel('logo'),
+        ImageChooserPanel('language_choice_icon'),
         ImageChooserPanel('footer_logo'),
         StreamFieldPanel("footer_secondary_nav"),
         FieldPanel('footer_copyright'),

@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import dj_database_url
 import os
 
+from django.utils.translation import gettext_lazy as _
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(PROJECT_ROOT)
@@ -39,7 +41,8 @@ ALLOWED_HOSTS = [
     os.getenv('ALLOWED_HOSTS', '*').split(',')
 ]
 
-RESTRICT_ADMIN = True  # block the django admin at /django-admin
+RESTRICT_ADMIN = os.getenv('RESTRICT_ADMIN') != 'false'
+
 RESTRICT_URLS = ['^admin/*']  # block the wagtail admin
 ALLOWED_ADMIN_IPS = [item.strip()
                      for item in
@@ -52,6 +55,10 @@ ENABLE_REDIS = REDIS_URL is not None
 # Application definition
 
 INSTALLED_APPS = [
+    'wagtail_modeltranslation',    # before apps that need translation
+    'wagtail_modeltranslation.makemigrations',
+    'wagtail_modeltranslation.migrate',
+
     'invest',
     'home',
     'sector',
@@ -101,17 +108,18 @@ if ENABLE_DEBUG_TOOLBAR:
     INSTALLED_APPS.append('debug_toolbar')
 
 MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',   # position - after: SessionMiddleWare, before: CommonMiddleWare  # noqa
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
+    'admin_ip_restrictor.middleware.AdminIPRestrictorMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
-    'admin_ip_restrictor.middleware.AdminIPRestrictorMiddleware',
 ]
 
 if ENABLE_DEBUG_TOOLBAR:
@@ -159,6 +167,7 @@ if ENABLE_REDIS:
         "default": {
             "BACKEND": "django_redis.cache.RedisCache",
             "LOCATION": REDIS_URL,
+            'TIMEOUT': 60,
             "OPTIONS": {
                 "CLIENT_CLASS": "django_redis.client.DefaultClient",
             }
@@ -172,8 +181,23 @@ else:
     }
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.9/topics/i18n/
-LANGUAGE_CODE = 'en-gb'
+# https://docs.djangoproject.com/en/1.11/topics/i18n/
+LANGUAGE_CODE = 'en'
+LANGUAGES = (
+    ('en', _(u'English')),
+    ('de', _(u'German')),
+    ('es', _(u'Spanish')),
+    ('fr', _(u'French')),
+    ('pt', _(u'Portugese')),
+    ('ar', _(u'Arabic')),
+    ('ja', _(u'Japanese')),
+    ('zh-cn', _(u'Simplified Chinese')),
+)
+
+LOCALE_PATHS = (
+     os.path.join(os.path.dirname(__file__), "locale"),
+)
+
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
@@ -296,7 +320,7 @@ CLOUDFRONT_DISTRIBUTION_ID = os.getenv('CLOUDFRONT_DISTRIBUTION_ID')
 if CLOUDFRONT_DISTRIBUTION_ID:
     WAGTAILFRONTENDCACHE = {
         'cloudfront': {
-            'BACKEND': 'wagtail.contrib.wagtailfrontendcache.backends.CloudfrontBackend',  # noqa
+            'BACKEND': 'wagtail.contrib.frontend_cache.backends.CloudfrontBackend',  # noqa
             'DISTRIBUTION_ID': CLOUDFRONT_DISTRIBUTION_ID,
         },
     }
@@ -311,7 +335,15 @@ ZENDESK_TOKEN = os.environ['ZENDESK_TOKEN']
 ZENDESK_EMAIL = os.environ['ZENDESK_EMAIL']
 
 # Google Recaptcha
-RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
-RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
+RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
 # NOCAPTCHA = True turns on version 2 of recaptcha
 NOCAPTCHA = os.getenv('NOCAPTCHA') != 'false'
+
+IIGB_AGENT_EMAIL = os.getenv('IIGB_AGENT_EMAIL')
+DEFAULT_FROM_EMAIL = os.getenv('EMAIL_FROM')
+EMAIL_HOST = os.getenv('SMTP_HOST')
+EMAIL_PORT = os.getenv('SMTP_PORT', 587)
+EMAIL_HOST_USER = os.getenv('SMTP_USERNAME')
+EMAIL_HOST_PASSWORD = os.getenv('SMTP_PASSWORD')
+EMAIL_USE_TLS = True

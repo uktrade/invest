@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% load static from staticfiles %}
 {% load include_block from wagtailcore_tags %}
 
@@ -12,8 +11,8 @@
 {% endblock head-extra %}
 
 {% block content %}
-
   {% include "includes/heading_hero.html" %}
+  <a name="content"></a>
 
   {% for block in page.pullout %}
     {% include "includes/pullout.html" with value=block.value %}
@@ -24,7 +23,7 @@
   {% endif %}
 
   {% if sector_cards %}
-    {% include "includes/image_cards.html" with cards=sector_cards title="Related Industries" %}
+    {% include "includes/image_cards.html" with cards=sector_cards title="Related Industries" classes="sector-cards" id="sector" %}
   {% endif %}
 
 {% endblock %}

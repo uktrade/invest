@@ -21,6 +21,8 @@ test:
 
 DJANGO_WEBSERVER := \
 	python manage.py migrate --noinput && \
+	python manage.py sync_page_translation_fields --noinput && \
+	pythoh manage.py update_translation_fields && \
 	python manage.py collectstatic --noinput && \
 	python manager.py clear_cache && \
 	python manage.py runserver 0.0.0.0:$$PORT
@@ -39,7 +41,7 @@ docker_run:
 DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_DEBUG=true; \
 	export INVEST_PORT=8005; \
-	export INVEST_REDIS_URL=redis://127.0.0.1:6379/1; \
+	export INVEST_GUNICORN_TIMEOUT=60; \
 	export INVEST_SECRET_KEY=secret; \
 	export INVEST_SESSION_COOKIE_SECURE=false; \
 	export INVEST_SECURE_HSTS_SECONDS=0; \
@@ -89,6 +91,7 @@ docker_build:
 
 DEBUG_SET_ENV_VARS := \
 	export PORT=8010; \
+	export GUNICORN_TIMEOUT=60; \
 	export DEBUG=true ;\
 	export SECRET=secret; \
 	export SESSION_COOKIE_SECURE=false; \
