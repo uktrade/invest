@@ -5,7 +5,7 @@ from django.test import RequestFactory
 from wagtail.core.models import Site
 
 from config import redirect
-from config.redirect import RedirectPrefixedPage
+from config.redirect_mt import MTRedirectPrefixedPage
 
 from wagtail.core.models import Page
 from sector.models import SectorPage, SectorLandingPage
@@ -96,7 +96,7 @@ def sector_pages(landing_page):
 
 @pytest.mark.django_db
 def test_needs_prefix_map():
-    class TestRedirect(redirect.RedirectPrefixes):
+    class TestRedirect(MTRedirectPrefixedPage):
         # no prefix_map attribute,
         pass
 
@@ -106,7 +106,7 @@ def test_needs_prefix_map():
 
 @pytest.mark.django_db
 def test_prefix_as_urls():
-    class TestRedirect(redirect.RedirectPrefixedPage):
+    class TestRedirect(MTRedirectPrefixedPage):
         prefix_map = [('int/a', 'a'), ('int', '/')]
         pass
 
@@ -140,7 +140,7 @@ def test_prefix_page_redirect(client, root_page, landing_page, sector_pages):
     route = root_page.specific.route(request, path_components)
     assert route.page == landing_page
 
-    class LangRedirect(RedirectPrefixedPage):
+    class LangRedirect(MTRedirectPrefixedPage):
         prefix_map = [('en/', '/')]
 
     _, request = call_get_redirect_url(LangRedirect, '/')
