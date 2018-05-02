@@ -1,0 +1,20 @@
+{
+  "name": "invest",
+  "version": "1.0.0",
+  "description": "[Invest](https://invest.great.gov.uk/)",
+  "main": "index.js",
+  "scripts": {
+    "sass": "gulp sass"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uktrade/invest.git"
+  },
+  "author": "DIT",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4"
+  }
+}
