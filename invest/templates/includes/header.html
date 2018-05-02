@@ -8,11 +8,12 @@
 {% block main_navigation %}
 {% get_settings %}
 {% get_current_language as lang_code %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 {% image settings.invest.Branding.logo width-176 as logo %}
 {% image settings.invest.Branding.logo width-352 as logo_2x %}
 {% image settings.invest.Branding.language_choice_icon width-20 as language_choice_icon %}
 {% image settings.invest.Branding.language_choice_icon width-40 as language_choice_icon_2x %}
-<nav class="navbar navbar-expand-md">
+<nav class="navbar navbar-expand-md{% if LANGUAGE_BIDI %} bidi{% endif %}">
   <div class="container">
     <a id="skip-link" href="#content" class="verbose">Skip to main content</a>
     <a class="navbar-brand" href="/">
