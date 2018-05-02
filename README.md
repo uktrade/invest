@@ -60,18 +60,19 @@ Bootstrap4 is used, for the same reason, instead of export-elements.
 
 ### Requirements
 [node](https://nodejs.org/en/download/)
+[gulp](https://gulpjs.com/)
 [SASS](http://sass-lang.com/)
 
 	$ npm install
-	$ npm run sass-dev
+	$ gulp sass
 
 ### Update CSS under version control
 
-	$ npm run sass-prod
+	$ gulp sass
 
 ### Rebuild the CSS files when the scss file changes
 
-	$ npm run sass-watch
+	$ gulp sass:watch
 
 ### S3 Bucket Permissions
 
@@ -94,13 +95,13 @@ of the live content is helpful.
  Run everything in a fresh terminal session so that settings are not persisted
 
  - Setup postgres on your local machine.
- - Create an empty database invest-dev
+ - Create an empty database invest
 
 ### Copy the database and content
 
-This example clones invest-staging to the database invest-dev
+This example clones invest-staging to the database invest
 
-$ ./scripts/clone-site.sh invest-staging postgres://username:password@localhost:invest-dev
+$ ./scripts/clone-site.sh invest-staging postgres://username:password@localhost:invest
 
 
 [code-climate-image]: https://codeclimate.com/github/uktrade/invest/badges/issue_count.svg
