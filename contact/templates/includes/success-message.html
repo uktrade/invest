@@ -1,8 +1,9 @@
+{% load wagtailmarkdown %}
 <section id="form">
   <div class="container content content-invest content-underlined">
     <div class="row">
       <div class="col-md-6 col-sm-12">
-        <h2>{{ success_message }}</h2>
+        <h2>{{ page.body_text |markdown }}</h2>
       </div>
     </div>
   </div>

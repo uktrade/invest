@@ -8,12 +8,11 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from config.redirect_mt import MTRedirectPrefixedPage, redirect_page_index_html
-
-PREFIX_DEFAULT_LANGUAGE = False
+from config.settings import PREFIX_DEFAULT_LANGUAGE
 
 
 class RedirectLanguagePrefixes(MTRedirectPrefixedPage):
-    prefix_default_language = PREFIX_DEFAULT_LANGUAGE
+    prefix_default_language = settings.PREFIX_DEFAULT_LANGUAGE
     prefix_map = [
         # The original site put languages under /int but
         # it's more ergonomic to put them under the root.

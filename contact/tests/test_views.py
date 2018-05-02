@@ -168,8 +168,8 @@ def test_contact_form(mock_clean_captcha,
     settings.IIGB_AGENT_EMAIL = "agent@email.com"
 
     response = ContactFormView.as_view()(contact_request)
-    assert response.status_code == http.client.OK
-    assert response.template_name == ContactFormView.success_template
+    assert response.status_code == 302
+    assert response.url == "contact/success/"
 
     assert len(mail.outbox) == 2
 

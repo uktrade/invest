@@ -92,6 +92,7 @@ INSTALLED_APPS = [
     'wagtailmarkdown',
     'captcha',
     'clear_cache',
+    'raven.contrib.django.raven_compat',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -307,7 +308,6 @@ RAVEN_CONFIG = {
     "dsn": os.getenv("SENTRY_DSN"),
     "processors": (
         'raven.processors.SanitizePasswordsProcessor',
-        'config.sentry_processors.SanitizeEmailMessagesProcessor',
     )
 }
 
@@ -316,7 +316,7 @@ SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'true') == 'true'
 
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = SESSION_COOKIE_SECURE
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "invest"
@@ -352,3 +352,5 @@ EMAIL_PORT = os.getenv('SMTP_PORT', 587)
 EMAIL_HOST_USER = os.getenv('SMTP_USERNAME')
 EMAIL_HOST_PASSWORD = os.getenv('SMTP_PASSWORD')
 EMAIL_USE_TLS = True
+
+PREFIX_DEFAULT_LANGUAGE = False
