@@ -5,13 +5,14 @@
 #    pip-compile --output-file requirements.txt requirements.in
 #
 -e git+https://github.com/stuaxo/django-admin-ip-restrictor.git@feature/block_by_url#egg=django-admin-ip-restrictor
--e git+https://github.com/infoportugal/wagtail-modeltranslation.git#egg=wagtail-modeltranslation
+-e git+https://github.com/infoportugal/wagtail-modeltranslation.git@v0.9.0#egg=wagtail_modeltranslation
+ansicolor==0.2.6
 beautifulsoup4==4.6.0     # via wagtail
-bleach==2.1.2             # via wagtail-markdown
-boto3==1.5.10
-botocore==1.8.24
+bleach==2.1.3             # via wagtail-markdown
+boto3==1.7.10
+botocore==1.10.10
 cachetools==2.0.1         # via zenpy
-certifi==2018.1.18        # via requests
+certifi==2018.4.16        # via requests
 chardet==3.0.4            # via requests
 directory-validators==4.5.1
 dj-database-url==0.4.2
@@ -23,7 +24,7 @@ django-modeltranslation==0.12.2
 django-redis==4.8.0
 django-storages==1.6.5
 django-taggit==0.22.2     # via wagtail
-django-treebeard==4.2.0   # via wagtail
+django-treebeard==4.3     # via wagtail
 django==1.11.11
 django_recaptcha==1.2.0
 djangorestframework==3.8.2  # via wagtail
@@ -38,7 +39,7 @@ olefile==0.44             # via directory-validators, pillow
 phonenumberslite==7.7.4   # via directory-validators
 pillow==4.2.1             # via directory-validators, wagtail
 psycopg2==2.7.3.2
-python-dateutil==2.6.1    # via botocore, zenpy
+python-dateutil==2.7.2    # via botocore, zenpy
 pytz==2017.2
 raven==6.5.0
 redis==2.10.6             # via django-redis
@@ -49,6 +50,7 @@ unidecode==0.4.21         # via wagtail
 urllib3==1.22             # via requests
 wagtail-markdown==0.5a3
 wagtail==2.0.1
+waitress==1.1.0
 webencodings==0.5.1       # via html5lib
 whitenoise==3.3.1
 willow==1.1               # via wagtail

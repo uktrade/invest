@@ -48,6 +48,7 @@ def page_at(request, path):
     """
     :param path:
     :return:  Page at path
+    :raises:  Http404 if the page does not exist
     """
     # Only checks the directory part of the path in English -
     # Matching the behaviour on the invest.great.gov.uk site
@@ -64,31 +65,3 @@ def page_at(request, path):
         return page
     except Http404:
         pass
-
-    return None
-
-
-class RedirectPrefixedPage(RedirectPrefixes):
-    """
-    Extend RedirectPrefix to redirect if a Page
-    exists.
-    """
-    def get_redirect_url(self, *args, **kwargs):
-        _path = self.request.path
-
-        # get_redirect_url can modify request.path
-        # so keep a copy
-        path = super().get_redirect_url(self, *args, **kwargs)
-
-        if path.startswith('//'):
-            path = path[1:]
-
-        page = page_at(self.request, path.lstrip('/'))
-        if page is not None:
-            if page.url is None:
-                return path
-            else:
-                return page.url
-        else:
-            self.request.path = _path
-            raise Http404()
