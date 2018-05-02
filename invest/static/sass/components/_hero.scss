@@ -2,16 +2,14 @@
 /** hero component */
 /* #heading_hero used on sector and invest content pages */
 #heading_hero .jumbotron {
-  background: no-repeat 100% 0;
-  background-position-x: 100%;
-  background-position-y: 0;
+  background-repeat: no-repeat;
   background-size: cover;
   padding: 0;
   height: 295px;
+  margin-bottom: 0;
 }
 
 #heading_hero .jumbotron .container {
-  background-color: inherit;
   height: inherit;
 }
 
@@ -42,21 +40,17 @@
 
 /* #heading_hero_tall used on homepage */
 #heading_hero_tall .jumbotron {
-  background: no-repeat 100% 0;
-  background-position-x: 100%;
-  background-position-y: 0;
+  background-repeat: no-repeat;
   background-size: cover;
   padding: 0;
+  margin-bottom: 0;
+  background-color: #020b16;
 }
 
 #heading_hero_tall > .jumbotron .row {
   padding-top: 0;
   position: relative;
   min-height: 495px;
-}
-
-#heading_hero_tall .jumbotron .container {
-  background-color: inherit;
 }
 
 #heading_hero_tall .heading {

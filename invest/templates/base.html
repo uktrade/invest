@@ -1,6 +1,4 @@
 {% load wagtailuserbar from wagtailuserbar %}
-{% load i18n %}
-{% get_current_language_bidi as LANGUAGE_BIDI %}
 
 {% block head %}
   {% include "includes/head.html" %}
@@ -18,7 +16,7 @@
     {% include "includes/messages.html" %}
 {% endblock messages %}
 
-<main role="main"{% if LANGUAGE_BIDI %} class="bidi"{% endif %}>
+<main role="main">
     {% include "includes/beta_bar.html" %}
     {% block content %}
     {% endblock content %}

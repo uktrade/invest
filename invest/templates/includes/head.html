@@ -7,7 +7,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %} lang="{{ LANGUAGE }}"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr' }}" lang="{{ LANGUAGE }}"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +38,7 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     {% if LANGUAGE_BIDI %}
-      <link rel="stylesheet" type="text/css" href="{% static 'css/bidi.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/rtl.css' %}">
     {% endif %}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
