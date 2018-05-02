@@ -87,6 +87,7 @@ INSTALLED_APPS = [
     'wagtailmarkdown',
     'captcha',
     'clear_cache',
+    'raven.contrib.django.raven_compat',
 
     'django.contrib.admin',
     'django.contrib.auth',
