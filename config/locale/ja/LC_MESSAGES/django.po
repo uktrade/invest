@@ -16,7 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: config/settings.py:187
 msgid "English"
@@ -88,21 +87,21 @@ msgstr ""
 
 #: contact/forms.py:306
 msgid "Contact Information"
-msgstr ""
+msgstr "ご連絡先情報"
 
 #: contact/forms.py:313
 msgid "Company information"
-msgstr ""
+msgstr "貴社について"
 
 #: contact/forms.py:320
 msgid "Your plans"
-msgstr ""
+msgstr "貴社の投資について"
 
 #: contact/forms.py:326
 msgid ""
 "By sending us your details you can confirm that the information you've "
 "shared with us is true and you accept our terms and conditions."
-msgstr ""
+msgstr "本情報をお送りいただいた時点で、送付情報が正確かつ当省の利用規約に同意したこととみなします 当省の利用規約に同意していただいたことをご確認いただくことになりますのでご了解ください。"
 
 #: contact/forms.py:331 contact/forms.py:378 contact/forms.py:406
 msgid "Submit"
@@ -111,45 +110,47 @@ msgstr ""
 #: contact/forms.py:335 contact/forms.py:382 contact/forms.py:410
 #: contact/views.py:142
 msgid "Name"
-msgstr ""
+msgstr "氏名"
 
 #: contact/forms.py:336 contact/views.py:144
 msgid "Job title"
-msgstr ""
+msgstr "役職"
 
 #: contact/forms.py:337
 msgid "Email address"
-msgstr ""
+msgstr "勤務先の電子メール"
 
 #: contact/forms.py:339
 msgid "Phone number (optional)"
-msgstr ""
+msgstr "勤務先の電話番号 (任意)"
 
 #: contact/forms.py:344 contact/views.py:146
 msgid "Company name"
-msgstr ""
+msgstr "企業名"
 
 #: contact/forms.py:346
 msgid "Website URL"
-msgstr ""
+msgstr "企業ウェブサイト"
 
 #: contact/forms.py:350
 msgid "Which country are you based in?"
-msgstr ""
+msgstr "国名"
 
 #: contact/forms.py:351
 msgid ""
 "We will use this information to put in touch with yourclosest British "
 "embassy or high commission."
 msgstr ""
+"この情報をもとに、最も近い場所にある英国大使館または高等弁務官事務所からご連絡を差し上げます。 "
+"入力を開始すると、オプションを選択できます"
 
 #: contact/forms.py:357
 msgid "Current number of staff"
-msgstr ""
+msgstr "現在の従業員数 (推定でも構いません)"
 
 #: contact/forms.py:361
 msgid "Tell us about your investment"
-msgstr ""
+msgstr "貴社の投資についてお聞かせください。"
 
 #: contact/forms.py:362
 msgid ""
@@ -157,6 +158,7 @@ msgid ""
 "investment, operational and recruitment plans. Please also tell us what help "
 "you would like from the UK government."
 msgstr ""
+"貴社の事業概要、及び対英投資の計画（規模・運営・採用）についてご説明ください。また、英国政府からどのようなサポートをご希望か、併せてお聞かせください。"
 
 #: contact/forms.py:383 contact/forms.py:411 contact/views.py:143
 msgid "Email"
