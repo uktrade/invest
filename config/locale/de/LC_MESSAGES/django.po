@@ -88,21 +88,21 @@ msgstr ""
 
 #: contact/forms.py:306
 msgid "Contact Information"
-msgstr ""
+msgstr "Kontaktangaben"
 
 #: contact/forms.py:313
 msgid "Company information"
-msgstr ""
+msgstr "Ihr Unternehmen"
 
 #: contact/forms.py:320
 msgid "Your plans"
-msgstr ""
+msgstr "Ihre Investition"
 
 #: contact/forms.py:326
 msgid ""
 "By sending us your details you can confirm that the information you've "
 "shared with us is true and you accept our terms and conditions."
-msgstr ""
+msgstr "Mit Absenden Ihrer Daten bestätigen Sie, dass die von Ihnen eingegebenen Daten korrekt sind und stimmen unseren Nutzungsbedingungen zu."
 
 #: contact/forms.py:331 contact/forms.py:378 contact/forms.py:406
 msgid "Submit"
@@ -111,56 +111,58 @@ msgstr ""
 #: contact/forms.py:335 contact/forms.py:382 contact/forms.py:410
 #: contact/views.py:142
 msgid "Name"
-msgstr ""
+msgstr "Vollständiger Name"
 
 #: contact/forms.py:336 contact/views.py:144
 msgid "Job title"
-msgstr ""
+msgstr "Position"
 
 #: contact/forms.py:337
 msgid "Email address"
-msgstr ""
+msgstr "Arbeits-E-Mail"
 
 #: contact/forms.py:339
 msgid "Phone number (optional)"
-msgstr ""
+msgstr "Arbeits-Telefon (optional)"
 
 #: contact/forms.py:344 contact/views.py:146
 msgid "Company name"
-msgstr ""
+msgstr "Eingetragener Firmenname"
 
 #: contact/forms.py:346
 msgid "Website URL"
-msgstr ""
+msgstr "Unternehmenswebseite"
 
 #: contact/forms.py:350
 msgid "Which country are you based in?"
-msgstr ""
+msgstr "Hauptsitz ihres Unternehmens"
 
 #: contact/forms.py:351
 msgid ""
 "We will use this information to put in touch with yourclosest British "
 "embassy or high commission."
 msgstr ""
+"Wir verwenden diese Angaben, um Sie mit Ihrer nächsten britischen Botschaft oder Ihrem nächsten britischen Hochkommissariat in Verbindung zu setzen. "
+"Bitte geben Sie hier Text ein damit Sie eine Auswahl machen können."
 
 #: contact/forms.py:357
 msgid "Current number of staff"
-msgstr ""
+msgstr "Geschätzte derzeitige Mitarbeiteranzahl"
 
 #: contact/forms.py:361
 msgid "Tell us about your investment"
-msgstr ""
+msgstr "Angaben zu Ihrer Investition"
 
 #: contact/forms.py:362
 msgid ""
 "Tell us about your company and your plans for the UK in terms of size of "
 "investment, operational and recruitment plans. Please also tell us what help "
 "you would like from the UK government."
-msgstr ""
+msgstr "Bitte machen Sie Angaben zu Ihrem Unternehmen und zu Ihren Plänen in Bezug auf die Höhe der Investition sowie auf operative Pläne und Pläne bezüglich der Einstellung von Mitarbeitern in Großbritannien. Bitte teilen Sie uns auch mit, welche Hilfe Sie von den britischen Behörden erhalten möchten."
 
 #: contact/forms.py:383 contact/forms.py:411 contact/views.py:143
 msgid "Email"
-msgstr ""
+msgstr "Arbeits-E-Mail"
 
 #: contact/forms.py:386
 msgid "How did you feel about the service you received today?"

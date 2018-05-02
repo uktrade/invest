@@ -87,6 +87,7 @@ INSTALLED_APPS = [
     'wagtailmarkdown',
     'captcha',
     'clear_cache',
+    'raven.contrib.django.raven_compat',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -347,3 +348,5 @@ EMAIL_PORT = os.getenv('SMTP_PORT', 587)
 EMAIL_HOST_USER = os.getenv('SMTP_USERNAME')
 EMAIL_HOST_PASSWORD = os.getenv('SMTP_PASSWORD')
 EMAIL_USE_TLS = True
+
+PREFIX_DEFAULT_LANGUAGE = False
