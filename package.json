@@ -2,7 +2,6 @@
   "name": "invest",
   "version": "1.0.0",
   "description": "[Invest](https://invest.great.gov.uk/)",
-  "main": "index.js",
   "scripts": {
     "sass": "gulp sass"
   },
