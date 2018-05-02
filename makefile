@@ -22,9 +22,9 @@ test:
 DJANGO_WEBSERVER := \
 	python manage.py migrate --noinput && \
 	python manage.py sync_page_translation_fields --noinput && \
-	pythoh manage.py update_translation_fields && \
+	python manage.py update_translation_fields && \
 	python manage.py collectstatic --noinput && \
-	python manager.py clear_cache && \
+	python manage.py clear_cache && \
 	python manage.py runserver 0.0.0.0:$$PORT
 
 django_webserver:
@@ -90,10 +90,10 @@ docker_build:
 	docker build -t ukti/invest:latest .
 
 DEBUG_SET_ENV_VARS := \
-	export PORT=8010; \
+	export PORT=8011; \
 	export GUNICORN_TIMEOUT=60; \
 	export DEBUG=true ;\
-	export SECRET=secret; \
+	export SECRET_KEY=secret; \
 	export SESSION_COOKIE_SECURE=false; \
 	export SECURE_HSTS_SECONDS=0; \
 	export SECURE_SSL_REDIRECT=false; \
@@ -102,7 +102,8 @@ DEBUG_SET_ENV_VARS := \
 	export ZENDESK_TOKEN=debug; \
 	export RECAPTCHA_PUBLIC_KEY=debug; \
 	export RECAPTCHA_PRIVATE_KEY=debug; \
-	export NOCAPTCHA=false
+	export NOCAPTCHA=false; \
+	export DATABASE_URL=postgres://postgres@localhost:5432/invest
 
 debug_webserver:
 	$(DEBUG_SET_ENV_VARS) && $(DJANGO_WEBSERVER)
