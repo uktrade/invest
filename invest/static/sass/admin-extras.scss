@@ -1,0 +1,21 @@
+/* bug fixes */
+
+/*
+   fix language buttons
+   https://github.com/infoportugal/wagtail-modeltranslation/issues/202
+*/
+.translation-field-copy-wrapper {
+    margin-top: -6px;
+}
+
+.translation-field-copy-wrapper .translation-field-copy {
+    width: auto;
+    margin-top: -6px;
+}
+
+
+/* format language dropdown */
+#language_select {
+    border: 1px gray solid;
+    border-radius: 0;
+}

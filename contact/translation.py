@@ -1,5 +1,5 @@
-from .models import ContactFormPage, FeedbackFormPage, \
-    ReportIssueFormPage, ContactAgentEmail, ContactUserEmail
+from .models import ContactFormPage, FeedbackFormPage, ReportIssueFormPage, ContactAgentEmail, ContactUserEmail, \
+    ContactFormSuccessPage
 from modeltranslation.translator import TranslationOptions
 from modeltranslation.decorators import register
 
@@ -8,6 +8,13 @@ from modeltranslation.decorators import register
 class ContactFormPageTranslation(TranslationOptions):
     fields = (
         'heading',
+    )
+
+
+@register(ContactFormSuccessPage)
+class ContactFormSuccessPageTranslation(TranslationOptions):
+    fields = (
+        'body_text',
     )
 
 

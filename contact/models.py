@@ -77,6 +77,15 @@ class ReportIssueFormPage(FormViewPage):
     ]
 
 
+class ContactFormSuccessPage(Page):
+    body_text = MarkdownField()
+
+    content_panels = [
+        FieldPanel('title'),
+        FieldPanel('body_text'),
+    ]
+
+
 @register_setting
 class ContactUserEmail(BaseSetting):
 

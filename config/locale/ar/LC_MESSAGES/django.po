@@ -89,21 +89,21 @@ msgstr ""
 
 #: contact/forms.py:306
 msgid "Contact Information"
-msgstr ""
+msgstr "معلومات جهة الاتصال"
 
 #: contact/forms.py:313
 msgid "Company information"
-msgstr ""
+msgstr "الشركة"
 
 #: contact/forms.py:320
 msgid "Your plans"
-msgstr ""
+msgstr "استثمارك"
 
 #: contact/forms.py:326
 msgid ""
 "By sending us your details you can confirm that the information you've "
 "shared with us is true and you accept our terms and conditions."
-msgstr ""
+msgstr "عن طريق إرسال تفاصيلك لنا، أنت تؤكد أن المعلومات التي شاركتها معنا صحيحة، وأنك توافق على بنودنا وشروطنا. الشروط والأحكام"
 
 #: contact/forms.py:331 contact/forms.py:378 contact/forms.py:406
 msgid "Submit"
@@ -112,45 +112,47 @@ msgstr ""
 #: contact/forms.py:335 contact/forms.py:382 contact/forms.py:410
 #: contact/views.py:142
 msgid "Name"
-msgstr ""
+msgstr "الاسم الكامل"
 
 #: contact/forms.py:336 contact/views.py:144
 msgid "Job title"
-msgstr ""
+msgstr "المسمى الوظيفي"
 
 #: contact/forms.py:337
 msgid "Email address"
-msgstr ""
+msgstr "البريد الإلكتروني للعمل"
 
 #: contact/forms.py:339
 msgid "Phone number (optional)"
-msgstr ""
+msgstr "هاتف العمل (اختياري)"
 
 #: contact/forms.py:344 contact/views.py:146
 msgid "Company name"
-msgstr ""
+msgstr "اسم الشركة"
 
 #: contact/forms.py:346
 msgid "Website URL"
-msgstr ""
+msgstr "موقع ويب الشركة"
 
 #: contact/forms.py:350
 msgid "Which country are you based in?"
-msgstr ""
+msgstr "في أي بلد أنت متواجد؟"
 
 #: contact/forms.py:351
 msgid ""
 "We will use this information to put in touch with yourclosest British "
 "embassy or high commission."
 msgstr ""
+"سنستخدم هذه المعلومات لنساعدك في التواصل مع السفارة البريطانية أو اللجنة العليا الأقرب إليك."
+"ابدأ بالكتابة لتحديد بلدك."
 
 #: contact/forms.py:357
 msgid "Current number of staff"
-msgstr ""
+msgstr "العدد الإجمالي الحالي للموظفين"
 
 #: contact/forms.py:361
 msgid "Tell us about your investment"
-msgstr ""
+msgstr "استثمارك"
 
 #: contact/forms.py:362
 msgid ""
@@ -158,6 +160,8 @@ msgid ""
 "investment, operational and recruitment plans. Please also tell us what help "
 "you would like from the UK government."
 msgstr ""
+"أخبرنا عن الاستثمار الذي تريد القيام به"
+"أخبرنا عن شركتك وخططك المتعلقة بالمملكة المتحدة من حيث حجم الاستثمار وخطط التشغيل والتوظيف. يُرجى أيضًا إخبارنا ما هي المساعدة التي تحتاج أن تقدمها لك حكومة المملكة المتحدة."
 
 #: contact/forms.py:383 contact/forms.py:411 contact/views.py:143
 msgid "Email"
