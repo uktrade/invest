@@ -7,7 +7,8 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
-from config.redirect_mt import MTRedirectPrefixedPage
+from config.redirect_mt import MTRedirectPrefixedPage, redirect_page_index_html
+from config.settings import PREFIX_DEFAULT_LANGUAGE
 
 
 class RedirectLanguagePrefixes(MTRedirectPrefixedPage):
@@ -45,19 +46,14 @@ urlpatterns = i18n_patterns(
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
 
+    url(r'', include(wagtail_urls)),
+
+    # Redirects, for compatibility with the old site - redirect
     url(RedirectLanguagePrefixes.as_urls(),
         RedirectLanguagePrefixes.as_view()),
 
-    # For anything not caught by a more specific rule above, hand over to
-    # Wagtail's page serving mechanism. This should be the last pattern in
-    # the list:
-    url(r'', include(wagtail_urls)),
-
-    # Alternatively, if you want Wagtail pages to be served from a subpath
-    # of your site, rather than the site root:
-    #    url(r'^pages/', include(wagtail_urls)),
-
-    prefix_default_language=settings.PREFIX_DEFAULT_LANGUAGE)
+    url(r'index\.html$', redirect_page_index_html),
+    prefix_default_language=PREFIX_DEFAULT_LANGUAGE)
 
 if settings.DEBUG:
     from django.conf.urls.static import static

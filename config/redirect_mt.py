@@ -4,7 +4,7 @@ Redirector that supports wagtail model translation
 Based on info from -
 https://github.com/infoportugal/wagtail-modeltranslation/issues/198#issuecomment-379772316
 """
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 
 from .redirect import page_at, RedirectPrefixes
 from modeltranslation import settings as mt_settings
@@ -64,7 +64,7 @@ class MTRedirectPrefixedPage(RedirectPrefixes):
 
         page = page_at(self.request, path)
         if page:
-            return '/%s' % page.url.rstrip('/`')
+            return '/%s' % page.url.rstrip('/')
         else:
             page = page_at(self.request, unprefix_path(path))
             if page is not None:
@@ -73,3 +73,12 @@ class MTRedirectPrefixedPage(RedirectPrefixes):
                 self.request.path = original_path
                 if self.raise_404:
                     raise Http404()
+
+
+def redirect_page_index_html(request):
+    path = request.path.rstrip('/index.html')
+    for page in (page_at(request, path), page_at(request, unprefix_path(path))):
+        if page is not None and page.url:
+            return HttpResponseRedirect(page.url)
+
+    raise Http404()

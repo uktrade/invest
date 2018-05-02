@@ -5,28 +5,7 @@ from django.test import RequestFactory
 from wagtail.core.models import Site
 
 from config import redirect
-from config.redirect import RedirectPrefixedPage
-
-from wagtail.core.models import Page
-from sector.models import SectorPage, SectorLandingPage
-
-
-def build_page_data(name, **kwargs):
-    return dict(
-        title_en=name,
-        slug_en=name,
-        heading_en="test_%s heading" % name,
-        **kwargs
-    )
-
-
-def build_sector_data(name):
-    return build_page_data(name, description_en='test_%s description')
-
-
-LANDING_DATA = build_page_data('industries')
-SECTOR_DATA_1 = build_sector_data('aerospace')
-SECTOR_DATA_2 = build_sector_data('creative')
+from config.redirect_mt import MTRedirectPrefixedPage
 
 
 def setup_class_based_view(view, request, *args, **kwargs):
@@ -66,37 +45,9 @@ def call_get_redirect_url(klass, path, debug=False):
     return result, request
 
 
-@pytest.fixture(scope="session")
-def root_page():
-    return Page.objects.filter(pk=1).get()
-
-
-@pytest.fixture(scope="session")
-def home_page():
-    return Page.objects.get(id=3)
-
-
-@pytest.fixture(scope="session")
-def landing_page(home_page):
-    landing = SectorLandingPage(**LANDING_DATA)
-    home_page.add_child(instance=landing)
-    return landing
-
-
-@pytest.fixture(scope="session")
-def sector_pages(landing_page):
-    sector1 = SectorPage(**SECTOR_DATA_1)
-    sector2 = SectorPage(**SECTOR_DATA_2)
-
-    landing_page.add_child(instance=sector1)
-    landing_page.add_child(instance=sector2)
-
-    return [sector1, sector2]
-
-
 @pytest.mark.django_db
 def test_needs_prefix_map():
-    class TestRedirect(redirect.RedirectPrefixes):
+    class TestRedirect(MTRedirectPrefixedPage):
         # no prefix_map attribute,
         pass
 
@@ -106,7 +57,7 @@ def test_needs_prefix_map():
 
 @pytest.mark.django_db
 def test_prefix_as_urls():
-    class TestRedirect(redirect.RedirectPrefixedPage):
+    class TestRedirect(MTRedirectPrefixedPage):
         prefix_map = [('int/a', 'a'), ('int', '/')]
         pass
 
@@ -140,7 +91,7 @@ def test_prefix_page_redirect(client, root_page, landing_page, sector_pages):
     route = root_page.specific.route(request, path_components)
     assert route.page == landing_page
 
-    class LangRedirect(RedirectPrefixedPage):
+    class LangRedirect(MTRedirectPrefixedPage):
         prefix_map = [('en/', '/')]
 
     _, request = call_get_redirect_url(LangRedirect, '/')
