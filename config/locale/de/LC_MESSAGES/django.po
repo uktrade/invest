@@ -106,7 +106,7 @@ msgstr "Mit Absenden Ihrer Daten bestätigen Sie, dass die von Ihnen eingegebene
 
 #: contact/forms.py:331 contact/forms.py:378 contact/forms.py:406
 msgid "Submit"
-msgstr ""
+msgstr "Kontakt"
 
 #: contact/forms.py:335 contact/forms.py:382 contact/forms.py:410
 #: contact/views.py:142

@@ -105,7 +105,7 @@ msgstr "向我们发送您的详细信息，即表明您确认您与我们分享
 
 #: contact/forms.py:331 contact/forms.py:378 contact/forms.py:406
 msgid "Submit"
-msgstr ""
+msgstr "保持联系"
 
 #: contact/forms.py:335 contact/forms.py:382 contact/forms.py:410
 #: contact/views.py:142
