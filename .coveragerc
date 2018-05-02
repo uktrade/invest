@@ -1,5 +1,5 @@
 [run]
-omit = .venv/*,config/wsgi.py,manage.py,**/tests,**/settings.py,**/conftest.py,conftest.py
+omit = .venv/*,config/wsgi.py,manage.py,**/tests/**,**/settings.py,**/conftest.py,conftest.py,**/migrations/**,**/apps.py,config/urls.py
 
 [report]
 exclude_lines =

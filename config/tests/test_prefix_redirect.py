@@ -7,27 +7,6 @@ from wagtail.core.models import Site
 from config import redirect
 from config.redirect_mt import MTRedirectPrefixedPage
 
-from wagtail.core.models import Page
-from sector.models import SectorPage, SectorLandingPage
-
-
-def build_page_data(name, **kwargs):
-    return dict(
-        title_en=name,
-        slug_en=name,
-        heading_en="test_%s heading" % name,
-        **kwargs
-    )
-
-
-def build_sector_data(name):
-    return build_page_data(name, description_en='test_%s description')
-
-
-LANDING_DATA = build_page_data('industries')
-SECTOR_DATA_1 = build_sector_data('aerospace')
-SECTOR_DATA_2 = build_sector_data('creative')
-
 
 def setup_class_based_view(view, request, *args, **kwargs):
     """Mimic ``as_view()``, but returns view instance.
@@ -64,38 +43,6 @@ def call_get_redirect_url(klass, path, debug=False):
     view = setup_class_based_view(klass, request)
     result = view.get_redirect_url()
     return result, request
-
-
-@pytest.mark.django_db
-@pytest.fixture(scope="session")
-def root_page():
-    return Page.objects.filter(pk=1).get()
-
-
-@pytest.mark.django_db
-@pytest.fixture(scope="session")
-def home_page():
-    return Page.objects.get(id=3)
-
-
-@pytest.mark.django_db
-@pytest.fixture(scope="session")
-def landing_page(home_page):
-    landing = SectorLandingPage(**LANDING_DATA)
-    home_page.add_child(instance=landing)
-    return landing
-
-
-@pytest.mark.django_db
-@pytest.fixture(scope="session")
-def sector_pages(landing_page):
-    sector1 = SectorPage(**SECTOR_DATA_1)
-    sector2 = SectorPage(**SECTOR_DATA_2)
-
-    landing_page.add_child(instance=sector1)
-    landing_page.add_child(instance=sector2)
-
-    return [sector1, sector2]
 
 
 @pytest.mark.django_db
