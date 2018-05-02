@@ -303,7 +303,6 @@ RAVEN_CONFIG = {
     "dsn": os.getenv("SENTRY_DSN"),
     "processors": (
         'raven.processors.SanitizePasswordsProcessor',
-        'config.sentry_processors.SanitizeEmailMessagesProcessor',
     )
 }
 
