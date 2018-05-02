@@ -9,7 +9,8 @@ from django.conf import settings
 from django.urls import resolve, Resolver404
 from urllib.parse import urlsplit  # Python 3
 
-IGNORE_PATHS = [re.compile(rule) for rule in getattr(settings, 'CHECK_SITEMAP_IGNORE', [])]
+IGNORE_PATHS = [re.compile(rule) for rule in
+                getattr(settings, 'CHECK_SITEMAP_IGNORE', [])]
 
 
 class Command(BaseCommand):
@@ -49,10 +50,13 @@ class Command(BaseCommand):
         except Resolver404 as ex:
             return parsed.path, False, None, ex
 
-    def url_status_msg(self, path, success, result, ex):
-        return " ".join([ansicolor.green("✓ ") if success else ansicolor.red("✕ "), path])
+    @staticmethod
+    def url_status_msg(path, success, result, ex):
+        return " ".join([ansicolor.green("✓ ") if success else
+                         ansicolor.red("✕ "), path])
 
-    def should_ignore_path(self, url):
+    @staticmethod
+    def should_ignore_path(url):
         for rule in IGNORE_PATHS:
             if re.match(rule, url):
                 return True
