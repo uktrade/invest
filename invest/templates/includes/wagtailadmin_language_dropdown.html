@@ -22,10 +22,23 @@
             $('<option />', {value: key, text: key}).appendTo(s);
         $("ul[class='tab-nav merged']").append(s);
 
+        rtlStyle = '<style id="rtl_style">.CodeMirror-sizer { text-align: right }</style>'
+
         $("#language_select").on('change', function () {
             change_language(this.value);
+            translatables.ar.forEach(text => {
+                text.attr('dir', 'rtl');
+            });
+            if (this.value == 'ar') {
+              $('body').append(rtlStyle);
+            } else {
+              if ($('#rtl_style')) {
+                $('#rtl_style').remove();
+              }
+            }
         });
 
         change_language("en");
+
     });
 </script>
