@@ -1,0 +1,68 @@
+
+/** pullout component */
+#pullout {
+  background-color: #fcfbf9;
+  padding: 0;
+}
+
+#pullout .row {
+  padding: 30px 0;
+}
+
+#pullout .row {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#pullout .container {
+  background-color: inherit;
+  padding-top: 0;
+}
+
+#pullout .text {
+  font-size: 1.5rem;
+  display: inline-block;
+  overflow-x: hidden;
+  width: 75%;
+  margin-top: 16px;
+  padding-right: 15px;
+  vertical-align: top;
+}
+
+#pullout .stat {
+  padding-left: 19px;
+  border-left: 3px #01539e solid;
+  display: inline-block;
+}
+
+#pullout .stat h1 {
+  color: #01539e;
+  font-size: 4.5rem;
+  font-weight: normal;
+}
+
+#pullout .stat p {
+  font-size: 1.187rem;
+}
+
+.dark {
+  background-color: #1d1348;
+  color: white;
+}
+
+.dark .container {
+  background-color: inherit;
+}
+
+.dark .btn-link {
+  border: 2px solid white;
+}
+
+.dark .btn-link a:active,
+.dark .btn-link a:hover,
+.dark .btn-link a:link,
+.dark .btn-link a:visited
+{
+  font-weight: bold;
+  text-decoration: none;
+}

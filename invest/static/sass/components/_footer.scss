@@ -1,0 +1,112 @@
+
+/** footer section */
+#footer {
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
+}
+
+#footer .page-nav {
+  margin-bottom: 0;
+  margin-right: -15px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#footer .page-nav li {
+  display: inline;
+  list-style-type: none;
+  font-size: 1.0rem;
+  font-weight: bold;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (max-width: 767px) {
+  #footer .page-nav {
+    height: 210px;
+    background: rgba(29,19,72,0);
+    background: -moz-linear-gradient(left, rgba(29,19,72,0) 0%, rgba(29,19,72,1) 8%, rgba(29,19,72,1) 93%, rgba(29,19,72,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(29,19,72,0)), color-stop(8%, rgba(29,19,72,1)), color-stop(93%, rgba(29,19,72,1)), color-stop(100%, rgba(29,19,72,1)));
+    background: -webkit-linear-gradient(left, rgba(29,19,72,0) 0%, rgba(29,19,72,1) 8%, rgba(29,19,72,1) 93%, rgba(29,19,72,1) 100%);
+    background: -o-linear-gradient(left, rgba(29,19,72,0) 0%, rgba(29,19,72,1) 8%, rgba(29,19,72,1) 93%, rgba(29,19,72,1) 100%);
+    background: -ms-linear-gradient(left, rgba(29,19,72,0) 0%, rgba(29,19,72,1) 8%, rgba(29,19,72,1) 93%, rgba(29,19,72,1) 100%);
+    background: linear-gradient(to right, rgba(29,19,72,0) 0%, rgba(29,19,72,1) 8%, rgba(29,19,72,1) 93%, rgba(29,19,72,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1348', endColorstr='#1d1348', GradientType=1 );
+  }
+
+  #footer .page-nav ul {
+    line-height: 2.25rem;
+  }
+
+  #footer .page-nav li {
+    display: block;
+    border-left: none !important;
+    line-height: 2.25rem;
+    font-size: 1.25rem;
+  }
+}
+
+
+#footer .secondary-nav {
+  margin-left: -55px;
+  margin-bottom: 0;
+}
+
+#footer .secondary-nav li {
+  display: inline;
+  list-style-type: none;
+  font-size: 0.813rem;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+#footer .footer-branding img:first-child {
+  padding-bottom: 30px;
+  height: auto;
+  display: block;
+}
+
+#footer .page-nav li~li {
+  border-left: 2px solid #dfd5c5;
+}
+
+#footer a:active,
+#footer a:hover,
+#footer a:link,
+#footer a:visited
+{
+  color: #dfd5c5;
+}
+
+#footer .secondary-nav a:active,
+#footer .secondary-nav a:hover,
+#footer .secondary-nav a:link,
+#footer .secondary-nav a:visited
+{
+  color: #d8d8d8;
+  text-decoration: underline;
+}
+
+
+#copyright {
+  background-color: #160d37;
+}
+
+#copyright .container {
+  background-color: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#copyright row {
+  padding-top: 0;
+}
+
+#copyright div {
+  color: #d8d8d8;
+  text-align: right;
+  font-size: .75rem;
+  line-height: 1rem;
+  height: 35px;
+  padding-top: 6px;
+}

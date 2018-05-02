@@ -1,0 +1,32 @@
+
+/* how we help cards */
+#how-we-help .card {
+  padding: 0;
+}
+
+#how-we-help .card-block {
+  min-height: 8rem;
+  min-width: 310px;
+  padding: 5px 0 0;
+}
+
+#how-we-help .card-header {
+  background-color: inherit;
+  border-bottom: none;
+}
+
+#how-we-help .card-header .underline {
+  padding-bottom: 25px;
+  border-bottom: 2px solid red;
+  display: inline-block;
+}
+
+#how-we-help .card-header a.btn:active,
+#how-we-help .card-header a.btn:link,
+#how-we-help .card-header a.btn:hover,
+#how-we-help .card-header a.btn:visited {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 35px;
+}
