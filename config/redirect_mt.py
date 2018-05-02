@@ -77,7 +77,9 @@ class MTRedirectPrefixedPage(RedirectPrefixes):
 
 def redirect_page_index_html(request):
     path = request.path.rstrip('/index.html')
-    for page in (page_at(request, path), page_at(request, unprefix_path(path))):
+    for page in (
+            page_at(request, path), page_at(request, unprefix_path(path))
+    ):
         if page is not None and page.url:
             return HttpResponseRedirect(page.url)
 

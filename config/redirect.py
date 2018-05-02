@@ -60,7 +60,7 @@ def page_at(request, path):
     try:
         # Check validity by attempting to fetch page
         page, args, kwargs = \
-            request.site.root_page.specific.route(request, path_components)  # noqa
+            request.site.root_page.specific.route(request, path_components)
 
         return page
     except Http404:
