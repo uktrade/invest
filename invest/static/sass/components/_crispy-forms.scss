@@ -1,0 +1,16 @@
+
+/** (crispy) forms customisation **/
+.controls input[type='email'],
+.controls input[type='text'],
+.controls input[type='url'],
+.controls select,
+.controls textarea {
+  width: 100%;
+  border: 1px black solid;
+  border-radius: 0px;
+  height: 3.375rem;
+}
+
+.control-group {
+  margin-bottom: 30px;
+}

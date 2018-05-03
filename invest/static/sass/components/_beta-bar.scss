@@ -1,0 +1,41 @@
+
+#beta-bar .container {
+  padding-top: 0;
+  min-height: 30px;
+}
+
+#beta-bar .container .row {
+  padding-top: 0;
+  height: auto;
+}
+
+#beta-bar .badge {
+  background: #01539d;
+  font-weight: bold;
+  font-size: .7rem;
+  padding: 4px 15px;
+  margin: 5px 0;
+}
+
+#beta-bar .text {
+  color: #999999;
+  font-size: .813rem;
+  padding: 4px 15px;
+  margin: 5px;
+}
+
+#beta-bar .text a:active,
+#beta-bar .text a:hover,
+#beta-bar .text a:link,
+#beta-bar .text a:visited {
+  text-decoration: underline;
+}
+
+#beta-bar .text > p {
+  display: inline;
+  margin: 0;
+}
+
+#beta-bar .text a {
+  color: #1b7cd1;
+}

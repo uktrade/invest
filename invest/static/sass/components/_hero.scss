@@ -1,0 +1,123 @@
+
+/** hero component */
+/* #heading_hero used on sector and invest content pages */
+#heading_hero .jumbotron {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+  height: 295px;
+  margin-bottom: 0;
+}
+
+#heading_hero .jumbotron .container {
+  height: inherit;
+}
+
+#heading_hero .jumbotron .container .row {
+  padding-top: 95px;
+  position: relative;
+  height: inherit;
+}
+
+#heading_hero .jumbotron .contanier .row .col {
+  height: 225px;
+  bottom: 0;
+  position: absolute;
+}
+
+#heading_hero .heading {
+  color: white;
+  background-color: rgba(0, 84, 159, 0.8);
+  border-bottom: 4px solid #e41f13;
+}
+
+#heading_hero .heading h1 {
+  padding: 25px 25px 0px;
+  margin-bottom: 12px;
+  line-height: 1.1em;
+  text-transform: uppercase;
+}
+
+/* #heading_hero_tall used on homepage */
+#heading_hero_tall .jumbotron {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+  margin-bottom: 0;
+  background-color: #020b16;
+}
+
+#heading_hero_tall > .jumbotron .row {
+  padding-top: 0;
+  position: relative;
+  min-height: 495px;
+}
+
+#heading_hero_tall .heading {
+  color: white;
+  bottom: 0px;
+  left: 20px;
+  max-height: 400px;
+}
+
+#heading_hero_tall .heading h1 {
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 30px;
+  line-height: 1.15em;
+  padding-top: 60px;
+}
+
+#heading_hero_tall h2 {
+  font-weight: normal;
+  line-height: 2rem;
+}
+
+/* #heading_plain used on auxilery pages */
+#heading_plain {
+  background: #00549f;
+}
+
+#heading_plain .row {
+  position: relative;
+  min-height: 295px;
+  margin-right: 50px;
+}
+
+#heading_plain .container  {
+  background: inherit;
+}
+
+#heading_plain .heading {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  border-bottom: 4px solid #e41f13;
+}
+
+#heading_plain h1 {
+  text-transform: uppercase;
+  background: white;
+  padding: 25px 25px 0;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 2.25rem;
+  height: 196px;
+}
+
+.heading h1 {
+  font-size: 2.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.heading h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.home_page .heading h1 {
+  font-family: 'Overpass', 'verdana', 'helvetica', 'arial', sans-serif;
+  font-size: 3.25rem;
+  font-weight: bold;
+}
