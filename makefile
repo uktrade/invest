@@ -103,6 +103,7 @@ DEBUG_SET_ENV_VARS := \
 	export RECAPTCHA_PUBLIC_KEY=debug; \
 	export RECAPTCHA_PRIVATE_KEY=debug; \
 	export NOCAPTCHA=false; \
+	export ENABLE_DEBUG_TOOLBAR=false; \
 	export DATABASE_URL=postgres://postgres@localhost:5432/invest
 
 debug_webserver:
