@@ -169,7 +169,7 @@ def test_contact_form(mock_clean_captcha,
 
     response = ContactFormView.as_view()(contact_request)
     assert response.status_code == 302
-    assert response.url == "contact/success/"
+    assert response.url == "success/"
 
     assert len(mail.outbox) == 2
 
