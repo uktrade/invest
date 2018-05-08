@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 13:45+0000\n"
+"POT-Creation-Date: 2018-05-08 13:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,35 +17,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config/settings.py:187
+#: config/settings.py:193
 msgid "English"
 msgstr ""
 
-#: config/settings.py:188
+#: config/settings.py:194
 msgid "German"
 msgstr ""
 
-#: config/settings.py:189
+#: config/settings.py:195
 msgid "Spanish"
 msgstr ""
 
-#: config/settings.py:190
+#: config/settings.py:196
 msgid "French"
 msgstr ""
 
-#: config/settings.py:191
+#: config/settings.py:197
 msgid "Portugese"
 msgstr ""
 
-#: config/settings.py:192
+#: config/settings.py:198
 msgid "Arabic"
 msgstr ""
 
-#: config/settings.py:193
+#: config/settings.py:199
 msgid "Japanese"
 msgstr ""
 
-#: config/settings.py:194
+#: config/settings.py:200
 msgid "Simplified Chinese"
 msgstr ""
 
@@ -108,11 +108,11 @@ msgid "Submit"
 msgstr ""
 
 #: contact/forms.py:335 contact/forms.py:382 contact/forms.py:410
-#: contact/views.py:142
+#: contact/views.py:143
 msgid "Name"
 msgstr ""
 
-#: contact/forms.py:336 contact/views.py:144
+#: contact/forms.py:336 contact/views.py:145
 msgid "Job title"
 msgstr ""
 
@@ -120,11 +120,11 @@ msgstr ""
 msgid "Email address"
 msgstr ""
 
-#: contact/forms.py:339
-msgid "Phone number (optional)"
+#: contact/forms.py:339 contact/views.py:146
+msgid "Phone number"
 msgstr ""
 
-#: contact/forms.py:344 contact/views.py:146
+#: contact/forms.py:344 contact/views.py:147
 msgid "Company name"
 msgstr ""
 
@@ -157,7 +157,7 @@ msgid ""
 "you would like from the UK government."
 msgstr ""
 
-#: contact/forms.py:383 contact/forms.py:411 contact/views.py:143
+#: contact/forms.py:383 contact/forms.py:411 contact/views.py:144
 msgid "Email"
 msgstr ""
 
@@ -175,7 +175,7 @@ msgid ""
 "National Insurance or credit card numbers."
 msgstr ""
 
-#: contact/forms.py:413 contact/models.py:61
+#: contact/forms.py:413 contact/models.py:58
 msgid "Feedback"
 msgstr ""
 
@@ -183,11 +183,11 @@ msgstr ""
 msgid "Maximum 1200 characters."
 msgstr ""
 
-#: contact/models.py:50
+#: contact/models.py:47
 msgid "Contact Us"
 msgstr ""
 
-#: contact/models.py:73
+#: contact/models.py:70
 msgid "Report Issue"
 msgstr ""
 
@@ -195,37 +195,33 @@ msgstr ""
 msgid "Submission url"
 msgstr ""
 
-#: contact/views.py:46
+#: contact/views.py:47 contact/views.py:181
 msgid "Your feedback has been submitted"
 msgstr ""
 
-#: contact/views.py:82
+#: contact/views.py:83
 msgid ""
 "Your details have been submitted and will be reviewed by our team.  If we "
 "need more information from you, we'll contact you within 5 working days."
 msgstr ""
 
-#: contact/views.py:115 contact/views.py:126
+#: contact/views.py:116 contact/views.py:127
 msgid "Contact form user email subject"
 msgstr ""
 
-#: contact/views.py:145
-msgid "Phone number"
-msgstr ""
-
-#: contact/views.py:147
+#: contact/views.py:148
 msgid "Company website"
 msgstr ""
 
-#: contact/views.py:148
+#: contact/views.py:149
 msgid "Country"
 msgstr ""
 
-#: contact/views.py:149
+#: contact/views.py:150
 msgid "Staff number"
 msgstr ""
 
-#: contact/views.py:150
+#: contact/views.py:151
 msgid "Investment description"
 msgstr ""
 
