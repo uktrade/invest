@@ -1,4 +1,3 @@
-from urllib.parse import urljoin
 from django.conf import settings
 import requests
 
@@ -6,12 +5,12 @@ import requests
 class IPStackAPIClient:
     session = requests.Session()
     api_key = settings.IPSTACK_API_KEY
-    base_url = 'http://api.ipstack.com'
+    base_url = 'http://api.ipstack.com/'
     auth = '?access_key=' + api_key
 
     @classmethod
     def get(cls, ip):
-        url = urljoin(cls.base_url, ip) + cls.auth
+        url = cls.base_url + ip + cls.auth  # urljoin doesn't work with IPV6
         response = cls.session.get(url)
         if response.ok:
             data = response.json()
