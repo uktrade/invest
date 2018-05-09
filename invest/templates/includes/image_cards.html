@@ -1,4 +1,6 @@
 {# section containing image card #}
+{% load wagtailcore_tags %}
+{% load i18n %}
 <section id="{{ id }}">
   {% if title != None %}
   <div class="container content content-invest content-underlined{% if classes %} {{ classes }}{% endif %}">
@@ -16,6 +18,15 @@
           {% endfor %}
         </div>
       </div>
+
+      {% if show_more_button != None %}
+        {% get_current_language as LANGUAGE %}
+        {% if LANGUAGE != 'en' %}
+          <a href="/{{LANGUAGE}}/industries" class="button-ghost-blue">{{ show_more_button }}</a>
+        {% else %}
+          <a href="{% slugurl 'industries' %}" class="button-ghost-blue">{{ show_more_button }}</a>
+        {% endif %}
+      {% endif %}
     </div>
   </div>
 </section>
