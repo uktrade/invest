@@ -1,51 +1,67 @@
 
 /* sector cards */
-#sector .card-block {
-  height: 210px;
-}
+#sector {
+  .container:last-child:after {
+    border-bottom: #e41f13 2px solid;
+    display: block;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
 
-#sector .container:last-child:after {
-  border-bottom: #e41f13 2px solid;
-  display: block;
-  margin-left: -15px;
-  margin-right: -15px;
-}
+  .card {
+    text-align: left;
+    margin-bottom: 30px;
 
-#sector .card {
-  text-align: left;
-  margin-bottom: 30px;
-}
+    a {
+      color: #333;
+      text-decoration: none;
+    }
 
-#sector .card-header {
-  text-align: left;
-  margin-right: auto;
-  padding: 0px !important;
-  border-bottom: none;
-  background: #006dcc;
-  color: white;
-  display: inline-block;
-  min-height: 40px;
-}
+    a:focus {
+      .card-block {
+        border-color: white;
+      }
+    }
 
-#sector .card-header h3 {
-  padding: 0.5rem;
-  font-size: 1.125rem;
-  font-weight: bold;
-  margin: 0 20px;
-}
+    a:focus:active {
+      .card-block {
+        border-color: #ffbf47;
+      }
+    }
 
-#sector .card-header h3 a {
-  color: white;
-  text-decoration: none;
-}
+    .card-block {
+      height: 210px;
+      min-height: 200px;
+      border: 1px #d8d8d8 solid;
+      border-top: 0;
+    }
 
-#sector .card-img-top {
-  max-height: 150px;
-  object-fit: cover;
-}
+    .card-header {
+      text-align: left;
+      margin-right: auto;
+      border-bottom: none;
+      background: #006dcc;
+      color: white;
+      display: inline-block;
+      min-height: 40px;
 
+      h3 {
+        padding: 0.5rem;
+        font-size: 1.125rem;
+        font-weight: bold;
+        margin: 0 20px;
+      }
 
-#sector .card-block {
-  border: 1px #d8d8d8 solid;
-  min-height: 200px;
+      a {
+        display: block;
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    .card-img-top {
+      max-height: 150px;
+      object-fit: cover;
+    }
+  }
 }

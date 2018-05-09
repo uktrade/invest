@@ -2,9 +2,11 @@
 {% load pageurl from wagtailcore_tags %}
 <div class="col-lg-4 col-md-6 col-sm-12">
   <div class="card">
-    <div class="card-block">
-      <h3><a href="{% pageurl card %}">{{ card.title }}</a></h3>
-      <p>{{ card.specific.description }}</p>
-    </div>
+    <a href="{% pageurl card %}">
+      <div class="card-block">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.specific.description }}</p>
+      </div>
+    </a>
   </div>
 </div>

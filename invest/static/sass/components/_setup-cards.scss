@@ -12,6 +12,11 @@
   border: 1px solid #ddd;
   background-color: white;
   margin-bottom: 30px;
+
+  a {
+    color: #333;
+    text-decoration: none;
+  }
 }
 
 #guides .card-block {
@@ -23,11 +28,12 @@
   min-height: 2.9em;
 }
 
-#guides h3 a:active,
-#guides h3 a:hover,
-#guides h3 a:link,
-#guides h3 a:visited
+#guides a:active h3,
+#guides a:hover h3,
+#guides a:link h3,
+#guides a:visited h3
 {
+  color: #006ccc;
   text-decoration: underline;
   font-size: 1.5rem;
   font-weight: bold;
