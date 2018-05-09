@@ -167,6 +167,16 @@
                                                        <td>{% trans "Submission url" %}</td>
                                                        <td>{{ request.path }}</td>
                                                     </tr>
+                                                    <tr>
+                                                        <td>Google campaign:</td>
+                                                        <td>
+                                                            {% for utm_code, utm_value in request.utm.items %}
+                                                                {{ utm_code }}: {{ utm_value }}<br>
+                                                            {% empty %}
+                                                                None.
+                                                            {% endfor %}
+                                                        </td>
+                                                    </tr>
                                                 </table>
                                             </div>
 

@@ -31,11 +31,14 @@ class FormViewPage(Page):
         view = self.view.as_view()
         response = view(request)
 
-        if not hasattr(response, 'context_data'):
-            response.context_data = {}
+        try:
+            # HttpResponseRedirect does not have context_data
 
-        response.context_data['page'] = self
-        response.context_data['self'] = self
+            response.context_data['page'] = self
+            response.context_data['self'] = self
+
+        except AttributeError:
+            pass
 
         return response
 
