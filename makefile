@@ -8,7 +8,7 @@ clean:
 test_requirements:
 	pip install -r requirements_test.txt
 
-FLAKE8 := flake8 . --exclude=migrations,.venv
+FLAKE8 := flake8 . --exclude=migrations,.venv,staticfiles
 PYTEST := pytest . --cov=. --cov-config=.coveragerc --capture=no $(pytest_args)
 COLLECT_STATIC := python manage.py collectstatic --noinput
 CODECOV := \
@@ -54,7 +54,8 @@ DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_ZENDESK_TOKEN=debug; \
 	export INVEST_RECAPTCHA_PUBLIC_KEY=debug; \
 	export INVEST_RECAPTCHA_PRIVATE_KEY=debug; \
-	export INVEST_NOCAPTCHA=false
+	export INVEST_NOCAPTCHA=false; \
+	export INVEST_IPSTACK_API_KEY=debug
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \

@@ -104,7 +104,7 @@ class FeedbackFormView(ZendeskView, FormView):
 
 
 class ContactFormView(FormView):
-    success_url = 'contact/success/'
+    success_url = 'success/'
     template_name = 'contact/contact.html'
     form_class = forms.ContactForm
 

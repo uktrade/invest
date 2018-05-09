@@ -117,6 +117,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',   # position - after: SessionMiddleWare, before: CommonMiddleWare  # noqa
+    'invest.middleware.GeoIPLanguageMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -354,3 +355,4 @@ EMAIL_HOST_PASSWORD = os.getenv('SMTP_PASSWORD')
 EMAIL_USE_TLS = True
 
 PREFIX_DEFAULT_LANGUAGE = False
+IPSTACK_API_KEY = os.getenv('IPSTACK_API_KEY', '')
