@@ -136,6 +136,7 @@ def contact_form_data():
 @pytest.fixture
 def contact_request(rf, client, contact_form_data):
     request = rf.post('/', contact_form_data)
+
     request.session = client.session
     request.site = Site.find_for_request(request)
     return request
@@ -217,3 +218,37 @@ def test_report_issue_page_serve(report_issue_page, contact_request):
 
     assert context["page"] == report_issue_page
     assert context["self"] == report_issue_page
+
+
+@pytest.mark.django_db
+@patch('captcha.fields.ReCaptchaField.clean')
+def test_contact_page_agent_email_utm_codes(mock_clean_captcha,
+                                            contact_request,
+                                            contact_form_data,
+                                            settings):
+    mail.outbox = []
+
+    settings.IIGB_AGENT_EMAIL = "agent@email.com"
+
+    utm_codes = {
+        'utm_source': 'test_source',
+        'utm_medium': 'test_medium',
+        'utm_campaign': 'test_campaign',
+        'utm_term': 'test_term',
+        'utm_content': 'test_content'
+    }
+
+    contact_request.utm = utm_codes
+
+    ContactFormView.as_view()(contact_request)
+
+    assert len(mail.outbox) == 2
+
+    if mail.outbox[0].to == [settings.IIGB_AGENT_EMAIL]:
+        agent_email = mail.outbox[0]
+    else:
+        agent_email = mail.outbox[1]
+
+    body = agent_email.alternatives[0][0]
+    for code, value in utm_codes.items():
+        assert f"{code}: {value}" in body, code
