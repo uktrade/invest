@@ -14,13 +14,13 @@
 {% image settings.invest.Branding.language_choice_icon width-40 as language_choice_icon_2x %}
 <nav class="navbar navbar-expand-md">
   <div class="container">
-    <a id="skip-link" href="#content" class="verbose">Skip to main content</a>
+    <a id="skip-link" href="#content" class="visually-hidden">Skip to main content</a>
     <a class="navbar-brand" href="/">
       <img tabindex="-1" src="{{ logo.url }}" width="{{ logo.width }}" height="{{ logo.height }}" srcset="{{ logo_2x.url }} 2x" alt="{{ logo.alt }}" />
     </a>
     <div class="navbar-menus">
-        <div class="mr-auto language-toggle" data-toggle="collapse" data-target="#language-bar">
-          <img class="language-icon" src="{{ language_choice_icon.url }}" srcset="{{ language_choice_icon_2x.url }} 2x" alt="{{ language_chooser_icon.alt }}"><span>{{ lang_code|upper }}</span></div>
+        <a href="#" class="mr-auto language-toggle" data-toggle="collapse" data-target="#language-bar">
+          <img class="language-icon" src="{{ language_choice_icon.url }}" srcset="{{ language_choice_icon_2x.url }} 2x" alt="{{ language_chooser_icon.alt }}"><span>{{ lang_code|upper }}</span></a>
         <div class="collapse navbar-collapse" id="navbar_menubutton">
           <ul class="navbar-nav mr-auto">
             {# main_menu is defined in base/templatetags/navigation_tags.py #}

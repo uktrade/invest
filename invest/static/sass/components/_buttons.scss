@@ -17,3 +17,23 @@
     text-decoration: none;
   }
 }
+
+.button-ghost-white {
+  padding: 10px 45px;
+  border: 2px solid;
+  border-color: white;
+  color: white;
+  font-weight: 700;
+  font-size: 19px;
+
+  &:hover {
+    background-color: white;
+    color: #333;
+    text-decoration: none;
+  }
+}
+
+
+a.button-ghost-white {
+  color: white;
+}

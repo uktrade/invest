@@ -8,10 +8,10 @@
         {% image card.value.icon fill-64x64 as card_image %}
         {% image card.value.icon fill-128x128 as card_image_2x %}
         <span style="height={{ card_image.height }}" class="underline">
-          <img src="{{ card_image.url }}" srcset="{{ card_image_2x.url }} 2x" width="{{ card_image.width }}" height="{{ card_image.height }}" class="card-icon">
+          <img src="{{ card_image.url }}" srcset="{{ card_image_2x.url }} 2x" width="{{ card_image.width }}" height="{{ card_image.height }}" class="card-icon" alt="">
         </span>
       {% elif card.value.page %}
-        <a href="{{ card.value.page.url }}" class="btn btn-link">{{ card.value.page.title }}</a>
+        <a href="{{ card.value.page.url }}" class="btn button-ghost-white">{{ card.value.page.title }}</a>
       {% endif %}
     </div>
     <div class="card-block">

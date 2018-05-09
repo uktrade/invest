@@ -21,12 +21,6 @@
   display: inline-block;
 }
 
-#how-we-help .card-header a.btn:active,
-#how-we-help .card-header a.btn:link,
-#how-we-help .card-header a.btn:hover,
-#how-we-help .card-header a.btn:visited {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
+#how-we-help .card-header a.btn {
   margin-bottom: 35px;
 }

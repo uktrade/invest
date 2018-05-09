@@ -5,10 +5,9 @@
         <div class="card-header">{{ self.title }}</div>
     </a>
 </div>
-<div id="collapse{{ position }}" class="collapse">
+<div id="collapse{{ position }}" class="collapse js-disabled-only">
   <div class="card-block offset-md-1 col-md-7 col-sm-12">
     {{ self.content|markdown }}
   </div>
   <div class="card-footer col-md-8 col-sm-12"></div>
 </div>
-
