@@ -336,7 +336,7 @@ class ContactForm(forms.Form):
     job_title = forms.CharField(label=_('Job title'))
     email = forms.EmailField(label=_('Email address'))
     phone_number = forms.CharField(
-        label=_('Phone number (optional)'),
+        label=_('Phone number'),
         required=True
 
     )
