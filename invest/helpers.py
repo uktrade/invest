@@ -13,10 +13,12 @@ class IPStackAPIClient:
     def get(cls, ip):
         url = urljoin(cls.base_url, ip) + cls.auth
         response = cls.session.get(url)
-        data = response.json()
-        if 'error' in data:
-            return None
-        return data
+        if response.ok:
+            data = response.json()
+            if 'error' in data:
+                return None
+            return data
+        return None
 
     @classmethod
     def get_ip_info(cls, ip):
