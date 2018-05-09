@@ -29,12 +29,9 @@ class FormViewPage(Page):
         :return:
         """
         view = self.view.as_view()
-
         response = view(request)
 
-        # NOTE: response.context_data == None when the form is submitted
-        # it may need to be handled differently than this:
-        if response.context_data is None:
+        if not hasattr(response, 'context_data'):
             response.context_data = {}
 
         response.context_data['page'] = self
