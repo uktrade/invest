@@ -1,0 +1,19 @@
+
+// Buttons
+
+// get rid of this once we have export-elements
+
+.button-ghost-blue {
+  padding: 10px 45px;
+  border: 2px solid;
+  border-color: #006ccc;
+  color: #006ccc;
+  font-weight: 700;
+  font-size: 19px;
+
+  &:hover {
+    background-color: #006ccc;
+    color: white;
+    text-decoration: none;
+  }
+}

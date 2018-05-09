@@ -136,4 +136,10 @@ compile_test_requirements:
 
 compile_all_requirements: compile_requirements compile_test_requirements
 
+migrations:
+	$(DEBUG_SET_ENV_VARS) && ./manage.py makemigrations
+
+migrate:
+	$(DEBUG_SET_ENV_VARS) && ./manage.py migrate
+
 .PHONY: build clean test_requirements docker_run docker_debug docker_webserver_bash docker_test debug_webserver debug_test debug heroku_deploy_dev

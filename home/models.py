@@ -31,6 +31,10 @@ class HomePage(Page):
         default="Discover UK Industries",
         max_length=255)
 
+    sector_button_text = models.TextField(
+        default="Search more industries",
+        max_length=255)
+
     setup_guide_title = models.CharField(
         default='Set up an overseas business in the UK',
         max_length=255)
@@ -64,6 +68,7 @@ class HomePage(Page):
         StreamFieldPanel('subsections'),
 
         FieldPanel('sector_title'),
+        FieldPanel('sector_button_text'),
         FieldPanel('setup_guide_title'),
         FieldPanel('setup_guide_lead_in'),
         FieldPanel('how_we_help_title'),
