@@ -124,11 +124,14 @@ nav .container {
 
 .language-toggle {
     z-index: 1;
-    color: white;
     position: relative;
     height: auto;
     font-weight: bold;
     float: right;
+
+    span {
+      color: white;
+    }
 }
 
 
