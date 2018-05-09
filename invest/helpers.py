@@ -15,10 +15,8 @@ class IPStackAPIClient:
         response = cls.session.get(url)
         if response.ok:
             data = response.json()
-            if 'error' in data:
-                return None
             return data
-        return None
+        return {}
 
     @classmethod
     def get_ip_info(cls, ip):
@@ -27,8 +25,12 @@ class IPStackAPIClient:
     @classmethod
     def get_language(cls, ip):
         ip_info = cls.get_ip_info(ip)
-        if ip_info:
-            language = ip_info['location']['languages'][0]['code']
+        if ip_info.get('location'):
+            return ip_info['location']['languages'][0]['code']
         else:
-            language = None
-        return language
+            return None
+
+    @classmethod
+    def get_country_code(cls, ip):
+        ip_info = cls.get_ip_info(ip)
+        return ip_info.get('country_code', '')
