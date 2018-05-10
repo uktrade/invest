@@ -46,11 +46,10 @@ urlpatterns = i18n_patterns(
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
 
-    url(r'', include(wagtail_urls)),
-
     # Redirects, for compatibility with the old site - redirect
     url(RedirectLanguagePrefixes.as_urls(),
         RedirectLanguagePrefixes.as_view()),
+    url(r'', include(wagtail_urls)),
 
     url(r'index\.html$', redirect_page_index_html),
     prefix_default_language=PREFIX_DEFAULT_LANGUAGE)
