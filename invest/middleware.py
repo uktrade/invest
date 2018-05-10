@@ -1,81 +1,67 @@
-from collections import defaultdict
-
+from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.utils import translation
-from django.utils.translation import check_for_language
-from ipware.ip import get_real_ip
 
-from .helpers import IPStackAPIClient
+from . import helpers
 
 
-COUNTRY_TO_LANGUAGE = defaultdict(lambda: 'en')
-COUNTRY_TO_LANGUAGE.update(
-    dict(
-        CN='zh',  # China
-        DE='de',  # Germany
-        JP='jp',  # Japan
-        FR='fr',  # France
+class SetLanguageAndRedirectMixin:
 
-        # Arabic speaking
-        AE='ar',  # UAE
-        SA='ar',  # Saudi Arabia
+    @staticmethod
+    def get_language_code(request):
+        raise NotImplemented
 
-        # Portuguese speaking
-        BR='pt',  # Brazil
-        PT='pt',  # Portugal
-
-        # English speaking
-        GB='en',  # UK
-        US='en',  # USA
-        CA='en',  # Canada
-        AU='en',  # Australia
-        IN='en',  # India
-        NZ='en',  # New Zealand
-
-        # Spanish speaking
-        ES='es',  # Spain
-        MX='es',  # Mexico
-        CO='es',  # Colombia
-        AR='es',  # Argentina
-        PE='es',  # Peru
-        VE='es',  # Venezuela
-        CL='es',  # Chile
-        EC='es',  # Ecuador
-        GT='es',  # Guatemala
-        CU='es',  # Cuba
-        HT='es',  # Haiti
-        BO='es',  # Bolivia
-        DO='es',  # Dominican Republic
-        HN='es',  # Honduras
-        PY='es',  # Paraguay
-        NI='es',  # Nicaragua
-        SV='es',  # El Salvador
-        CR='es',  # Costa Rica
-        PA='es',  # Panama
-        PR='es',  # Puerto Rico
-        UY='es',  # Uruguay
-    )
-)
+    @staticmethod
+    def set_language_and_redirect(request, language_code):
+        translation.activate(language_code)
+        request.LANGUAGE_CODE = translation.get_language()
+        link = '/{lang}{path}'.format(
+            lang=language_code,
+            path=request.path
+        )
+        return HttpResponseRedirect(link)
 
 
-class GeoIPLanguageMiddleware:
+class GeoIPLanguageMiddleware(SetLanguageAndRedirectMixin):
 
     def __init__(self, get_response):
         self.get_response = get_response
 
+    @staticmethod
+    def get_language_code(request):
+        return helpers.get_language_from_ip_address(request)
+
+    @staticmethod
+    def is_language_cookie_set(request):
+        return settings.LANGUAGE_COOKIE_KEY in request.session
+
     def __call__(self, request):
-        client_ip = get_real_ip(request)
-        if client_ip:
-            country_code = IPStackAPIClient.get_country_code(client_ip)
-            language = COUNTRY_TO_LANGUAGE[country_code]
-            if check_for_language(language):
-                request.LANGUAGE_CODE = language
-                translation.activate(language)
-                link = '/{lang}{path}'.format(
-                    lang=language,
-                    path=request.path
-                )
-                return HttpResponseRedirect(link)
+        language_code = self.get_language_code(request)
+        if language_code and not self.is_language_cookie_set(request):
+            self.set_language_and_redirect(request, language_code)
+
+        response = self.get_response(request)
+        return response
+
+
+class LocaleQuerystringMiddleware(SetLanguageAndRedirectMixin):
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    @staticmethod
+    def get_language_code(request):
+        return helpers.get_language_from_querystring(request)
+
+    @staticmethod
+    def set_language_cookie(request, language_code):
+        request.session[settings.LANGUAGE_COOKIE_KEY] = language_code
+
+    def __call__(self, request):
+        language_code = helpers.get_language_from_querystring(request)
+        if language_code:
+            self.set_language_cookie(request, language_code)
+            self.set_language_and_redirect(request, language_code)
 
         response = self.get_response(request)
         return response

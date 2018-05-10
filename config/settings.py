@@ -356,3 +356,5 @@ EMAIL_USE_TLS = True
 
 PREFIX_DEFAULT_LANGUAGE = False
 IPSTACK_API_KEY = os.getenv('IPSTACK_API_KEY', '')
+
+LANGUAGE_COOKIE_KEY = 'django_language'
