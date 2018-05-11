@@ -2,6 +2,15 @@
 /** footer section */
 #footer {
   border-bottom: 1px solid rgba(255, 255, 255, .5);
+
+  .content-footer-secondary {
+    position: relative;
+  }
+
+  ul.secondary-nav {
+    position: absolute;
+    left: 0;
+  }
 }
 
 #footer .page-nav {
@@ -13,7 +22,8 @@
 }
 
 #footer .page-nav li {
-  display: inline;
+  display: block;
+  float: left;
   list-style-type: none;
   font-size: 1.0rem;
   font-weight: bold;
@@ -53,7 +63,8 @@
 }
 
 #footer .secondary-nav li {
-  display: inline;
+  display: block;
+  float: left;
   list-style-type: none;
   font-size: 0.813rem;
   padding-right: 15px;
