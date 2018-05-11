@@ -34,9 +34,9 @@ class RedirectLanguagePrefixes(MTRedirectPrefixedPage):
         ('br/', 'pt/'),
         ('jp/', 'ja/'),
         # English language is default + not prefixed
-        ('in/', '/'),
-        ('us/', '/'),
-        ('int/', '/'),
+        ('in/', ''),
+        ('us/', ''),
+        ('int/', ''),
     ]
 
 
