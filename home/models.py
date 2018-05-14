@@ -32,7 +32,7 @@ class HomePage(Page):
         max_length=255)
 
     sector_button_text = models.TextField(
-        default="Search more industries",
+        default="See more industries",
         max_length=255)
 
     setup_guide_title = models.CharField(
