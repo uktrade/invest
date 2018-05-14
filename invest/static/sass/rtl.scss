@@ -43,9 +43,21 @@
   }
 }
 
-
-#footer,
 #language-bar,
 nav.navbar {
   direction: ltr;
+}
+
+#footer {
+  ul.secondary-nav {
+    margin-left: 0;
+  }
+
+  .content-underlined-flow .row {
+    flex-direction: row-reverse;
+  }
+
+  .footer-branding {
+    direction: ltr;
+  }
 }
