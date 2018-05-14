@@ -13,6 +13,7 @@ class HomePageTranslation(TranslationOptions):
         'setup_guide_title',
         'setup_guide_lead_in',
         'how_we_help_title',
+        'how_we_help_lead_in',
         'how_we_help',
         'sector_button_text'
     )
