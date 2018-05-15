@@ -24,3 +24,37 @@
 #how-we-help .card-header a.btn {
   margin-bottom: 35px;
 }
+
+@media (max-width: 767px) {
+  #how-we-help {
+    .card {
+      flex-direction: row;
+      display: flex;
+      margin-bottom: 30px;
+    }
+
+    .card-header {
+      width: auto;
+      margin-right: 30px;
+
+      a.btn {
+        margin-bottom: 15px;
+      }
+    }
+
+    .card-block {
+      width: calc(100% - 64px);
+      min-height: 0;
+      min-width: 0;
+      height: auto;
+    }
+
+    .card .card-header a {
+      margin-top: 30px;
+
+      .card-header {
+        height: auto;
+      }
+    }
+  }
+}

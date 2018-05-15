@@ -65,3 +65,10 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  #sector .card .card-block {
+    min-height: auto;
+    height: auto;
+  }
+}
