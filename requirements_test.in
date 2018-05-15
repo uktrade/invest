@@ -6,3 +6,5 @@ pytest-cov
 pytest-django
 pytest-sugar
 codecov
+factory-boy
+wagtail-factories

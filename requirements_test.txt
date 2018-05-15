@@ -33,6 +33,9 @@ django_recaptcha==1.2.0
 djangorestframework==3.8.2  # via wagtail
 docutils==0.14            # via botocore
 draftjs-exporter==2.0.0   # via wagtail
+factory-boy==2.7.0
+fake-factory==0.7.4       # via factory-boy, wagtail-factories
+faker==0.8.15             # via wagtail-factories
 flake8==3.5.0
 gunicorn==19.7.1
 html5lib==0.999999999     # via bleach, wagtail
@@ -53,16 +56,18 @@ pytest-cov==2.5.1
 pytest-django==3.2.1
 pytest-sugar==0.9.1
 pytest==3.5.1
-python-dateutil==2.7.2    # via botocore, zenpy
+python-dateutil==2.7.2    # via botocore, fake-factory, faker, zenpy
 pytz==2017.2
 raven==6.5.0
 redis==2.10.6             # via django-redis
 requests==2.18.4          # via codecov, wagtail, zenpy
 s3transfer==0.1.13        # via boto3
-six==1.11.0               # via bleach, html5lib, more-itertools, pytest, python-dateutil
+six==1.11.0               # via bleach, fake-factory, faker, html5lib, more-itertools, pytest, python-dateutil
 termcolor==1.1.0          # via pytest-sugar
+text-unidecode==1.2       # via faker
 unidecode==0.4.21         # via wagtail
 urllib3==1.22             # via requests
+wagtail-factories==1.0.0
 wagtail-markdown==0.5a3
 wagtail==2.0.1
 waitress==1.1.0
