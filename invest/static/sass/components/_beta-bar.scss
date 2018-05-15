@@ -1,41 +1,51 @@
+#beta-bar {
+  background-color: white;
 
-#beta-bar .container {
-  padding-top: 0;
-  min-height: 30px;
-}
+  .container {
+    padding: 0 15px;
+    flex-direction: row;
+    display: flex;
+  }
 
-#beta-bar .container .row {
-  padding-top: 0;
-  height: auto;
-}
+  .beta {
+    display: flex;
+  }
 
-#beta-bar .badge {
-  background: #01539d;
-  font-weight: bold;
-  font-size: .7rem;
-  padding: 4px 15px;
-  margin: 5px 0;
-}
+  .phase-tag {
+    align-items: center;
+    display: flex;
 
-#beta-bar .text {
-  color: #999999;
-  font-size: .813rem;
-  padding: 4px 15px;
-  margin: 5px;
-}
+    span {
+      background: #006ccc;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 2px 5px 0;
+      margin: 0 8px 0 0;
+    }
+  }
 
-#beta-bar .text a:active,
-#beta-bar .text a:hover,
-#beta-bar .text a:link,
-#beta-bar .text a:visited {
-  text-decoration: underline;
-}
+  .beta-description {
+    display: block;
+    color: #999999;
+    font-size: 15px;
+    padding: 4px 15px;
+    margin: 5px;
+  }
 
-#beta-bar .text > p {
-  display: inline;
-  margin: 0;
-}
+  .beta-description a:active,
+  .beta-description a:hover,
+  .beta-description a:link,
+  .beta-description a:visited {
+    text-decoration: underline;
+  }
 
-#beta-bar .text a {
-  color: #1b7cd1;
+  .beta-description > p {
+    display: inline;
+    margin: 0;
+  }
+
+  .beta-description a {
+    color: #1b7cd1;
+  }
 }

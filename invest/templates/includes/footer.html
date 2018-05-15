@@ -9,11 +9,11 @@
 <section id="footer" class="dark">
   <div class="container content content-footer content-underlined content-underlined-flow">
     <div class="row">
-      <div class="col-md-2 footer-branding">
+      <div class="col-6 col-md-2 footer-branding">
         <img src="{{ logo.url }}" width="{{ logo.width }}" height="{{ logo.height }}" srcset="{{ logo_2x.url }} 2x" alt="{{ logo.alt }}" />
         <img src="{{ footer_logo.url }}" width="{{ footer_logo.width }}" height="{{ footer_logo.height }}" srcset="{{ footer_logo_2x.url }} 2x" alt="{{ footer_logo.alt }}" />
       </div>
-      <div class="col-md-10">
+      <div class="col-6 col-md-10">
           <ul class="page-nav float-md-right">
               {# main_menu is defined in base/templatetags/navigation_tags.py #}
               {% get_site_root as site_root %}
