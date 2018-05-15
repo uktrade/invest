@@ -15,9 +15,12 @@
   position: absolute;
   bottom: 0;
   right: 0;
+  width: auto;
+  padding: 0;
 }
 
 #footer .page-nav li {
+  hyphens: auto;
   display: block;
   float: left;
   list-style-type: none;
