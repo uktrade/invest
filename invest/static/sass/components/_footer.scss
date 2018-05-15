@@ -7,10 +7,6 @@
     position: relative;
   }
 
-  ul.secondary-nav {
-    position: absolute;
-    left: 0;
-  }
 }
 
 #footer .page-nav {
@@ -33,19 +29,9 @@
 
 @media (max-width: 767px) {
   #footer .page-nav {
-    height: 210px;
-    background: rgba(29,19,72,0);
-    background: -moz-linear-gradient(left, rgba(29,19,72,0) 0%, rgba(29,19,72,1) 8%, rgba(29,19,72,1) 93%, rgba(29,19,72,1) 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(29,19,72,0)), color-stop(8%, rgba(29,19,72,1)), color-stop(93%, rgba(29,19,72,1)), color-stop(100%, rgba(29,19,72,1)));
-    background: -webkit-linear-gradient(left, rgba(29,19,72,0) 0%, rgba(29,19,72,1) 8%, rgba(29,19,72,1) 93%, rgba(29,19,72,1) 100%);
-    background: -o-linear-gradient(left, rgba(29,19,72,0) 0%, rgba(29,19,72,1) 8%, rgba(29,19,72,1) 93%, rgba(29,19,72,1) 100%);
-    background: -ms-linear-gradient(left, rgba(29,19,72,0) 0%, rgba(29,19,72,1) 8%, rgba(29,19,72,1) 93%, rgba(29,19,72,1) 100%);
-    background: linear-gradient(to right, rgba(29,19,72,0) 0%, rgba(29,19,72,1) 8%, rgba(29,19,72,1) 93%, rgba(29,19,72,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1348', endColorstr='#1d1348', GradientType=1 );
-  }
-
-  #footer .page-nav ul {
-    line-height: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
   }
 
   #footer .page-nav li {

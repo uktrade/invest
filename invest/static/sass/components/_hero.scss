@@ -4,37 +4,35 @@
 #heading_hero .jumbotron {
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: rgba(0, 84, 159, 0.8);
   padding: 0;
-  height: 295px;
+  min-height: 295px;
   margin-bottom: 0;
+  display: flex;
 }
 
 #heading_hero .jumbotron .container {
   height: inherit;
-}
-
-#heading_hero .jumbotron .container .row {
-  padding-top: 95px;
+  flex-grow: 1;
   position: relative;
-  height: inherit;
-}
-
-#heading_hero .jumbotron .contanier .row .col {
-  height: 225px;
-  bottom: 0;
-  position: absolute;
 }
 
 #heading_hero .heading {
+  min-width: 200px;
+  min-height: 100px;
+  max-width: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   color: white;
   background-color: rgba(0, 84, 159, 0.8);
   border-bottom: 4px solid #e41f13;
 }
 
 #heading_hero .heading h1 {
-  padding: 25px 25px 0px;
-  margin-bottom: 12px;
-  line-height: 1.1em;
+  padding: 20px;
+  margin-bottom: 0;
+  line-height: 1.3em;
   text-transform: uppercase;
 }
 
@@ -45,19 +43,17 @@
   padding: 0;
   margin-bottom: 0;
   background-color: #020b16;
+  padding: 60px 0;
 }
 
 #heading_hero_tall > .jumbotron .row {
   padding-top: 0;
   position: relative;
-  min-height: 495px;
 }
 
 #heading_hero_tall .heading {
   color: white;
-  bottom: 0px;
-  left: 20px;
-  max-height: 400px;
+  padding: 15px;
 }
 
 #heading_hero_tall .heading h1 {
@@ -65,7 +61,6 @@
   font-weight: bolder;
   margin-bottom: 30px;
   line-height: 1.15em;
-  padding-top: 60px;
 }
 
 #heading_hero_tall h2 {
@@ -120,4 +115,20 @@
   font-family: 'Overpass', 'verdana', 'helvetica', 'arial', sans-serif;
   font-size: 3.25rem;
   font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  #heading_hero .heading {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  #heading_hero .heading {
+    max-width: 100%;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
 }
