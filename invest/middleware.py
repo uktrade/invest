@@ -79,7 +79,6 @@ class LanguageAwareRedirectMiddleware:
 
         # Find redirect
         redirect = get_redirect(request, path)
-        import ipdb; ipdb.set_trace()
         if redirect is None:
             # Get the path without the query string or params
             path_without_query = urlparse(path).path
