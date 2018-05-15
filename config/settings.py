@@ -126,7 +126,7 @@ MIDDLEWARE = [
     'admin_ip_restrictor.middleware.AdminIPRestrictorMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'wagtail.core.middleware.SiteMiddleware',
-    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    'invest.middleware.LanguageAwareRedirectMiddleware',
     'contact.middleware.GoogleCampaignMiddleware'
 ]
 
