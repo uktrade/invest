@@ -41,7 +41,9 @@ class RedirectPrefixes(RedirectView):
         """
         :return:  regex pattern for use in urls.py
         """
-        return '|'.join([prefix for prefix, mapping in cls.prefix_map])
+        return r'|'.join(
+            ['^{}'.format(prefix) for prefix, mapping in cls.prefix_map]
+        )
 
 
 def page_at(request, path):

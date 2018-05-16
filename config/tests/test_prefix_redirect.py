@@ -61,7 +61,7 @@ def test_prefix_as_urls():
         prefix_map = [('int/a', 'a'), ('int', '/')]
         pass
 
-    assert TestRedirect.as_urls() == 'int/a|int'
+    assert TestRedirect.as_urls() == '^int/a|^int'
 
 
 @pytest.mark.django_db
