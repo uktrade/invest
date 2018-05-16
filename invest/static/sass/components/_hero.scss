@@ -37,35 +37,92 @@
 }
 
 /* #heading_hero_tall used on homepage */
-#heading_hero_tall .jumbotron {
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 0;
-  margin-bottom: 0;
-  background-color: #020b16;
-  padding: 60px 0;
-}
-
 #heading_hero_tall > .jumbotron .row {
   padding-top: 0;
   position: relative;
 }
 
-#heading_hero_tall .heading {
-  color: white;
-  padding: 15px;
+#heading_hero_tall {
+  .jumbotron {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    margin-bottom: 0;
+    background-color: #020b16;
+    padding: 80px 0;
+  }
+
+  .hero-brand {
+    position: relative;
+
+    img {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  .heading {
+    color: white;
+    padding: 0 15px;
+  }
+
+  .heading h1 {
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-bottom: 30px;
+    line-height: 1.15em;
+  }
+
+  h2 {
+    font-weight: normal;
+    line-height: 2rem;
+  }
 }
 
-#heading_hero_tall .heading h1 {
-  text-transform: uppercase;
-  font-weight: bolder;
-  margin-bottom: 30px;
-  line-height: 1.15em;
+@media (max-width: 767px) {
+  #heading_hero_tall {
+    .heading h2 {
+      max-width: calc(100% - 200px);
+    }
+
+    .hero-brand img {
+      top: auto;
+      bottom: 0;
+      margin-right: 15px;
+    }
+  }
 }
 
-#heading_hero_tall h2 {
-  font-weight: normal;
-  line-height: 2rem;
+@media (max-width: 576px) {
+  #heading_hero_tall {
+    .jumbotron {
+      padding-top: 30px;
+      background-position: left;
+
+      .heading {
+        margin-top: 30px;
+
+        h2 {
+          max-width: none;
+        }
+      }
+      .row {
+        flex-direction: column-reverse;
+      }
+    }
+
+    .hero-brand {
+      padding-left: 15px;
+
+      img {
+        position: static;
+        height: 80px;
+        width: auto;
+      }
+    }
+  }
 }
 
 /* #heading_plain used on auxilery pages */
