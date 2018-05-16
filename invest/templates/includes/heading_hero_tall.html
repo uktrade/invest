@@ -1,5 +1,9 @@
+{% load wagtailsettings_tags %}
 {% load image from wagtailimages_tags %}
 {% block header %}
+{% get_settings %}
+{% image settings.invest.Branding.footer_logo width-148 as invest_logo %}
+{% image settings.invest.Branding.footer_logo width-296 as invest_logo_2x %}
 <section id="heading_hero_tall">
   <div class="jumbotron">
     <div class="container">
@@ -7,6 +11,9 @@
         <div class="col-xl-6 col-md-8 col-sm-12 heading">
           <h1>{% if page.heading != None %}{{ page.heading }}{% else %}{{ page_heading }}{% endif %}</h1>
           <h2>{% if page.sub_heading != None %}{{ page.sub_heading }}{% else %}{{ page_sub_heading }}{% endif %}</h2>
+        </div>
+        <div class="col-xl-6 col-md-4 hero-brand">
+          <img src="{{ invest_logo.url }}" width="{{ invest_logo.width }}" height="{{ invest_logo.height }}" srcset="{{ invest_logo_2x.url }} 2x" alt="{{ invest_logo.alt }}" />
         </div>
       </div>
     </div>
