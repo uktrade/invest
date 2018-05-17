@@ -8,10 +8,12 @@
 {% block main_navigation %}
 {% get_settings %}
 {% get_current_language as lang_code %}
+
 {% image settings.invest.Branding.logo width-176 as logo %}
 {% image settings.invest.Branding.logo width-352 as logo_2x %}
 {% image settings.invest.Branding.language_choice_icon width-20 as language_choice_icon %}
 {% image settings.invest.Branding.language_choice_icon width-40 as language_choice_icon_2x %}
+
 <nav class="navbar navbar-expand-md">
   <div class="container">
     <a id="skip-link" href="#content" class="visually-hidden">Skip to main content</a>
@@ -20,8 +22,11 @@
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menubutton" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">Menu<span></span>
     </button>
-    <a href="#" class="language-toggle" data-toggle="collapse" data-target="#language-bar">
-      <img class="language-icon" src="{{ language_choice_icon.url }}" srcset="{{ language_choice_icon_2x.url }} 2x" alt="{{ language_chooser_icon.alt }}"><span>{{ lang_code|upper }}</span></a>
+    <div class="language-toggle" id="language-selector-activator">
+      <a href="" class="LanguageSelectorDialog-Tracker">
+        <span class="lang">{{ lang_code }}</span>
+      </a>
+    </div>
   </div>
   <div class="container ">
     <div class="collapse navbar-collapse" id="navbar_menubutton">
