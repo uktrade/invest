@@ -7,7 +7,6 @@ from django.views.generic.edit import FormView
 from django.utils.translation import ugettext as _
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
-from django.utils.translation import get_language
 
 from contact import forms
 
