@@ -165,17 +165,6 @@ class ContactFormView(FormView):
 
         return super().form_valid(form)
 
-    def get_success_url(self):
-
-        lang = get_language()
-
-        if lang == "en" and not settings.PREFIX_DEFAULT_LANGUAGE:
-            prefix = ""
-        else:
-            prefix = "{}/".format(lang)
-
-        return prefix + self.success_url
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['success_message'] = _('Your feedback has been submitted')
