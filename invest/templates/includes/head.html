@@ -1,10 +1,13 @@
 {% load static from static %}
 {% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailsettings_tags %}
 {% load i18n %}
+
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% get_current_language as LANGUAGE %}
+
 <!DOCTYPE html>
-<html class="no-js" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr' }}" lang="{{ LANGUAGE }}">
+<html dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr' }}" lang="{{ LANGUAGE }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,6 +54,12 @@
         'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-N6G2BT');</script>
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/dit.js' %}"></script>
+    <script src="{% static 'js/dit.class.modal.js' %}"></script>
+    <script src="{% static 'js/dit.components.languageSelector.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -111,6 +120,14 @@
         }
     </style>
     {% endif %}
+
+    {% get_settings %}
+    {% image settings.invest.Branding.language_choice_icon width-40 as language_choice_icon %}
+    <style>
+      nav.navbar .LanguageSelectorDialog-Tracker {
+        background-image: url("{{ language_choice_icon.url }}");
+      }
+    </style>
     {% block head-extra %}
     {% endblock head-extra %}
 </head>

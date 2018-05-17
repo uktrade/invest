@@ -92,41 +92,6 @@ nav .container {
   z-index: 1;
 }
 
-#language-bar .language-selector {
-  background: white;
-  padding: 30px;
-}
-
-#language-bar .language-selector .lang {
-  font-size: 1.125rem;
-  font-weight: bold;
-}
-
-.lang a:active,
-.lang a:hover,
-.lang a:link,
-.lang a:visited {
-  text-decoration: underline;
-}
-
-.language-toggle {
-  z-index: 1;
-  position: absolute;
-  right: 15px;
-  top: 5px;
-  height: auto;
-  font-weight: bold;
-
-  span {
-    color: white;
-  }
-}
-
-
-.language-icon {
-  padding-right: 10px;
-}
-
 /* navbar */
 .navbar {
   background: #1e1348;
@@ -210,17 +175,7 @@ nav .container {
   outline-color: #ffbf47;
 }
 
-.navbar-toggler-icon {
-  text-wrap: avoid;
-  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' width='17' height='12'%3E%3Cstyle%3E.st0%7Bfill:%23fff%7D%3C/style%3E%3Cpath class='st0' d='M0 0h17v2H0zM0 5h17v2H0zM0 10h17v2H0z'/%3E%3C/svg%3E");
-  margin-left: .5rem;
-}
-
 @media only screen and (max-width: 767px) {
-  .language-toggle {
-    right: 0;
-  }
-
   .navbar-collapse {
     position: static;
     display: none;
@@ -336,9 +291,5 @@ a:focus:not(.unfocusable){
 @media (max-width: 576px) {
   .container {
     padding: 0 30px;
-  }
-
-  .language-toggle {
-    right: 15px;
   }
 }

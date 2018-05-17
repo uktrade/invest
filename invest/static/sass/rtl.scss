@@ -33,6 +33,11 @@
   .jumbotron {
     background-position: 100%;
   }
+
+  .hero-brand img {
+    right: auto;
+    left: 15px;
+  }
 }
 
 @media (min-width: 1010px) {
