@@ -55,7 +55,8 @@ DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_RECAPTCHA_PUBLIC_KEY=debug; \
 	export INVEST_RECAPTCHA_PRIVATE_KEY=debug; \
 	export INVEST_NOCAPTCHA=false; \
-	export INVEST_IPSTACK_API_KEY=debug
+	export INVEST_IPSTACK_API_KEY=debug; \
+	export INVEST_EMAIL_BACKEND_CLASS_NAME=console
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \
@@ -105,7 +106,8 @@ DEBUG_SET_ENV_VARS := \
 	export RECAPTCHA_PRIVATE_KEY=debug; \
 	export NOCAPTCHA=false; \
 	export ENABLE_DEBUG_TOOLBAR=false; \
-	export DATABASE_URL=postgres://postgres@localhost:5432/invest
+	export DATABASE_URL=postgres://postgres@localhost:5432/invest; \
+	export EMAIL_BACKEND_CLASS_NAME=console
 
 debug_webserver:
 	$(DEBUG_SET_ENV_VARS) && $(DJANGO_WEBSERVER)

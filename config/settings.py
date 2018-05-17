@@ -345,11 +345,17 @@ ZENDESK_EMAIL = os.environ['ZENDESK_EMAIL']
 # Google Recaptcha
 RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
-# NOCAPTCHA = True turns on version 2 of recaptcha
 NOCAPTCHA = os.getenv('NOCAPTCHA') != 'false'
 
+# Email
 IIGB_AGENT_EMAIL = os.getenv('IIGB_AGENT_EMAIL')
 DEFAULT_FROM_EMAIL = os.getenv('EMAIL_FROM')
+EMAIL_BACKED_CLASSES = {
+    'default': 'django.core.mail.backends.smtp.EmailBackend',
+    'console': 'django.core.mail.backends.console.EmailBackend'
+}
+EMAIL_BACKEND_CLASS_NAME = os.getenv('EMAIL_BACKEND_CLASS_NAME', 'default')
+EMAIL_BACKEND = EMAIL_BACKED_CLASSES[EMAIL_BACKEND_CLASS_NAME]
 EMAIL_HOST = os.getenv('SMTP_HOST')
 EMAIL_PORT = os.getenv('SMTP_PORT', 587)
 EMAIL_HOST_USER = os.getenv('SMTP_USERNAME')
