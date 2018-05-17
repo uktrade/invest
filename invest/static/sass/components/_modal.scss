@@ -103,7 +103,7 @@
 }
 
 
-.LanguageSelectorDialog-Modal {
+.language-selector-dialog {
   top: 0;
   a {
     font-size: 21px;
@@ -131,18 +131,6 @@
     padding-left: 0;
   }
 
-  .countries {
-    overflow: hidden;
-    a {
-      background-position: top left;
-      background-repeat: no-repeat;
-      background-size: 40px;
-      display: block;
-      min-height: 40px;
-      padding: 5px 0 0 50px;
-    }
-  }
-
   .languages {
     overflow: hidden;
     padding: 0;
@@ -168,9 +156,15 @@
   }
 }
 
+.language-toggle {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  height: auto;
+}
+
 nav.navbar .LanguageSelectorDialog-Tracker {
   @include body-s;
-  margin-left: 5px;
   background-image: url("/static/icons/eig-world-language-icon.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
@@ -200,13 +194,7 @@ nav.navbar .LanguageSelectorDialog-Tracker {
 
 // DESKTOP ONLY
 @media (min-width: 768px) {
-  .LanguageSelectorDialog-Modal {
-    .countries {
-      li {
-        @include items(4, $spacing-3);
-      }
-    }
-
+  .language-selector-dialog {
     .languages {
       ul {
         padding: 5px;
@@ -220,13 +208,7 @@ nav.navbar .LanguageSelectorDialog-Tracker {
 
 // TABLET
 @media (min-width: 481px) and (max-width: 767px) {
-  .LanguageSelectorDialog-Modal {
-    .countries {
-      li {
-        @include items(2, $spacing-3);
-      }
-    }
-
+  .language-selector-dialog {
     .languages {
       li {
         @include items(3, $spacing-3);
@@ -238,7 +220,7 @@ nav.navbar .LanguageSelectorDialog-Tracker {
 
 // MOBILE
 @media screen and (max-width: 580px) {
-  .LanguageSelectorDialog-Modal {
+  .language-selector-dialog {
     width: 100%;
     left: 0;
     top: 15px;
@@ -256,32 +238,15 @@ nav.navbar .LanguageSelectorDialog-Tracker {
 
 @media screen and (max-width: 480px) {
 
-  .LanguageSelectorDialog-Modal {
+  .language-selector-dialog {
     padding: $spacing-4;
 
     #languages-selector {
       @include body-m;
-      font-weight: bold;
     }
 
     a {
       @include body-m;
-    }
-
-    p {
-      @include body-m;
-    }
-
-    .countries {
-      a {
-        background-size: 20px;
-        min-height: 20px;
-        padding: 0 0 0 30px;
-      }
-
-      li {
-        @include items(2, $spacing-3-m);
-      }
     }
 
     .languages {
