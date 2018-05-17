@@ -11,6 +11,7 @@ from . import factories
 
 class DummyRequest:
     site = 1
+    session = {}
 
     def __init__(self, path=None, language_code='en'):
         self.path = path
@@ -45,8 +46,8 @@ class DummyGoodResponse:
 
     ])
 def test_geoip_middleware(language, expected_language):
-    with patch.object(IPStackAPIClient, 'get_language') as mock_get_language, \
-         patch('invest.middleware.get_real_ip'):
+    with patch.object(IPStackAPIClient, 'get_country_code') as mock_get_language, \
+         patch('invest.helpers.get_real_ip'):
         request = DummyRequest(language_code='en')
         mock_get_language.return_value = language
         response = GeoIPLanguageMiddleware(lambda x: x)(request=request)
