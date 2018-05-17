@@ -67,3 +67,27 @@
   font-weight: bold;
   text-decoration: none;
 }
+
+@media (max-width: 576px) {
+  #pullout {
+    .row {
+      flex-direction: column-reverse;
+    }
+
+    .text {
+      width: 100%;
+      font-size: 1.25rem;
+      padding-right: 0;
+    }
+
+    .stat h1 {
+      font-size: 3rem;
+    }
+  }
+
+  #subsections {
+    .content {
+      padding-top: 30px;
+    }
+  }
+}
