@@ -18,10 +18,6 @@ from django.utils.translation import gettext_lazy as _
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(PROJECT_ROOT)
 
-CHECK_SITEMAP = os.path.join(BASE_DIR, 'previous-site_sitemap.xml')
-CHECK_SITEMAP_IGNORE = ["/(..)/404.html", "/(..)/500.html"]
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -84,7 +80,6 @@ INSTALLED_APPS = [
     'wagtail.core',
     'wagtail.contrib.frontend_cache',
 
-    'check_links',
     'crispy_forms',
     'modelcluster',
     'storages',
