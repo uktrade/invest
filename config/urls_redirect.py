@@ -5,12 +5,12 @@ from django.views.generic import RedirectView
 
 
 class NotFoundView(View):
-    def dispatch(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         return HttpResponseNotFound()
 
 
 class ServerErrorView(View):
-    def dispatch(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         return HttpResponseServerError()
 
 
@@ -20,7 +20,7 @@ urlpatterns = [
     # /int/ar/ -> /ar/
     url(
         r'^int/ar/($|index\.html$)',
-        RedirectView.as_view(url='/ar/', permanent=True),
+        RedirectView.as_view(url='/ar', permanent=True),
     ),
     url(
         r'^int/ar/404.html',
@@ -32,211 +32,211 @@ urlpatterns = [
     ),
     url(
         r'^int/ar/setup-guide/($|index\.html$)',
-        RedirectView.as_view(url='/ar/setup-guide/', permanent=True),
+        RedirectView.as_view(url='/ar/setup-guide', permanent=True),
     ),
     url(
         r'^int/ar/setup-guide/establish-address/($|index\.html$)',
-        RedirectView.as_view(url='/ar/setup-guide/establish-address/',
+        RedirectView.as_view(url='/ar/setup-guide/establish-address',
                              permanent=True),
     ),
     url(
         r'^int/ar/setup-guide/apply-for-visa/($|index\.html$)',
-        RedirectView.as_view(url='/ar/setup-guide/apply-for-visa/',
+        RedirectView.as_view(url='/ar/setup-guide/apply-for-visa',
                              permanent=True),
     ),
     url(
         r'^int/ar/setup-guide/open-a-business-account/($|index\.html$)',
-        RedirectView.as_view(url='/ar/setup-guide/open-a-business-account/',
+        RedirectView.as_view(url='/ar/setup-guide/open-a-business-account',
                              permanent=True),
     ),
     url(
         r'^int/ar/setup-guide/how-to-setup/($|index\.html$)',
-        RedirectView.as_view(url='/ar/setup-guide/how-to-setup/',
+        RedirectView.as_view(url='/ar/setup-guide/how-to-setup',
                              permanent=True),
     ),
     url(
         r'^int/ar/setup-guide/understand-tax/($|index\.html$)',
-        RedirectView.as_view(url='/ar/setup-guide/understand-tax/',
+        RedirectView.as_view(url='/ar/setup-guide/understand-tax',
                              permanent=True),
     ),
     url(
         r'^int/ar/setup-guide/access-talent/($|index\.html$)',
-        RedirectView.as_view(url='/ar/setup-guide/access-talent/',
+        RedirectView.as_view(url='/ar/setup-guide/access-talent',
                              permanent=True),
     ),
     url(
         r'^int/ar/setup-guide/understand-legal/($|index\.html$)',
-        RedirectView.as_view(url='/ar/setup-guide/understand-legal/',
+        RedirectView.as_view(url='/ar/setup-guide/understand-legal',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/', permanent=True),
+        RedirectView.as_view(url='/ar/industries', permanent=True),
     ),
     url(
         r'^int/ar/industries/aerospace/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/aerospace/', permanent=True),
+        RedirectView.as_view(url='/ar/industries/aerospace', permanent=True),
     ),
     url(
         r'^int/ar/industries/advanced-manufacturing/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/advanced-manufacturing/',
+        RedirectView.as_view(url='/ar/industries/advanced-manufacturing',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/food-and-drink-manufacturing/($|index\.html$)',
         RedirectView.as_view(
-            url='/ar/industries/food-and-drink-manufacturing/',
+            url='/ar/industries/food-and-drink-manufacturing',
             permanent=True),
     ),
     url(
         r'^int/ar/industries/food-and-drink-manufacturing/freefrom/($|index\.html$)',  # noqa
         RedirectView.as_view(
-            url='/ar/industries/food-and-drink-manufacturing/freefrom/',
+            url='/ar/industries/food-and-drink-manufacturing/freefrom',
             permanent=True),
     ),
     url(
         r'^int/ar/industries/retail/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/retail/', permanent=True),
+        RedirectView.as_view(url='/ar/industries/retail', permanent=True),
     ),
     url(
         r'^int/ar/industries/automotive/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/automotive/', permanent=True),
+        RedirectView.as_view(url='/ar/industries/automotive', permanent=True),
     ),
     url(
         r'^int/ar/industries/automotive/motorsport/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/automotive/motorsport/',
+        RedirectView.as_view(url='/ar/industries/automotive/motorsport',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/automotive/research-and-development/($|index\.html$)',  # noqa
         RedirectView.as_view(
-            url='/ar/industries/automotive/research-and-development/',
+            url='/ar/industries/automotive/research-and-development',
             permanent=True),
     ),
     url(
         r'^int/ar/industries/automotive/supply-chain/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/automotive/supply-chain/',
+        RedirectView.as_view(url='/ar/industries/automotive/supply-chain',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/energy/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/energy/', permanent=True),
+        RedirectView.as_view(url='/ar/industries/energy', permanent=True),
     ),
     url(
         r'^int/ar/industries/energy/offshore-wind/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/energy/offshore-wind/',
+        RedirectView.as_view(url='/ar/industries/energy/offshore-wind',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/energy/electrical-networks/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/energy/electrical-networks/',
+        RedirectView.as_view(url='/ar/industries/energy/electrical-networks',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/energy/energy-from-waste/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/energy/energy-from-waste/',
+        RedirectView.as_view(url='/ar/industries/energy/energy-from-waste',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/energy/oil-and-gas/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/energy/oil-and-gas/',
+        RedirectView.as_view(url='/ar/industries/energy/oil-and-gas',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/energy/nuclear/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/energy/nuclear/',
+        RedirectView.as_view(url='/ar/industries/energy/nuclear',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/health-and-life/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/health-and-life/',
+        RedirectView.as_view(url='/ar/industries/health-and-life',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/health-and-life/medical-technology/($|index\.html$)',  # noqa
         RedirectView.as_view(
-            url='/ar/industries/health-and-life/medical-technology/',
+            url='/ar/industries/health-and-life/medical-technology',
             permanent=True),
     ),
     url(
         r'^int/ar/industries/health-and-life/pharmaceutical-manufacturing/($|index\.html$)',  # noqa
         RedirectView.as_view(
-            url='/ar/industries/health-and-life/pharmaceutical-manufacturing/',
+            url='/ar/industries/health-and-life/pharmaceutical-manufacturing',
             permanent=True),
     ),
     url(
         r'^int/ar/industries/creative/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/creative/', permanent=True),
+        RedirectView.as_view(url='/ar/industries/creative', permanent=True),
     ),
     url(
         r'^int/ar/industries/creative/content-and-production/($|index\.html$)',
         RedirectView.as_view(
-            url='/ar/industries/creative/content-and-production/',
+            url='/ar/industries/creative/content-and-production',
             permanent=True),
     ),
     url(
         r'^int/ar/industries/creative/digital-media/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/creative/digital-media/',
+        RedirectView.as_view(url='/ar/industries/creative/digital-media',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/financial-services/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/financial-services/',
+        RedirectView.as_view(url='/ar/industries/financial-services',
                              permanent=True),
     ),
     url(
         r'^int/ar/industries/financial-services/asset-management/($|index\.html$)',  # noqa
         RedirectView.as_view(
-            url='/ar/industries/financial-services/asset-management/',
+            url='/ar/industries/financial-services/asset-management',
             permanent=True),
     ),
     url(
         r'^int/ar/industries/financial-services/financial-technology/($|index\.html$)',  # noqa
         RedirectView.as_view(
-            url='/ar/industries/financial-services/financial-technology/',
+            url='/ar/industries/financial-services/financial-technology',
             permanent=True),
     ),
     url(
         r'^int/ar/industries/technology/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/technology/', permanent=True),
+        RedirectView.as_view(url='/ar/industries/technology', permanent=True),
     ),
     url(
         r'^int/ar/industries/technology/data-analytics/($|index\.html$)',
-        RedirectView.as_view(url='/ar/industries/technology/data-analytics/',
+        RedirectView.as_view(url='/ar/industries/technology/data-analytics',
                              permanent=True),
     ),
     url(
         r'^int/ar/terms-and-conditions/($|index\.html$)',
-        RedirectView.as_view(url='/ar/terms-and-conditions/', permanent=True),
+        RedirectView.as_view(url='/ar/terms-and-conditions', permanent=True),
     ),
     url(
         r'^int/ar/privacy-policy/($|index\.html$)',
-        RedirectView.as_view(url='/ar/privacy-policy/', permanent=True),
+        RedirectView.as_view(url='/ar/privacy-policy', permanent=True),
     ),
     url(
         r'^int/ar/feedback/($|index\.html$)',
-        RedirectView.as_view(url='/ar/feedback/', permanent=True),
+        RedirectView.as_view(url='/ar/feedback', permanent=True),
     ),
     url(
         r'^int/ar/enquiries/confirmation/($|index\.html$)',
-        RedirectView.as_view(url='/ar/enquiries/confirmation/',
+        RedirectView.as_view(url='/ar/enquiries/confirmation',
                              permanent=True),
     ),
     url(
         r'^int/ar/enquiries/error/($|index\.html$)',
-        RedirectView.as_view(url='/ar/enquiries/error/', permanent=True),
+        RedirectView.as_view(url='/ar/enquiries/error', permanent=True),
     ),
     url(
         r'^int/ar/contact/($|index\.html$)',
-        RedirectView.as_view(url='/ar/contact/', permanent=True),
+        RedirectView.as_view(url='/ar/contact', permanent=True),
     ),
     url(
         r'^int/ar/location-guide/($|index\.html$)',
-        RedirectView.as_view(url='/ar/location-guide/', permanent=True),
+        RedirectView.as_view(url='/ar/location-guide', permanent=True),
     ),
     url(
         r'^int/ar/location-guide/confirmation/($|index\.html$)',
-        RedirectView.as_view(url='/ar/location-guide/confirmation/',
+        RedirectView.as_view(url='/ar/location-guide/confirmation',
                              permanent=True),
     ),
 
@@ -1349,7 +1349,7 @@ urlpatterns = [
     # int/zh
     url(
         r'^int/zh/($|index\.html$)',
-        RedirectView.as_view(url='/zh', permanent=True),
+        RedirectView.as_view(url='/zh-cn', permanent=True),
     ),
     url(
         r'^int/zh/404.html$',
@@ -1361,209 +1361,209 @@ urlpatterns = [
     ),
     url(
         r'^int/zh/setup-guide/($|index\.html$)',
-        RedirectView.as_view(url='/zh/setup-guide', permanent=True),
+        RedirectView.as_view(url='/zh-cn/setup-guide', permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/establish-address/($|index\.html$)',
-        RedirectView.as_view(url='/zh/setup-guide/establish-address',
+        RedirectView.as_view(url='/zh-cn/setup-guide/establish-address',
                              permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/apply-for-visa/($|index\.html$)',
-        RedirectView.as_view(url='/zh/setup-guide/apply-for-visa',
+        RedirectView.as_view(url='/zh-cn/setup-guide/apply-for-visa',
                              permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/open-a-business-account/($|index\.html$)',
-        RedirectView.as_view(url='/zh/setup-guide/open-a-business-account',
+        RedirectView.as_view(url='/zh-cn/setup-guide/open-a-business-account',
                              permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/how-to-setup/($|index\.html$)',
-        RedirectView.as_view(url='/zh/setup-guide/how-to-setup',
+        RedirectView.as_view(url='/zh-cn/setup-guide/how-to-setup',
                              permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/understand-tax/($|index\.html$)',
-        RedirectView.as_view(url='/zh/setup-guide/understand-tax',
+        RedirectView.as_view(url='/zh-cn/setup-guide/understand-tax',
                              permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/access-talent/($|index\.html$)',
-        RedirectView.as_view(url='/zh/setup-guide/access-talent',
+        RedirectView.as_view(url='/zh-cn/setup-guide/access-talent',
                              permanent=True),
     ),
     url(
         r'^int/zh/setup-guide/understand-legal/($|index\.html$)',
-        RedirectView.as_view(url='/zh/setup-guide/understand-legal',
+        RedirectView.as_view(url='/zh-cn/setup-guide/understand-legal',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries', permanent=True),
+        RedirectView.as_view(url='/zh-cn/industries', permanent=True),
     ),
     url(
         r'^int/zh/industries/aerospace/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/aerospace', permanent=True),
+        RedirectView.as_view(url='/zh-cn/industries/aerospace', permanent=True),  # noqa
     ),
     url(
         r'^int/zh/industries/advanced-manufacturing/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/advanced-manufacturing',
+        RedirectView.as_view(url='/zh-cn/industries/advanced-manufacturing',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/food-and-drink-manufacturing/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/food-and-drink-manufacturing',
+        RedirectView.as_view(url='/zh-cn/industries/food-and-drink-manufacturing',  # noqa
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/food-and-drink-manufacturing/freefrom/($|index\.html$)',
         RedirectView.as_view(
-            url='/zh/industries/food-and-drink-manufacturing/freefrom',
+            url='/zh-cn/industries/food-and-drink-manufacturing/freefrom',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/retail/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/retail', permanent=True),
+        RedirectView.as_view(url='/zh-cn/industries/retail', permanent=True),
     ),
     url(
         r'^int/zh/industries/automotive/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/automotive', permanent=True),
+        RedirectView.as_view(url='/zh-cn/industries/automotive', permanent=True),  # noqa
     ),
     url(
         r'^int/zh/industries/automotive/motorsport/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/automotive/motorsport',
+        RedirectView.as_view(url='/zh-cn/industries/automotive/motorsport',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/automotive/research-and-development/($|index\.html$)',  # noqa
         RedirectView.as_view(
-            url='/zh/industries/automotive/research-and-development',
+            url='/zh-cn/industries/automotive/research-and-development',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/automotive/supply-chain/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/automotive/supply-chain',
+        RedirectView.as_view(url='/zh-cn/industries/automotive/supply-chain',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/energy/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/energy', permanent=True),
+        RedirectView.as_view(url='/zh-cn/industries/energy', permanent=True),
     ),
     url(
         r'^int/zh/industries/energy/offshore-wind/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/energy/offshore-wind',
+        RedirectView.as_view(url='/zh-cn/industries/energy/offshore-wind',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/energy/energy-from-waste/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/energy/energy-from-waste',
+        RedirectView.as_view(url='/zh-cn/industries/energy/energy-from-waste',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/energy/nuclear/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/energy/nuclear',
+        RedirectView.as_view(url='/zh-cn/industries/energy/nuclear',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/energy/oil-and-gas/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/energy/oil-and-gas',
+        RedirectView.as_view(url='/zh-cn/industries/energy/oil-and-gas',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/energy/electrical-networks/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/energy/electrical-networks',
+        RedirectView.as_view(url='/zh-cn/industries/energy/electrical-networks',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/health-and-life/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/health-and-life',
+        RedirectView.as_view(url='/zh-cn/industries/health-and-life',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/health-and-life/medical-technology/($|index\.html$)',  # noqa
         RedirectView.as_view(
-            url='/zh/industries/health-and-life/medical-technology',
+            url='/zh-cn/industries/health-and-life/medical-technology',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/health-and-life/pharmaceutical-manufacturing/($|index\.html$)',  # noqa
         RedirectView.as_view(
-            url='/zh/industries/health-and-life/pharmaceutical-manufacturing',
+            url='/zh-cn/industries/health-and-life/pharmaceutical-manufacturing',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/creative/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/creative', permanent=True),
+        RedirectView.as_view(url='/zh-cn/industries/creative', permanent=True),
     ),
     url(
         r'^int/zh/industries/creative/content-and-production/($|index\.html$)',
         RedirectView.as_view(
-            url='/zh/industries/creative/content-and-production',
+            url='/zh-cn/industries/creative/content-and-production',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/creative/digital-media/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/creative/digital-media',
+        RedirectView.as_view(url='/zh-cn/industries/creative/digital-media',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/financial-services/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/financial-services',
+        RedirectView.as_view(url='/zh-cn/industries/financial-services',
                              permanent=True),
     ),
     url(
         r'^int/zh/industries/financial-services/asset-management/($|index\.html$)',  # noqa
         RedirectView.as_view(
-            url='/zh/industries/financial-services/asset-management',
+            url='/zh-cn/industries/financial-services/asset-management',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/financial-services/financial-technology/($|index\.html$)',  # noqa
         RedirectView.as_view(
-            url='/zh/industries/financial-services/financial-technology',
+            url='/zh-cn/industries/financial-services/financial-technology',
             permanent=True),
     ),
     url(
         r'^int/zh/industries/technology/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/technology', permanent=True),
+        RedirectView.as_view(url='/zh-cn/industries/technology', permanent=True),  # noqa
     ),
     url(
         r'^int/zh/industries/technology/data-analytics/($|index\.html$)',
-        RedirectView.as_view(url='/zh/industries/technology/data-analytics',
+        RedirectView.as_view(url='/zh-cn/industries/technology/data-analytics',
                              permanent=True),
     ),
     url(
         r'^int/zh/terms-and-conditions/($|index\.html$)',
-        RedirectView.as_view(url='/zh/terms-and-conditions', permanent=True),
+        RedirectView.as_view(url='/zh-cn/terms-and-conditions', permanent=True),  # noqa
     ),
     url(
         r'^int/zh/privacy-policy/($|index\.html$)',
-        RedirectView.as_view(url='/zh/privacy-policy', permanent=True),
+        RedirectView.as_view(url='/zh-cn/privacy-policy', permanent=True),
     ),
     url(
         r'^int/zh/feedback/($|index\.html$)',
-        RedirectView.as_view(url='/zh/feedback', permanent=True),
+        RedirectView.as_view(url='/zh-cn/feedback', permanent=True),
     ),
     url(
         r'^int/zh/enquiries/confirmation/($|index\.html$)',
-        RedirectView.as_view(url='/zh/enquiries/confirmation', permanent=True),
+        RedirectView.as_view(url='/zh-cn/enquiries/confirmation', permanent=True),  # noqa
     ),
     url(
         r'^int/zh/enquiries/error/($|index\.html$)',
-        RedirectView.as_view(url='/zh/enquiries/error', permanent=True),
+        RedirectView.as_view(url='/zh-cn/enquiries/error', permanent=True),
     ),
     url(
         r'^int/zh/contact/($|index\.html$)',
-        RedirectView.as_view(url='/zh/contact', permanent=True),
+        RedirectView.as_view(url='/zh-cn/contact', permanent=True),
     ),
     url(
         r'^int/zh/location-guide/($|index\.html$)',
-        RedirectView.as_view(url='/zh/location-guide', permanent=True),
+        RedirectView.as_view(url='/zh-cn/location-guide', permanent=True),
     ),
     url(
         r'^int/zh/location-guide/confirmation/($|index\.html$)',
-        RedirectView.as_view(url='/zh/location-guide/confirmation',
+        RedirectView.as_view(url='/zh-cn/location-guide/confirmation',
                              permanent=True),
     ),
 
@@ -1796,7 +1796,7 @@ urlpatterns = [
     # br/
     url(
         r'^br/($|index\.html$)',
-        RedirectView.as_view(url='/pt/', permanent=True),
+        RedirectView.as_view(url='/pt', permanent=True),
     ),
     url(
         r'^br/404.html$',
@@ -2018,7 +2018,7 @@ urlpatterns = [
     # jp/ -> ja/
     url(
         r'^jp/($|index\.html$)',
-        RedirectView.as_view(url='/ja/', permanent=True),
+        RedirectView.as_view(url='/ja', permanent=True),
     ),
     url(
         r'^jp/404.html$',
