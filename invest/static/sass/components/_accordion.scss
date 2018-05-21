@@ -1,7 +1,23 @@
 
+@import '../partials/colours';
+
 /* accordion component */
 #accordion {
   background-color: white;
+
+  .card {
+    display: block;
+    z-index: 1;
+  }
+
+  a {
+    max-width: 100%;
+    display: inline-block;
+  }
+
+  a:focus .card-header {
+    outline: 3px $focus-yellow;
+  }
 }
 
 #accordion .card-header {
