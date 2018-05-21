@@ -1,48 +1,52 @@
 
 /** hero component */
 /* #heading_hero used on sector and invest content pages */
-#heading_hero .jumbotron {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: rgba(0, 84, 159, 0.8);
-  padding: 0;
-  min-height: 295px;
-  margin-bottom: 0;
-  display: flex;
-}
+#heading_hero {
+  .jumbotron {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 84, 159, 0.8);
+    padding: 0;
+    min-height: 295px;
+    margin-bottom: 0;
+    display: flex;
+  }
 
-#heading_hero .jumbotron .container {
-  height: inherit;
-  position: relative;
+  .jumbotron .container {
+    height: inherit;
+    position: relative;
 
-  .heading-container {
-    display: table;
-    height: 100%;
+    .heading-container {
+      display: table;
+      height: 100%;
 
-    .heading {
-      display: table-cell;
-      vertical-align: bottom;
+      .heading {
+        display: table-cell;
+        vertical-align: bottom;
 
-      h1 {
-        background-color: rgba(0, 84, 159, 0.8);
-        border-bottom: 4px solid #e41f13;
+        h1 {
+          background-color: rgba(0, 84, 159, 0.8);
+          border-bottom: 4px solid #e41f13;
+        }
       }
     }
   }
 }
 
-#heading_hero .heading-container {
-  min-width: 200px;
-  min-height: 100px;
-  max-width: 50%;
-  color: white;
-}
+#heading_hero {
+  .heading-container {
+    min-width: 200px;
+    min-height: 100px;
+    max-width: 50%;
+    color: white;
+  }
 
-#heading_hero .heading h1 {
-  padding: 20px;
-  margin-bottom: 0;
-  line-height: 1.3em;
-  text-transform: uppercase;
+  .heading h1 {
+    padding: 20px;
+    margin-bottom: 0;
+    line-height: 1.3em;
+    text-transform: uppercase;
+  }
 }
 
 /* #heading_hero_tall used on homepage */
@@ -141,7 +145,6 @@
 
 #heading_plain .row {
   position: relative;
-  min-height: 295px;
   margin-right: 50px;
 }
 
@@ -167,6 +170,7 @@
 }
 
 .heading h1 {
+  font-family: 'Overpass', 'verdana', 'helvetica', 'arial', sans-serif;
   font-size: 2.25rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -178,7 +182,6 @@
 }
 
 .home_page .heading h1 {
-  font-family: 'Overpass', 'verdana', 'helvetica', 'arial', sans-serif;
   font-size: 3.25rem;
   font-weight: bold;
 }
@@ -189,17 +192,48 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   #heading_hero_tall .heading,
   #heading_hero .heading {
-    max-width: 100%;
-
     h1 {
       font-size: 2rem;
     }
 
     h2 {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #heading_hero_tall .jumbotron,
+  #heading_hero .jumbotron {
+    min-height: 230px;
+    padding-top: 15px;
+
+    .heading {
+      max-width: 100%;
+
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  #heading_hero_tall,
+  #heading_hero {
+    .jumbotron {
+      min-height: 170px;
+    }
+
+    .heading-container {
+      min-width: 100%;
     }
   }
 }

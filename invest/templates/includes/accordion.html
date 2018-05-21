@@ -5,7 +5,7 @@
     <div class="row">
       <div id="accordion" class="col-12">
         {% for subsection in subsections %}
-          {% include_block subsection with position=forloop.counter %}
+          {% include_block subsection with guide_page=guide_page position=forloop.counter %}
         {% endfor %}
       </div>
     </div>

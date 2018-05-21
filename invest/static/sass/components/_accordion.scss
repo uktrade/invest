@@ -27,7 +27,7 @@
   font-weight: bold;
   font-size: 1.5rem;
   min-height: 3rem;
-  padding: 15px;
+  padding: 15px 40px 15px 15px;
 }
 
 #accordion a.card-link:active .card-header,
@@ -54,6 +54,7 @@
   font-size: 1.5rem;
   position: absolute;
   right: 1.1rem;
+  top: 1rem;
 }
 
 #accordion .card-link.collapsed .card-header:after {
@@ -100,22 +101,21 @@
   padding-bottom: 30px;
 }
 
-#accordion .show .card-footer {
-  max-height: 0;
-}
-
-#accordion .card-footer {
-  max-height: 1px;
-  border-top: none;
-  border-bottom: 1px #d8d8d8 solid;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
 #accordion .card p {
   font-size: 1.2rem;
   text-align: justify;
   text-justify: auto;
+}
+
+@media (max-width: 576px) {
+  #accordion {
+    .card-header {
+      font-size: 1.25rem;
+    }
+
+    .card-block {
+      font-size: 1rem;
+      padding-bottom: 30px;
+    }
+  }
 }
