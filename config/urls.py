@@ -10,6 +10,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 from config.settings import PREFIX_DEFAULT_LANGUAGE
 from . import urls_redirect
 
+
 urlpatterns = i18n_patterns(
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),

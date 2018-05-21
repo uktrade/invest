@@ -108,6 +108,9 @@ DEBUG_SET_ENV_VARS := \
 	export ENABLE_DEBUG_TOOLBAR=false; \
 	export DATABASE_URL=postgres://postgres@localhost:5432/invest; \
 	export EMAIL_BACKEND_CLASS_NAME=console
+	export DATABASE_URL=postgres://postgres@localhost:5432/invest; \
+	export ENABLE_DEBUG_TOOLBAR=true; \
+	export IPSTACK_API_KEY=fc053f6e4a721ca05a5df53f590ce476
 
 debug_webserver:
 	$(DEBUG_SET_ENV_VARS) && $(DJANGO_WEBSERVER)

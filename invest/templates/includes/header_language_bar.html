@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load wagtail_modeltranslation %}
+{% load language_tags %}
 {% get_available_languages_wmt as languages %}
 
 <section role="dialog" data-component="language-selector-dialog" data-lang="en" data-label="UK" data-name="English" class="language-selector-dialog js-disabled-only">
@@ -7,7 +8,7 @@
   <div data-node="languages" class="languages">
     <ul aria-labelledby="languages-selector" class="navigation">
       {% for language in languages %}
-        <li><a class="link" href="{% change_lang language %}">{{ language|language_name_local|capfirst }}</a></li>
+        <li><a class="link" href="{% change_lang_with_querystring language %}">{{ language|language_name_local|capfirst }}</a></li>
       {% endfor %}
     </ul>
   </div>
