@@ -1,4 +1,6 @@
 
+@import '../partials/colours';
+
 /* sector cards */
 #sector {
   .container:last-child:after {
@@ -20,12 +22,14 @@
     a:focus {
       .card-block {
         border-color: white;
+        outline: 3px solid $focus-yellow;
       }
     }
 
     a:focus:active {
       .card-block {
-        border-color: #ffbf47;
+        border-color: $focus-yellow;
+        background-color: $focus-yellow;
       }
     }
 
@@ -62,6 +66,15 @@
     .card-img-top {
       max-height: 150px;
       object-fit: cover;
+    }
+
+    .labelled-card-link:focus {
+      outline: 0;
+      background: none;
+
+      .card-header, .card-img-top {
+        outline: 3px solid $focus-yellow;
+      }
     }
   }
 }

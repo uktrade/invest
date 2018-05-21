@@ -13,20 +13,29 @@
 
 #heading_hero .jumbotron .container {
   height: inherit;
-  flex-grow: 1;
   position: relative;
+
+  .heading-container {
+    display: table;
+    height: 100%;
+
+    .heading {
+      display: table-cell;
+      vertical-align: bottom;
+
+      h1 {
+        background-color: rgba(0, 84, 159, 0.8);
+        border-bottom: 4px solid #e41f13;
+      }
+    }
+  }
 }
 
-#heading_hero .heading {
+#heading_hero .heading-container {
   min-width: 200px;
   min-height: 100px;
   max-width: 50%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   color: white;
-  background-color: rgba(0, 84, 159, 0.8);
-  border-bottom: 4px solid #e41f13;
 }
 
 #heading_hero .heading h1 {

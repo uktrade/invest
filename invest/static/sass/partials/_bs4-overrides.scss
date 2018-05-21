@@ -72,6 +72,7 @@ nav.mb-4, nav.my-4 {
 nav .container {
   background: inherit;
   padding-top: 0;
+  display: block;
 }
 
 #skip-link {
@@ -102,6 +103,7 @@ nav .container {
 
   .container {
     position: relative;
+    display: block;
   }
 }
 
