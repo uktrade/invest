@@ -42,9 +42,10 @@ class GeoIPLanguageMiddleware(SetLanguageAndRedirectMixin):
         return settings.LANGUAGE_SESSION_COOKIE_KEY in request.session
 
     def __call__(self, request):
-        language_code = self.get_language_code(request)
-        if language_code and not self.is_language_cookie_set(request):
-            self.set_language_and_redirect(request, language_code)
+        if not self.is_language_cookie_set(request):
+            language_code = self.get_language_code(request)
+            if language_code:
+                self.set_language_and_redirect(request, language_code)
 
         response = self.get_response(request)
         return response

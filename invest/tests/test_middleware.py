@@ -1,9 +1,11 @@
 import pytest
-from unittest.mock import patch, PropertyMock
+from unittest.mock import patch, PropertyMock, call
 
-from invest.helpers import IPStackAPIClient
+from django.conf import settings
+
 from invest.middleware import GeoIPLanguageMiddleware, \
-    LanguageAwareRedirectMiddleware, delocalise_path
+    LanguageAwareRedirectMiddleware, LocaleQuerystringMiddleware, \
+    delocalise_path
 from setup_guide.tests.factories import SetupGuidePageFactory
 
 from . import factories
@@ -12,6 +14,7 @@ from . import factories
 class DummyRequest:
     site = 1
     session = {}
+    GET = {}
 
     def __init__(self, path=None, language_code='en'):
         self.path = path
@@ -37,21 +40,38 @@ class DummyGoodResponse:
     status_code = 200
 
 
-@pytest.mark.parametrize(
-    'language, expected_language',
-    [
-        ('en', 'en'),
-        ('de', 'de'),
-        ('foo', 'en')
+def test_locale_querystring_middleware_no_querystring():
+    request = DummyRequest()
+    LocaleQuerystringMiddleware(lambda x: DummyGoodResponse())(request=request)
+    assert request.LANGUAGE_CODE == 'en'
+    assert settings.LANGUAGE_SESSION_COOKIE_KEY not in request.session
 
-    ])
-def test_geoip_middleware(language, expected_language):
-    with patch.object(IPStackAPIClient, 'get_country_code') as mock_get_language, \
-         patch('invest.helpers.get_real_ip'):
-        request = DummyRequest(language_code='en')
-        mock_get_language.return_value = language
-        response = GeoIPLanguageMiddleware(lambda x: x)(request=request)
-        assert response.LANGUAGE_CODE == expected_language
+
+def test_locale_querystring_middleware_sets_cookie():
+    request = DummyRequest()
+    request.GET['lang'] = 'es'
+    LocaleQuerystringMiddleware(lambda x: DummyGoodResponse())(request=request)
+    assert request.LANGUAGE_CODE == 'es'
+    assert settings.LANGUAGE_SESSION_COOKIE_KEY in request.session
+    assert request.session[settings.LANGUAGE_SESSION_COOKIE_KEY] == 'es'
+
+
+@patch('invest.middleware.helpers.get_language_from_ip_address')
+def test_geoip_language_cookie_not_set(mock_get_lang_from_ip):
+    mock_get_lang_from_ip.return_value = 'es'
+    request = DummyRequest()
+    request.session = {}
+    GeoIPLanguageMiddleware(lambda x: DummyGoodResponse())(request=request)
+    assert request.LANGUAGE_CODE == 'es'
+    assert mock_get_lang_from_ip.call_args == call(request)
+
+
+@patch('invest.middleware.helpers.get_language_from_ip_address')
+def test_geoip_language_cookie_set(mock_get_lang_from_ip):
+    request = DummyRequest()
+    request.session[settings.LANGUAGE_SESSION_COOKIE_KEY] = 'es'
+    GeoIPLanguageMiddleware(lambda x: DummyGoodResponse())(request=request)
+    assert mock_get_lang_from_ip.called is False
 
 
 @pytest.mark.django_db
