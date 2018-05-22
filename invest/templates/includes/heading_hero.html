@@ -6,8 +6,10 @@
 <section id="heading_hero">
   <div class="jumbotron" style="background-image: url({{ hero.url }});">
     <div class="container">
-        <div class="heading">
-          <h1>{% if page.heading != None %}{{ page.heading }}{% else %}{{ page_heading }}{% endif %}</h1>
+        <div class="heading-container">
+          <div class="heading">
+            <h1>{% if page.heading != None %}{{ page.heading }}{% else %}{{ page_heading }}{% endif %}</h1>
+          </div>
         </div>
     </div>
   </div>
