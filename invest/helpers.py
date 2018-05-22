@@ -10,7 +10,7 @@ COUNTRY_TO_LANGUAGE.update(
     dict(
         CN='zh',  # China
         DE='de',  # Germany
-        JP='jp',  # Japan
+        JP='ja',  # Japan
         FR='fr',  # France
 
         # Arabic speaking
