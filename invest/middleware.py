@@ -21,6 +21,8 @@ class SetLanguageAndRedirectMixin:
     def set_language_and_redirect(request, language_code):
         translation.activate(language_code)
         request.LANGUAGE_CODE = translation.get_language()
+        if language_code == settings.LANGUAGE_CODE:
+            language_code = ''
         link = '/{lang}{path}'.format(
             lang=language_code,
             path=request.path
@@ -42,6 +44,10 @@ class GeoIPLanguageMiddleware(SetLanguageAndRedirectMixin):
         return settings.LANGUAGE_SESSION_COOKIE_KEY in request.session
 
     def __call__(self, request):
+        response = self.get_response(request)
+        if response.status_code != 200:
+            return response
+
         if not self.is_language_cookie_set(request):
             language_code = self.get_language_code(request)
             if language_code:

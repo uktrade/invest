@@ -15,6 +15,7 @@ class DummyRequest:
     site = 1
     session = {}
     GET = {}
+    status_code = 200
 
     def __init__(self, path=None, language_code='en'):
         self.path = path
@@ -71,6 +72,13 @@ def test_geoip_language_cookie_set(mock_get_lang_from_ip):
     request = DummyRequest()
     request.session[settings.LANGUAGE_SESSION_COOKIE_KEY] = 'es'
     GeoIPLanguageMiddleware(lambda x: DummyGoodResponse())(request=request)
+    assert mock_get_lang_from_ip.called is False
+
+
+@patch('invest.middleware.helpers.get_language_from_ip_address')
+def test_geoip_language_not_200_request(mock_get_lang_from_ip):
+    request = DummyRequest()
+    GeoIPLanguageMiddleware(lambda x: DummyNotFoundResponse())(request=request)
     assert mock_get_lang_from_ip.called is False
 
 
