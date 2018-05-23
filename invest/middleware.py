@@ -41,7 +41,7 @@ class GeoIPLanguageMiddleware(SetLanguageAndRedirectMixin):
 
     @staticmethod
     def is_language_cookie_set(request):
-        return settings.LANGUAGE_SESSION_COOKIE_KEY in request.session
+        return settings.LANGUAGE_COOKIE_NAME in request.session
 
     def __call__(self, request):
         response = self.get_response(request)
@@ -68,7 +68,7 @@ class LocaleQuerystringMiddleware(SetLanguageAndRedirectMixin):
 
     @staticmethod
     def set_language_cookie(request, language_code):
-        request.session[settings.LANGUAGE_SESSION_COOKIE_KEY] = language_code
+        request.session[settings.LANGUAGE_COOKIE_NAME] = language_code
 
     def __call__(self, request):
         language_code = helpers.get_language_from_querystring(request)

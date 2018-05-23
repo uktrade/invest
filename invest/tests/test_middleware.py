@@ -45,7 +45,7 @@ def test_locale_querystring_middleware_no_querystring():
     request = DummyRequest()
     LocaleQuerystringMiddleware(lambda x: DummyGoodResponse())(request=request)
     assert request.LANGUAGE_CODE == 'en'
-    assert settings.LANGUAGE_SESSION_COOKIE_KEY not in request.session
+    assert settings.LANGUAGE_COOKIE_NAME not in request.session
 
 
 def test_locale_querystring_middleware_sets_cookie():
@@ -53,8 +53,8 @@ def test_locale_querystring_middleware_sets_cookie():
     request.GET['lang'] = 'es'
     LocaleQuerystringMiddleware(lambda x: DummyGoodResponse())(request=request)
     assert request.LANGUAGE_CODE == 'es'
-    assert settings.LANGUAGE_SESSION_COOKIE_KEY in request.session
-    assert request.session[settings.LANGUAGE_SESSION_COOKIE_KEY] == 'es'
+    assert settings.LANGUAGE_COOKIE_NAME in request.session
+    assert request.session[settings.LANGUAGE_COOKIE_NAME] == 'es'
 
 
 @patch('invest.middleware.helpers.get_language_from_ip_address')
@@ -70,7 +70,7 @@ def test_geoip_language_cookie_not_set(mock_get_lang_from_ip):
 @patch('invest.middleware.helpers.get_language_from_ip_address')
 def test_geoip_language_cookie_set(mock_get_lang_from_ip):
     request = DummyRequest()
-    request.session[settings.LANGUAGE_SESSION_COOKIE_KEY] = 'es'
+    request.session[settings.LANGUAGE_COOKIE_NAME] = 'es'
     GeoIPLanguageMiddleware(lambda x: DummyGoodResponse())(request=request)
     assert mock_get_lang_from_ip.called is False
 
