@@ -112,7 +112,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',   # position - after: SessionMiddleWare, before: CommonMiddleWare  # noqa
-    # 'invest.middleware.GeoIPLanguageMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -122,7 +121,9 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'wagtail.core.middleware.SiteMiddleware',
     'invest.middleware.LanguageAwareRedirectMiddleware',
-    'contact.middleware.GoogleCampaignMiddleware'
+    'contact.middleware.GoogleCampaignMiddleware',
+    'invest.middleware.LocaleQuerystringMiddleware',
+    'invest.middleware.GeoIPLanguageMiddleware'
 ]
 
 if ENABLE_DEBUG_TOOLBAR:
@@ -359,3 +360,5 @@ EMAIL_USE_TLS = True
 
 PREFIX_DEFAULT_LANGUAGE = False
 IPSTACK_API_KEY = os.getenv('IPSTACK_API_KEY', '')
+
+LANGUAGE_COOKIE_NAME = 'django-language'
