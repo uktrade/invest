@@ -106,8 +106,9 @@ DEBUG_SET_ENV_VARS := \
 	export RECAPTCHA_PRIVATE_KEY=debug; \
 	export NOCAPTCHA=false; \
 	export ENABLE_DEBUG_TOOLBAR=false; \
+	export EMAIL_BACKEND_CLASS_NAME=console; \
 	export DATABASE_URL=postgres://postgres@localhost:5432/invest; \
-	export EMAIL_BACKEND_CLASS_NAME=console
+	export IPSTACK_API_KEY=debug
 
 debug_webserver:
 	$(DEBUG_SET_ENV_VARS) && $(DJANGO_WEBSERVER)
