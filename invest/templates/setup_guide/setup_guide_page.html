@@ -8,6 +8,7 @@
 {% block content %}
   {% include "includes/heading_hero.html" %}
   <a name="content"></a>
+  {% include "includes/sub_heading.html" %}
   {% if page.subsections %}
     {% include "includes/accordion.html" with guide_page=True subsections=page.subsections %}
   {% endif %}
