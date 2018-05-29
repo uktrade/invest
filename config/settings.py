@@ -95,6 +95,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+
+    'directory_components',
 ]
 
 try:
@@ -146,6 +148,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'directory_components.context_processors.analytics',
             ],
         },
     },
@@ -362,3 +365,8 @@ PREFIX_DEFAULT_LANGUAGE = False
 IPSTACK_API_KEY = os.getenv('IPSTACK_API_KEY', '')
 
 LANGUAGE_COOKIE_NAME = 'django-language'
+
+# Google tag manager
+GOOGLE_TAG_MANAGER_ID = os.environ['GOOGLE_TAG_MANAGER_ID']
+GOOGLE_TAG_MANAGER_ENV = os.getenv('GOOGLE_TAG_MANAGER_ENV', '')
+UTM_COOKIE_DOMAIN = os.environ['UTM_COOKIE_DOMAIN']
