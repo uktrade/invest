@@ -14,6 +14,7 @@ botocore==1.10.10
 cachetools==2.0.1         # via zenpy
 certifi==2018.4.16        # via requests
 chardet==3.0.4            # via requests
+directory-components==1.8.2
 directory-validators==4.5.1
 dj-database-url==0.4.2
 django-clear-cache==0.3
@@ -30,6 +31,7 @@ django_recaptcha==1.2.0
 djangorestframework==3.8.2  # via wagtail
 docutils==0.14            # via botocore
 draftjs-exporter==2.0.0   # via wagtail
+export-elements==0.11.0   # via directory-components
 gunicorn==19.7.1
 html5lib==0.999999999     # via bleach, wagtail
 idna==2.6                 # via requests
