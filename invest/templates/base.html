@@ -5,6 +5,10 @@
 {% endblock %}
 
 <body class="{% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}">
+{% block body_google_tag_manager %}
+    {% include 'directory_components/google_tag_manager_body.html' %}
+{% endblock %}
+
 {% wagtailuserbar %}
 
 {% block header %}

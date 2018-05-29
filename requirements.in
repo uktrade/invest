@@ -2,6 +2,7 @@ ansicolor==0.2.6
 boto3==1.7.10
 botocore==1.10.10
 directory-validators==4.5.1
+directory-components==1.8.2
 dj-database-url==0.4.2
 django==1.11.11
 django-clear-cache==0.3
