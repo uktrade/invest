@@ -56,7 +56,9 @@ DOCKER_SET_DEBUG_ENV_VARS := \
 	export INVEST_RECAPTCHA_PRIVATE_KEY=debug; \
 	export INVEST_NOCAPTCHA=false; \
 	export INVEST_IPSTACK_API_KEY=debug; \
-	export INVEST_EMAIL_BACKEND_CLASS_NAME=console
+	export INVEST_EMAIL_BACKEND_CLASS_NAME=console; \
+	export INVEST_GOOGLE_TAG_MANAGER_ID=GTM-N6G2BT; \
+	export INVEST_UTM_COOKIE_DOMAIN=.great
 
 docker_test_env_files:
 	$(DOCKER_SET_DEBUG_ENV_VARS) && \
@@ -108,7 +110,9 @@ DEBUG_SET_ENV_VARS := \
 	export ENABLE_DEBUG_TOOLBAR=false; \
 	export EMAIL_BACKEND_CLASS_NAME=console; \
 	export DATABASE_URL=postgres://postgres@localhost:5432/invest; \
-	export IPSTACK_API_KEY=debug
+	export IPSTACK_API_KEY=debug; \
+	export GOOGLE_TAG_MANAGER_ID=GTM-N6G2BT; \
+	export UTM_COOKIE_DOMAIN=.great
 
 debug_webserver:
 	$(DEBUG_SET_ENV_VARS) && $(DJANGO_WEBSERVER)

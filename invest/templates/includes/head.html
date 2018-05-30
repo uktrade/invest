@@ -11,6 +11,12 @@
 <!DOCTYPE html>
 <html dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr' }}" lang="{{ LANGUAGE }}">
 <head>
+    {% block head_google_tag_manager %}
+      {% if directory_components_analytics %}
+          <meta id="utmCookieDomain" value="{{ directory_components_analytics.UTM_COOKIE_DOMAIN }}" />
+      {% endif %}
+        {% include 'directory_components/google_tag_manager_head.html' %}
+    {% endblock %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>
@@ -45,20 +51,6 @@
     {% if LANGUAGE_BIDI %}
       <link rel="stylesheet" type="text/css" href="{% static 'css/rtl.css' %}">
     {% endif %}
-
-    <!-- Google tag manager -->
-    <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(), event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-N6G2BT');</script>
 
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/dit.js' %}"></script>
