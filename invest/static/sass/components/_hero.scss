@@ -18,7 +18,7 @@
 
     .heading-container {
       display: table;
-      height: 100%;
+      min-height: inherit;
 
       .heading {
         display: table-cell;
