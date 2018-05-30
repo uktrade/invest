@@ -4,12 +4,14 @@
 <section id="{{ id }}">
   {% if title != None %}
   <div class="container content content-invest content-underlined{% if classes %} {{ classes }}{% endif %}">
-    <div class="row content-header">
-      <div class="col-12">
-        <h2>{{ title }}</h2>
+    {% if title %}
+      <div class="row content-header">
+        <div class="col-12">
+          <h2>{{ title }}</h2>
+        </div>
       </div>
-    </div>
     {% endif %}
+  {% endif %}
     <div class="row">
       <div class="card-deck-wrapper col-12">
         <div class="card-deck">

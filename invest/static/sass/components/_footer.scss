@@ -110,3 +110,14 @@
   height: 35px;
   padding-top: 6px;
 }
+
+@media (max-width: 767px) {
+  #footer {
+    .footer-branding {
+      img {
+        max-height: 80px;
+        width: auto;
+      }
+    }
+  }
+}

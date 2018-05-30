@@ -3,6 +3,8 @@
 {% load wagtailsettings_tags %}
 {% load i18n %}
 
+{% get_settings %}
+{% image settings.invest.Branding.favicon width-192 as favicon %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% get_current_language as LANGUAGE %}
 
@@ -31,6 +33,9 @@
     </title>
     <meta name="description" content="{% if self.search_description %}{{ self.search_description }}{% endif %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="{{ favicon.url }}" rel="shortcut icon" type="image/png">
+    <!--[if IE]> <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" /> <![endif]-->
 
     <!-- Bootstrap core CSS -->
     {% if LANGUAGE_BIDI %}

@@ -72,3 +72,9 @@
 .content-header-subheader {
   margin-bottom: 30px;
 }
+
+@media (max-width: 767px) {
+  .content {
+    padding-top: 40px;
+  }
+}
