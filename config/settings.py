@@ -124,8 +124,8 @@ MIDDLEWARE = [
     'wagtail.core.middleware.SiteMiddleware',
     'invest.middleware.LanguageAwareRedirectMiddleware',
     'contact.middleware.GoogleCampaignMiddleware',
-    'invest.middleware.LocaleQuerystringMiddleware',
-    'invest.middleware.GeoIPLanguageMiddleware'
+    # 'invest.middleware.LocaleQuerystringMiddleware',
+    # 'invest.middleware.GeoIPLanguageMiddleware'
 ]
 
 if ENABLE_DEBUG_TOOLBAR:
