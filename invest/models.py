@@ -25,6 +25,14 @@ class Branding(BaseSetting):
         related_name='+'
     )
 
+    favicon = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
     language_choice_icon = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -57,9 +65,10 @@ class Branding(BaseSetting):
 
     panels = [
         ImageChooserPanel('logo'),
+        ImageChooserPanel('favicon'),
         ImageChooserPanel('language_choice_icon'),
         ImageChooserPanel('footer_logo'),
-        StreamFieldPanel("footer_secondary_nav"),
+        StreamFieldPanel('footer_secondary_nav'),
         FieldPanel('footer_copyright'),
         FieldPanel('is_beta'),
         FieldPanel('beta_bar_text'),

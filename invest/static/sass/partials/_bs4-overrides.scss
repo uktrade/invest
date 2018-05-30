@@ -16,6 +16,12 @@ p, ul {
   margin-bottom: 2rem;
 }
 
+@media (max-width: 576px) {
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
 .btn {
   border-radius: 0;
   padding: 12px 30px;
@@ -75,7 +81,6 @@ nav.mb-4, nav.my-4 {
 
 nav .container {
   background: inherit;
-  padding-top: 0;
   display: block;
 }
 
@@ -115,8 +120,7 @@ nav .container {
   display: block;
   position: absolute;
   bottom: 0;
-  right: 0;
-  float: right;
+  right: 30px;
   flex-grow: 0;
 }
 
@@ -126,7 +130,7 @@ nav .container {
 
 .navbar-toggler {
   border: 2px white solid;
-  margin-top: 30px;
+  margin-top: 60px;
   padding: 0;
   color: white;
   background-color: #1e1348;
@@ -136,6 +140,7 @@ nav .container {
   font-size: 15px;
   font-family: 'Roboto', 'verdana', 'helvetica', 'arial', sans-serif;
   position: relative;
+  float: right;
 
   span {
     margin: 5px 15px 0 0;
@@ -188,9 +193,9 @@ nav .container {
     margin: 0 auto;
 
     ul.navbar-nav li a {
-      max-width: 540px;
       margin: 0 auto;
       height: auto;
+      padding: 15px 30px;
     }
   }
 
@@ -218,12 +223,19 @@ nav .container {
   .navbar-collapse.show ul.navbar-nav li a,
   .navbar-collapse.collapsing ul.navbar-nav li a {
     display: block;
-    padding: 15px;
   }
 
   .navbar-collapse.show ul.navbar-nav li.active,
   .navbar-collapse.collapsing ul.navbar-nav li.active {
     border-bottom: #999999 solid 1px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .navbar-collapse {
+    ul.navbar-nav li a {
+      padding: 15px;
+    }
   }
 }
 
@@ -237,8 +249,6 @@ a:focus:not(.unfocusable){
 }
 
 .navbar-nav li {
-  margin-left: 10px;
-  margin-right: 10px;
   white-space: nowrap;
 }
 
@@ -247,24 +257,27 @@ a:focus:not(.unfocusable){
 }
 
 .navbar-nav li.active a {
-  color: white !important;
+  color: white;
   font-weight: bold;
-  background: inherit !important;
+  background: inherit;
 }
 
 .navbar-nav li a:active,
 .navbar-nav li a:link,
 .navbar-nav li a:hover,
 .navbar-nav li a:visited {
-  color: white !important;
+  color: white;
   font-weight: bold;
   font-size: .938rem;
-  background: inherit !important;
+  background: inherit;
   text-decoration: none;
-  height:40px;
+  height: 40px;
   display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 15px;
+}
+
+.row {
+  margin: 0;
 }
 
 .badge {
@@ -283,7 +296,6 @@ a:focus:not(.unfocusable){
 @media (max-width: 767px) {
   .navbar .container {
     position: relative;
-    padding: 0 15px;
   }
 
   .navbar-menus {
@@ -294,8 +306,30 @@ a:focus:not(.unfocusable){
   }
 }
 
-@media (max-width: 576px) {
+.container {
+  max-width: 1200px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 576px) {
   .container {
     padding: 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-expand-md > .container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-expand-md > .container {
+    padding: 0 15px;
   }
 }
