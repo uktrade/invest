@@ -2,27 +2,77 @@ from urllib.parse import urlparse
 
 from django import http
 from django.conf import settings
+
+from django.http import HttpResponseRedirect
 from django.utils import translation
 from django.utils.encoding import uri_to_iri
-from django.utils.translation import check_for_language
-from ipware.ip import get_real_ip
 from wagtail.contrib.redirects import models
 
-from .helpers import IPStackAPIClient
+from . import helpers
 
 
-class GeoIPLanguageMiddleware:
+class SetLanguageAndRedirectMixin:
+
+    @staticmethod
+    def get_language_code(request):
+        raise NotImplemented
+
+    @staticmethod
+    def set_language_and_redirect(request, language_code):
+        translation.activate(language_code)
+        request.LANGUAGE_CODE = translation.get_language()
+        link = '/{lang}{path}'.format(
+            lang=language_code,
+            path=request.path
+        )
+        return HttpResponseRedirect(link)
+
+
+class GeoIPLanguageMiddleware(SetLanguageAndRedirectMixin):
 
     def __init__(self, get_response):
         self.get_response = get_response
 
+    @staticmethod
+    def get_language_code(request):
+        return helpers.get_language_from_ip_address(request)
+
+    @staticmethod
+    def is_language_cookie_set(request):
+        return settings.LANGUAGE_COOKIE_NAME in request.session
+
     def __call__(self, request):
-        client_ip = get_real_ip(request)
-        if client_ip:
-            language = IPStackAPIClient.get_language(client_ip)
-            if check_for_language(language):
-                request.LANGUAGE_CODE = language
-                translation.activate(language)
+        response = self.get_response(request)
+        if response.status_code != 200:
+            return response
+
+        if not self.is_language_cookie_set(request):
+            language_code = self.get_language_code(request)
+            if language_code and language_code != settings.LANGUAGE_CODE:
+                return self.set_language_and_redirect(request, language_code)
+
+        response = self.get_response(request)
+        return response
+
+
+class LocaleQuerystringMiddleware(SetLanguageAndRedirectMixin):
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    @staticmethod
+    def get_language_code(request):
+        return helpers.get_language_from_querystring(request)
+
+    @staticmethod
+    def set_language_cookie(request, language_code):
+        request.session[settings.LANGUAGE_COOKIE_NAME] = language_code
+
+    def __call__(self, request):
+        language_code = helpers.get_language_from_querystring(request)
+        if language_code and language_code != settings.LANGUAGE_CODE:
+            self.set_language_cookie(request, language_code)
+            return self.set_language_and_redirect(request, language_code)
 
         response = self.get_response(request)
         return response

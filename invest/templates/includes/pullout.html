@@ -2,10 +2,9 @@
 <section id="pullout" class="jumbotron">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-sm-8 text">{{ value.text|markdown }}</div>
-      <div class="col-12 col-sm-4 stat">
-          <h1>{{ value.stat }}</h1>
-          <p>{{ value.stat_text }}</p>
+      <div class="col-12 col-md-8 col-sm-12 text">{{ value.text|markdown }}</div>
+      <div class="col-12 col-md-4 col-sm-12 stat">
+          <p><span>{{ value.stat }}</span> {{ value.stat_text }}</p>
       </div>
     </div>
   </div>
