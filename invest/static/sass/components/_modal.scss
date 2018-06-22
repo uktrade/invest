@@ -104,6 +104,8 @@
 
 .language-selector-dialog {
   top: 0;
+  z-index: 4;
+
   a {
     font-size: 21px;
     text-decoration: underline;
@@ -315,6 +317,7 @@ nav.navbar .LanguageSelectorDialog-Tracker {
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: 3;
 }
 
 // MOBILE
