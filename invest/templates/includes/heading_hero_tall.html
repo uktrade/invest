@@ -8,11 +8,11 @@
   <div class="jumbotron">
     <div class="container">
       <div class="row">
-        <div class="col-xl-6 col-md-8 col-sm-12 heading">
+        <div class="col-md-6 col-sm-12 heading">
           <h1>{% if page.heading != None %}{{ page.heading }}{% else %}{{ page_heading }}{% endif %}</h1>
           <h2>{% if page.sub_heading != None %}{{ page.sub_heading }}{% else %}{{ page_sub_heading }}{% endif %}</h2>
         </div>
-        <div class="col-xl-6 col-md-4 hero-brand">
+        <div class="col-md-6 hero-brand">
           <img src="{{ invest_logo.url }}" width="{{ invest_logo.width }}" height="{{ invest_logo.height }}" srcset="{{ invest_logo_2x.url }} 2x" alt="{{ invest_logo.alt }}" />
         </div>
       </div>
