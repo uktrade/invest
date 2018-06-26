@@ -8,16 +8,19 @@
 {% block main_navigation %}
 {% get_settings %}
 {% get_current_language as lang_code %}
+{% load pageurl from wagtailcore_tags %}
 
 {% image settings.invest.Branding.logo width-176 as logo %}
 {% image settings.invest.Branding.logo width-352 as logo_2x %}
 {% image settings.invest.Branding.language_choice_icon width-20 as language_choice_icon %}
 {% image settings.invest.Branding.language_choice_icon width-40 as language_choice_icon_2x %}
 
+{% get_site_root as site_root %}
+
 <nav class="navbar navbar-expand-md">
   <div class="container">
     <a id="skip-link" href="#content" class="visually-hidden">Skip to main content</a>
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="{% pageurl site_root %}">
       <img tabindex="-1" src="{{ logo.url }}" width="{{ logo.width }}" height="{{ logo.height }}" srcset="{{ logo_2x.url }} 2x" alt="{{ logo.alt }}" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menubutton" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">Menu<span></span>
@@ -32,7 +35,6 @@
     <div class="collapse navbar-collapse" id="navbar_menubutton">
       <ul class="navbar-nav">
         {# main_menu is defined in base/templatetags/navigation_tags.py #}
-        {% get_site_root as site_root %}
         {% nav_menu parent=site_root calling_page=self %}
       </ul>
     </div>
