@@ -1,5 +1,16 @@
 
 /** pullout component */
+
+:lang(ja) #pullout {
+  .stat {
+    display: none;
+  }
+
+  .text {
+    padding-right: 0;
+  }
+}
+
 #pullout {
   background-color: #fcfbf9;
   padding: 0;
