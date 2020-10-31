@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "[Invest](https://invest.great.gov.uk/)",
   "scripts": {
-    "sass": "gulp sass"
+    "sass": "gulp sass",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -14,6 +16,8 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4"
-  }
+    "gulp-sourcemaps": "^2.6.4",
+    "snyk": "^1.83.0"
+  },
+  "snyk": true
 }
